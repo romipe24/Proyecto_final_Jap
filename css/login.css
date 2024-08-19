@@ -1,0 +1,148 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: white;
+}
+
+.container {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.logo {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    max-width:300px;
+}
+
+.title {
+    font-size: 2em;
+    font-weight: bold;
+    color: #000;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    color: #f28b30;
+    margin-bottom: 20px;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group a {
+    display: block;
+    margin-top: 5px;
+    text-align: right;
+    font-size: 0.9em;
+    color: #777;
+    text-decoration: none;
+}
+
+.form-group a:hover {
+    color: #f28b30;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #f28b30;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.btn-secondary {
+    background-color: #f9f3d9;
+    color: #7d6d50;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+}
+
+.divider::before {
+    margin-right: .25em;
+}
+
+.divider::after {
+    margin-left: .25em;
+}
+
+.divider span {
+    font-size: 0.9em;
+    color: #777;
+}
+
+.footer {
+    width: 100%;
+ 
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+    bottom: 0;
+    left: 0;
+}
+
+.footer div {
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #0066cc;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
