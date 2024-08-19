@@ -1,68 +1,164 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>eMercado - Todo lo que busques está aquí</title>
-
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link href="css/font-awesome.min.css" rel="stylesheet">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <link href="css/styles.css" rel="autos.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Autos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="autos.css">
 </head>
-
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <li class="nav-item">
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <main class="pb-5 container">
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
-    </div>
-  </main>
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
-    </div>
-  </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/products.js"></script>
-</body>
+  <header class="text-center py-4">
+    <div class="logo">
+        <img src="img/login.png" alt="Logo Jóvenes a Programar">
+    </div> 
+    <h1>AUTOS</h1>
+    </header>
 
+    <div class="container my-5">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- Card 1 -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="img/cars_index.jpg" class="card-img-top" alt="Lamborghini">
+                    <div class="card-body">
+                        <h5 class="card-title">Lamborghini</h5>
+                        <p class="card-text">Lamborghini con motor V12 y su velocidad supera los 300 km/h.</p>
+                        <p class="price">US$600,000</p>
+                        <p class="sales">5 vendidos</p>
+                    </div>
+                    <div class="card-footer text-end">
+                        <a href="#" class="btn btn-warning">comprar</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="img/prod50924_3.jpg" class="card-img-top" alt="Peugeot 208">
+                    <div class="card-body">
+                        <h5 class="card-title">Peugeot 208</h5>
+                        <p class="card-text">Motor 1.6 VTi (120 HP) y velocidad máxima de 190 km/h.</p>
+                        <p class="price">US$8,600</p>
+                        <p class="sales">114 vendidos</p>
+                    </div>
+                    <div class="card-footer text-end">
+                        <a href="#" class="btn btn-warning">comprar</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="img/car1.jpg" class="card-img-top" alt="Audi A3 sportback">
+                    <div class="card-body">
+                        <h5 class="card-title">Audi A3 sportback</h5>
+                        <p class="card-text">Motor de cuatro cilindros de 150 CV. La aceleración de 0 a 100 km/h se reduce a 8,4 segundos. Velocidad máxima de 224 km/h.</p>
+                        <p class="price">US$13,000</p>
+                        <p class="sales">98 vendidos</p>
+                    </div>
+                    <div class="card-footer text-end">
+                        <a href="#" class="btn btn-warning">comprar</a>
+                    </div>
+                </div>
+            </div>
+        <!-- Card 4 -->
+        <div class="col">
+            <div class="card h-100">
+                <img src="audi.png" class="card-img-top" alt="Fiat Uno Way">
+                <div class="card-body">
+                    <h5 class="card-title">Fiat Uno Way</h5>
+                    <p class="card-text">Motor 1.3 de 99 CV y velocidad máxima de 165 km/h.</p>
+                    <p class="price">US$14,000</p>
+                    <p class="sales">107 vendidos</p>
+                </div>
+                <div class="card-footer text-end">
+                    <a href="#" class="btn btn-warning">comprar</a>
+                </div>
+        </div>
+    </div>
+ <!-- Card 5 -->
+ <div class="col">
+    <div class="card h-100">
+        <img src="audi.png" class="card-img-top" alt="Chevrolet Onix">
+        <div class="card-body">
+            <h5 class="card-title">Chevrolet Onix</h5>
+            <p class="card-text">Motor 1.4 con una potencia máxima de 98 caballos de fuerza y velocidad máxima de 179 km/h.</p>
+            <p class="price">US$17,890</p>
+            <p class="sales">118 vendidos</p>
+        </div>
+        <div class="card-footer text-end">
+            <a href="#" class="btn btn-warning">comprar</a>
+        </div>
+</div>
+</div>
+ <!-- Card 6 -->
+ <div class="col">
+    <div class="card h-100">
+        <img src="img/car3.jpg" class="card-img-top" alt="Subaru">
+        <div class="card-body">
+            <h5 class="card-title">Subaru</h5>
+            <p class="card-text">Motor de cuatro cilindros y cuatro válvulas con un tamaño de 2498 cm3 y velocidad máxima de 198 km/h.</p>
+            <p class="price">US$29,000</p>
+            <p class="sales">96 vendidos</p>
+        </div>
+        <div class="card-footer text-end">
+            <a href="#" class="btn btn-warning">comprar</a>
+        </div>
+</div>
+</div>
+ <!-- Card 7 -->
+ <div class="col">
+    <div class="card h-100">
+        <img src="audi.png" class="card-img-top" alt="Voleex C30">
+        <div class="card-body">
+            <h5 class="card-title">Voleex C30</h5>
+            <p class="card-text">Motor Euro IV de 4 cilindros con tecnología VVT, 1.500 c.c. y velocidad máxima de 175 km/h.</p>
+            <p class="price">US$21,600</p>
+            <p class="sales">96 vendidos</p>
+        </div>
+        <div class="card-footer text-end">
+            <a href="#" class="btn btn-warning">comprar</a>
+        </div>
+</div>
+</div>
+ <!-- Card 8 -->
+ <div class="col">
+    <div class="card h-100">
+        <img src="audi.png" class="card-img-top" alt="Dodge Challenger">
+        <div class="card-body">
+            <h5 class="card-title">Dodge Challenger </h5>
+            <p class="card-text">Motor V8, cilindrada de 6166 cm3 y velocidad máxima de 320 km/h.</p>
+            <p class="price">US$80,000</p>
+            <p class="sales">12 vendidos</p>
+        </div>
+        <div class="card-footer text-end">
+            <a href="#" class="btn btn-warning">comprar</a>
+        </div>
+</div>
+</div>
+<!-- Card 9 -->
+<div class="col">
+    <div class="card h-100">
+        <img src="audi.png" class="card-img-top" alt="Chiron Super Sport">
+        <div class="card-body">
+            <h5 class="card-title">Chiron Super Sport </h5>
+            <p class="card-text">Bugatti con motor W16 con turbocompresor 4 de 8.0L que produce más de 1.479 caballos de fuerza.</p>
+            <p class="price">US$3,200,000</p>
+            <p class="sales">2 vendidos</p>
+        </div>
+        <div class="card-footer text-end">
+            <a href="#" class="btn btn-warning">comprar</a>
+        </div>
+</div>
+</div>
+
+
+    <footer class="text-center py-4">
+        <p>Este sitio forma parte de <a href="#">Jóvenes a Programar</a></p>
+        <a href="#">Volver arriba</a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
