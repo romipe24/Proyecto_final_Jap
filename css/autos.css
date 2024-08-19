@@ -2,10 +2,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-nav a {
-    text-decoration: none;
-  }
-  
 header {
     background-color: #F5F5F5;
 }
@@ -48,4 +44,17 @@ header h1 {
     border: none;
     color: white;
     font-weight: bold;
+footer {
+    background-color: #F5F5F5;
+    padding: 20px 0;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
