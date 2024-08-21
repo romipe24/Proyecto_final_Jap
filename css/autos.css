@@ -1,5 +1,6 @@
 body {
     font-family: Arial, sans-serif;
+    padding-bottom: 2.5rem;
 }
 
 header {
@@ -47,8 +48,8 @@ header h1 {
 }
 
 footer {
-    background-color: #F5F5F5;
-    padding: 20px 0;
+    background-color: white;
+    padding: 30px 0;
     font-size: 0.9em;
 }
 
