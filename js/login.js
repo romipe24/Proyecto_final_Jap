@@ -11,16 +11,14 @@ document.addEventListener("DOMContentLoaded", function() {
         
         if (username === "" || password === "") {
             alert("Por favor, completa todos los campos.");
-            return;
+            
+        } else { alert("Inicio de sesión exitoso");
+        window.location.href = "index.html";
         }
 
         
-        if (username === "usuario" && password === "contraseña") {
-            alert("Inicio de sesión exitoso");
-            window.location.href = "index.html"; 
-        } else {
-            alert("Usuario o contraseña incorrectos");
-        }
+       
+        
     });
 
     
