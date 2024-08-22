@@ -3,16 +3,13 @@ body {
     padding-bottom: 2.5rem;
 }
 
-header {
-    background-color: #F5F5F5;
-}
 
 header img {
     width: 350px;
     height: auto;
 }
 
-header h1 {
+.container h1 {
     margin-top: 10px;
     font-weight: bold;
 }
@@ -47,21 +44,28 @@ header h1 {
     font-weight: bold;
 }
 
+
 footer {
-    background-color: white;
-    padding: 30px 0;
-    font-size: 0.9em;
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+    bottom: 0;
+    left: 0;
 }
 
 footer a {
-    color: #007BFF;
     text-decoration: none;
+    color: #0066cc;
+   
 }
 
 footer a:hover {
     text-decoration: underline;
 }
-.logo{
-    text-align: left;
-}
+
+
     
