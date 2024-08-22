@@ -36,18 +36,18 @@ function mostrarDATA_URL (array) {
            
             array.forEach(element => {
                 
-  mostrar.innerHTML += 
+  mostrar.innerHTML +=
         ` <div class="col"
         <div class="card h-100" >
-          <img href= ${element.image} > 
+          <img href= ${element.product.image} > 
         <div class="card-body">
-         <h1 class="text-center py-4 card-tittle"> ${element.name}  </h1>
-        <p class "card-text"> ${element.name} </P>
-          <p class "card-text"> ${element.description} </P>
-          <p class "card-text"> ${element.cost} ${element.currency} </P>
+         <h1 class="text-center py-4 card-tittle"> ${element.product.name}  </h1>
+        <p class "card-text"> ${element.product.name} </P>
+          <p class "card-text"> ${element.product.description} </P>
+          <p class "card-text"> ${element.product.cost} ${element.product.currency} </P>
           </div>
           <div class="card-footer text-end">
-          <p class "card-text"> ${element.soldCount} </P>
+          <p class "card-text"> ${element.product.soldCount} </P>
           </div>
          </div> 
          </div>
