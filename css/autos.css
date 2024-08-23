@@ -9,15 +9,32 @@ header img {
     height: auto;
 }
 
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; /* Espacio entre las columnas */
+}
+
+.autosinner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; /* Espacio entre las columnas */
+    justify-content: space-between;
+}
+
+.card {
+   
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+    border: 1px solid #E0E0E0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .container h1 {
     margin-top: 10px;
     font-weight: bold;
 }
 
-.card {
-    border: 1px solid #E0E0E0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
 
 .card-title {
     font-weight: bold;
