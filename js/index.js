@@ -16,19 +16,24 @@ document.addEventListener("DOMContentLoaded", function(){
     // Verificar si el usuario está autenticado
     const user = localStorage.getItem('user');
 
-    // Verificar si ya se mostró la alerta
-    const alertShown = localStorage.getItem('alertShown');
+   // Verificar si ya se mostró la alerta
+   const confirmShown = sessionStorage.getItem('confirmShown');
 
 
-    if (!user && !alertShown) {
-        const wantsToLogin = confirm('No has iniciado sesión. ¿Deseas iniciar sesión ahora?');
+   if (!user && !confirmShown) {
+        // Muestra la alerta
+       const userConfirmed = confirm('No has iniciado sesión. ¿Deseas iniciar sesión ahora?');
+       
 
-        if (wantsToLogin) {
-            // Redirigir al login si el usuario desea iniciar sesión
-            window.location.href = 'login.html';
-        } 
+       if (userConfirmed) {
+           // Redirigir al login si el usuario desea iniciar sesión
+           window.location.href = 'login.html';
+       } 
 
-    };
+       // Marca que la alerta ya se ha mostrado en la sesión actual
+       sessionStorage.setItem('confirmShown', 'true');
+
+   };
     //esto es para cuando le pongamos boton de cerrar sesion
     // document.getElementById('logoutButton').addEventListener('click', function() {
     //     // Eliminar la sesión de LocalStorage

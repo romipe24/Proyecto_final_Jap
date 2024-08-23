@@ -40,18 +40,23 @@ function mostrarDATA_URL(array) {
           
                
           
-                <div class="col">
+            <div class="col-md-4 mb-4 ">
                 <div class="card h-100">
-                    <img src="${element.image}" class="card-img-top" >
+                    <img src="${element.image}" class="card-img-top" alt="Lamborghini">
                     <div class="card-body">
                         <h5 class="card-title">${element.name}</h5>
                         <p class="card-text">${element.description}</p>
                         <p class="price">${element.currency} ${element.cost}</p>
-                        <p class="sales">${element.soldCount}</p>
                     </div>
-                    <div class="card-footer text-end">
-                        <a href="#" class="btn btn-warning">comprar</a>
-                    </div>
+                    
+                    <div class="card-footer">
+                         <p class="sales">${element.soldCount} Vendidos</p>
+                        <div class="text-end">
+                            <a href="#" class="btn btn-warning">comprar</a>
+                        </div>
+                    </div>    
+                        
+                                
                 </div>
             </div>
           
