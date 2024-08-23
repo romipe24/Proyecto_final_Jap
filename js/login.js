@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", function() {
             alert("Por favor, completa todos los campos.");
             
         } else { alert("Inicio de sesión exitoso");
+         // Guardar la sesión en LocalStorage
+        localStorage.setItem('user', username);
         window.location.href = "index.html";
         }
 
