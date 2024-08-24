@@ -1,4 +1,4 @@
-const DATA_URL = "//japceibal.github.io/emercado-api/cats_products/101.json";
+const DATA_URL = "https://japceibal.github.io/emercado-api/cats_products/101.json";
 
 let getJSONData = function(url) {
     return fetch(url)
