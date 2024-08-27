@@ -34,6 +34,9 @@ document.addEventListener("DOMContentLoaded", function(){
        sessionStorage.setItem('confirmShown', 'true');
 
    };
+   if (user) {
+    document.getElementById('user-name').textContent = `Bienvenid@, ${user}`;
+}
     //esto es para cuando le pongamos boton de cerrar sesion
     // document.getElementById('logoutButton').addEventListener('click', function() {
     //     // Eliminar la sesión de LocalStorage
@@ -43,3 +46,5 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 });
+
+
