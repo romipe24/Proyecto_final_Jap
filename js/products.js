@@ -40,7 +40,7 @@ function mostrarDATA_URL(array) {
           
                
           
-            <div class="col-md-4 mb-4 ">
+            <div class="col-12 col-sm-6 col-lg-4 mb-4 ">
                 <div class="card h-100">
                     <img src="${element.image}" class="card-img-top" alt="Lamborghini">
                     <div class="card-body">
