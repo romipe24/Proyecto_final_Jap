@@ -12,6 +12,7 @@ body {
 .container {
     text-align: center;
     flex-grow: 1;
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -138,4 +139,98 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+
+/* Media query para resolución estándar */
+@media screen and (max-width: 1366px) {
+    body {
+        padding-bottom: 2.5rem;
+    }
+
+    .logo img {
+        max-width: 250px;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    .form-group input {
+        padding: 8px;
+    }
+
+    .btn {
+        padding: 8px;
+    }
+}
+
+/* Media query para tableta en modo vertical */
+@media screen and (max-width: 768px) {
+  
+    body {
+        padding-bottom: 2rem;
+    }
+
+    .logo {
+        margin-top: 2px;
+    }
+
+    .logo img {
+        max-width: 60%;
+    }
+    form{
+        width: 50%;
+        height: auto;
+        margin-left: 25%;
+        
+    }
+
+    .form-group input {
+        padding: 8px;
+    }
+
+    .btn {
+        width: 50%;
+        height: auto;
+        padding: 8px;
+    }
+    footer{
+     margin-top: 45%;
+     font-size: 12px;
+    }
+}
+/* Media query para smartphone */
+
+@media screen and (max-width: 320px) {
+    
+    body {
+        padding-bottom: 1.5rem;
+        height: auto;
+    }
+
+    .logo {
+        margin-top: 2px;
+    }
+
+    .logo img {
+        max-width: 80%;
+    }
+
+    form {
+       max-width: 80%; 
+        font-size: 0.9em;
+    }
+
+    .form-group input {
+        padding: 6px;
+    }
+
+    .btn {
+        padding: 6px;
+    }
+
+    footer {
+        font-size: 0.8em;
+    }
+    
 }
