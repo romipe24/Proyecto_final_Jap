@@ -231,6 +231,9 @@ footer a:hover {
 
     footer {
         font-size: 0.8em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     
 }
