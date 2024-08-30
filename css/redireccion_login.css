@@ -1,0 +1,32 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif; /* Fuente básica */
+}
+
+div {
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+a {
+    color: #007bff; /* Color de enlace azul */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
