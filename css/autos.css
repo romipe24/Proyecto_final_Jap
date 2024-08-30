@@ -80,7 +80,7 @@ footer a:hover {
 
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 412px) {
 
     footer {
         display: flex;

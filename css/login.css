@@ -201,7 +201,7 @@ footer a:hover {
 }
 /* Media query para smartphone */
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 412px) {
     
     body {
         padding-bottom: 1.5rem;
