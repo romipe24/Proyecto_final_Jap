@@ -1,4 +1,10 @@
-const DATA_URL = "https://japceibal.github.io/emercado-api/cats_products/101.json";
+//const DATA_URL = "https://japceibal.github.io/emercado-api/cats_products/101.json";
+
+// Recuperar el identificador de la categoría del almacenamiento local
+const catID = localStorage.getItem('catID');
+const DATA_URL = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
+
+const catTitle = localStorage.getItem('catName')
 
 let getJSONData = function(url) {
     return fetch(url)
@@ -33,13 +39,22 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function mostrarDATA_URL(array) {
+    
+    // Elemento para mostrar el título de la categoría
+    let catTitleElement = document.getElementById("catTitle"); 
+    // Mostrar el nombre de la categoría
+    if (catTitleElement) {
+        catTitleElement.innerHTML = array.catName;
+    }
+
+
+
+     // Contenedor para los productos
     let mostrar = document.querySelector(".autosinner");
+
     if (mostrar) {
         array.products.forEach(element => {
             mostrar.innerHTML += `
-          
-               
-          
             <div class="col-12 col-sm-6 col-lg-4 mb-4 ">
                 <div class="card h-100">
                     <img src="${element.image}" class="card-img-top" alt="Lamborghini">
