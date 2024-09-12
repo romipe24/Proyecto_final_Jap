@@ -116,6 +116,13 @@ function mostrarDATA_URL(array) {
                
             `;
         });
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', function() {
+                // const productId = this.getAttribute('data-products-id');
+                localStorage.setItem('selectedProductId', 50921);
+                window.location.href = 'product-info.html';
+            });
+        });
     }
 };
  // Verificar si el usuario está autenticado
