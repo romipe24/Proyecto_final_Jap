@@ -120,10 +120,17 @@ function renderProducts(products) {
             </div>
             `;
         });
-    } else {
-        console.error("El formato de productos no es un array.");
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', function() {
+                // const productId = this.getAttribute('data-products-id');
+                localStorage.setItem('selectedProductId', 50921);
+                window.location.href = 'product-info.html';
+            });
+        });
+
     }
-}
+
 function sortProducts(products, sortOrder) {
     let sortedProducts = [...products];
 
