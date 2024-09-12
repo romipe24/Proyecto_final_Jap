@@ -121,3 +121,37 @@ footer a:hover {
         margin-right: 2%;
         
     }
+
+    @media screen and (max-width: 768px) {
+        .filtro, .filtro2 {
+            flex-direction: column; /* Cambia la disposición de los elementos a una columna */
+            align-items: stretch; /* Asegura que los elementos ocupen el ancho disponible */
+            margin: 10px;
+            gap: 10px; /* Espacio entre los elementos */
+        }
+    
+        #search-bar, #min-price, #max-price {
+            width: 100%; /* Ocupa todo el ancho disponible en pantallas pequeñas */
+        }
+    
+        select, input {
+            font-size: 1rem; /* Ajusta el tamaño del texto para pantallas pequeñas */
+            padding: 8px; /* Aumenta el padding para facilitar el clic en pantallas táctiles */
+        }
+    
+        .filtro label, .filtro2 label {
+            text-align: left; /* Alinea las etiquetas a la izquierda en pantallas pequeñas */
+            margin-bottom: 5px;
+        }
+    }
+    
+    @media screen and (max-width: 390px) {
+        .filtro, .filtro2 {
+            flex-direction: column; /* Forzar los elementos a alinearse en columna en pantallas muy pequeñas */
+        }
+    
+        #search-bar {
+            width: 100%; /* Asegúrate que ocupe todo el ancho en móviles */
+        }
+    }
+    
