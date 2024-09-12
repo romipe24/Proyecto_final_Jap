@@ -1,11 +1,9 @@
-//const DATA_URL = "https://japceibal.github.io/emercado-api/cats_products/101.json";
-// Recuperar el identificador de la categoría del almacenamiento local
+// URL del JSON
 const catID = localStorage.getItem('catID');
 const catTitle = localStorage.getItem('catName');
 const DATA_URL = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
 
-
-
+// Función para obtener los datos del JSON
 let getJSONData = function(url) {
     return fetch(url)
         .then(response => {
@@ -28,7 +26,6 @@ let getJSONData = function(url) {
             };
         });
 };
-document.getElementById('sort-options').addEventListener('change', updateProducts);
 
 document.addEventListener("DOMContentLoaded", function() {
     getJSONData(DATA_URL).then(function(resultado) {
@@ -38,50 +35,73 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-        document.getElementById("autos").addEventListener("click", function() {
-            localStorage.setItem("catID", 101);
-            window.location = "products.html"
-        });
-        document.getElementById("juguetes").addEventListener("click", function() {
-            localStorage.setItem("catID", 102);
-            window.location = "products.html"
-        });
-        document.getElementById("muebles").addEventListener("click", function() {
-            localStorage.setItem("catID", 103);
-            window.location = "products.html"
-        });
-        document.getElementById("herramientas").addEventListener("click", function() {
-            localStorage.setItem("catID", 104);
-            window.location = "products.html"
-        });
-        document.getElementById("computadoras").addEventListener("click", function() {
-            localStorage.setItem("catID", 105);
-            window.location = "products.html"
-        });
-        document.getElementById("vestimenta").addEventListener("click", function() {
-            localStorage.setItem("catID", 106);
-            window.location = "products.html"
-        });
-        document.getElementById("electrodomesticos").addEventListener("click", function() {
-            localStorage.setItem("catID", 107);
-            window.location = "products.html"
-        });
-        document.getElementById("deporte").addEventListener("click", function() {
-            localStorage.setItem("catID", 108);
-            window.location = "products.html"
-        });
-        document.getElementById("celulares").addEventListener("click", function() {
-            localStorage.setItem("catID", 109);
-            window.location = "products.html"
-        });
-        // Add event listeners for filters and search
-    // Añadir eventos para el filtro de precios, búsqueda y ordenamiento
+    // Event listeners for category selection
+    document.getElementById("autos").addEventListener("click", function() {
+        localStorage.setItem("catID", 101);
+        window.location = "products.html";
+    });
+    document.getElementById("juguetes").addEventListener("click", function() {
+        localStorage.setItem("catID", 102);
+        window.location = "products.html";
+    });
+    document.getElementById("muebles").addEventListener("click", function() {
+        localStorage.setItem("catID", 103);
+        window.location = "products.html";
+    });
+    document.getElementById("herramientas").addEventListener("click", function() {
+        localStorage.setItem("catID", 104);
+        window.location = "products.html";
+    });
+    document.getElementById("computadoras").addEventListener("click", function() {
+        localStorage.setItem("catID", 105);
+        window.location = "products.html";
+    });
+    document.getElementById("vestimenta").addEventListener("click", function() {
+        localStorage.setItem("catID", 106);
+        window.location = "products.html";
+    });
+    document.getElementById("electrodomesticos").addEventListener("click", function() {
+        localStorage.setItem("catID", 107);
+        window.location = "products.html";
+    });
+    document.getElementById("deporte").addEventListener("click", function() {
+        localStorage.setItem("catID", 108);
+        window.location = "products.html";
+    });
+    document.getElementById("celulares").addEventListener("click", function() {
+        localStorage.setItem("catID", 109);
+        window.location = "products.html";
+    });
+
+    // Event listeners for filters and search
     document.getElementById('sort-options').addEventListener('change', updateProducts);
     document.getElementById('min-price').addEventListener('input', updateProducts);
     document.getElementById('max-price').addEventListener('input', updateProducts);
     document.getElementById('search-bar').addEventListener('input', updateProducts);
+
+    // Verificar si el usuario está autenticado
+    const user = localStorage.getItem('user');
+    const confirmShown = sessionStorage.getItem('confirmShown');
+
+    if (!user && !confirmShown) {
+        // Muestra la alerta
+        const userConfirmed = confirm('No has iniciado sesión. ¿Deseas iniciar sesión ahora?');
+
+        if (userConfirmed) {
+            // Redirigir al login si el usuario desea iniciar sesión
+            window.location.href = 'login.html';
+        }
+
+        // Marca que la alerta ya se ha mostrado en la sesión actual
+        sessionStorage.setItem('confirmShown', 'true');
+    }
+
+    if (user) {
+        document.getElementById('user-name').textContent = `Bienvenid@, ${user}`;
+    }
 });
 
+// Función para mostrar los productos
 function displayProducts(data) {
     const catTitleElement = document.getElementById("catTitle");
     if (catTitleElement) {
@@ -95,15 +115,16 @@ function displayProducts(data) {
     renderProducts(window.products);
 }
 
+// Función para renderizar los productos
 function renderProducts(products) {
     const productContainer = document.querySelector(".autosinner");
     productContainer.innerHTML = '';
-    
+
     if (Array.isArray(products)) {
         products.forEach(product => {
             productContainer.innerHTML += `
             <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                <div class="card h-100">
+                <div class="card h-100" data-products-id="${product.id}">
                     <img src="${product.image}" class="card-img-top" alt="${product.name}">
                     <div class="card-body">
                         <h5 class="card-title">${product.name}</h5>
@@ -123,15 +144,15 @@ function renderProducts(products) {
 
         document.querySelectorAll('.card').forEach(card => {
             card.addEventListener('click', function() {
-                // const productId = this.getAttribute('data-products-id');
-                localStorage.setItem('selectedProductId', 50921);
-                window.location.href = 'product-info.html';
+                const productId = this.getAttribute('data-products-id'); // Obtener el ID del producto
+                localStorage.setItem('selectedProductId', productId); // Guardar en localStorage
+                window.location.href = 'product-info.html'; // Redirigir a la página de información del producto
             });
         });
-
     }
 }
 
+// Función para ordenar productos
 function sortProducts(products, sortOrder) {
     let sortedProducts = [...products];
 
@@ -148,6 +169,7 @@ function sortProducts(products, sortOrder) {
     return sortedProducts;
 }
 
+// Función para filtrar productos
 function filterProducts(products, searchQuery, minPrice, maxPrice) {
     return products.filter(product => {
         const matchesSearch = searchQuery ? product.name.toLowerCase().includes(searchQuery.toLowerCase()) : true;
@@ -158,6 +180,7 @@ function filterProducts(products, searchQuery, minPrice, maxPrice) {
     });
 }
 
+// Función para actualizar productos según filtros y orden
 function updateProducts() {
     const sortOrder = document.getElementById('sort-options').value;
     const searchQuery = document.getElementById('search-bar').value;
@@ -168,38 +191,3 @@ function updateProducts() {
     const filteredProducts = filterProducts(sortedProducts, searchQuery, minPrice, maxPrice);
     renderProducts(filteredProducts);
 }
- // Verificar si el usuario está autenticado
- const user = localStorage.getItem('user');
-
- // Verificar si ya se mostró la alerta
- const confirmShown = sessionStorage.getItem('confirmShown');
-
-
- if (!user && !confirmShown) {
-      // Muestra la alerta
-     const userConfirmed = confirm('No has iniciado sesión. ¿Deseas iniciar sesión ahora?');
-     
-
-     if (userConfirmed) {
-         // Redirigir al login si el usuario desea iniciar sesión
-         window.location.href = 'login.html';
-     } 
-
-     // Marca que la alerta ya se ha mostrado en la sesión actual
-     sessionStorage.setItem('confirmShown', 'true');
-
- };
- if (user) {
-  document.getElementById('user-name').textContent = `Bienvenid@, ${user}`;
-}
-  //esto es para cuando le pongamos boton de cerrar sesion
-  // document.getElementById('logoutButton').addEventListener('click', function() {
-  //     // Eliminar la sesión de LocalStorage
-  //     localStorage.removeItem('user');
-
-
-
-
-
-
-
