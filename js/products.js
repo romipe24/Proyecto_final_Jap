@@ -1,5 +1,4 @@
 //const DATA_URL = "https://japceibal.github.io/emercado-api/cats_products/101.json";
-
 // Recuperar el identificador de la categoría del almacenamiento local
 const catID = localStorage.getItem('catID');
 const catTitle = localStorage.getItem('catName');
