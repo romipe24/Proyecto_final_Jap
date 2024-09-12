@@ -130,6 +130,7 @@ function renderProducts(products) {
         });
 
     }
+}
 
 function sortProducts(products, sortOrder) {
     let sortedProducts = [...products];
