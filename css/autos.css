@@ -96,3 +96,28 @@ footer a:hover {
       color: white;
     }
   
+
+    .filtro{
+        display: flex;
+        justify-content: flex-end; /* Alinea todo a la derecha */
+        align-items: center;
+        gap: 10px; /* Espacio entre los elementos */
+        margin-top: 10%;
+        margin-right: 2%;
+    }
+
+    #search-bar {
+        width: 200px; /* Ajusta el tamaño de la barra de búsqueda */
+  padding: 5px; /* Espaciado interno */
+    }
+
+    .filtro2{
+        display: flex;
+        justify-content: flex-end; /* Alinea todo a la derecha */
+        align-items: center;
+        gap: 10px; /* Espacio entre los elementos */
+        margin-bottom: 2%;
+        margin-top: 1%;
+        margin-right: 2%;
+        
+    }

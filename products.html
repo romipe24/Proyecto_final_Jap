@@ -55,8 +55,25 @@
         <img  src="img/login.png" alt="Logo e-mercado" class="logo float-start" >        
   </header>
   <main>
-    <div class="container my-5" >
-      <div>
+
+
+
+    <div  >
+      <div class="filtro">
+        <label for="sort-options">Ordenar por:</label>
+        <select id="sort-options">
+           <option value="most-sold">Más vendidos</option>
+           <option value="least-sold">Menos vendidos</option>
+           <option value="price-asc">Menor precio</option>
+           <option value="price-desc">Mayor precio</option>
+         </select>
+
+         <input type="text" id="search-bar" placeholder="Buscar productos...">
+         
+     
+      </div>
+
+      <div class="filtro2">
         <label for="min-price">Precio mínimo:</label>
 <input type="number" id="min-price" placeholder="Min">
 
@@ -64,17 +81,8 @@
 <input type="number" id="max-price" placeholder="Max">
       </div>
       
-      <label for="sort-options">Ordenar por:</label>
-         <select id="sort-options">
-            <option value="most-sold">Más vendidos</option>
-            <option value="least-sold">Menos vendidos</option>
-            <option value="price-asc">Menor precio</option>
-            <option value="price-desc">Mayor precio</option>
-          </select>
-
-          <input type="text" id="search-bar" placeholder="Buscar productos...">
-          
-      
+  
+    
         </div>
 
       
