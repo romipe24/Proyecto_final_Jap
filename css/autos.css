@@ -1,219 +1,237 @@
 body {
-    font-family: Arial, sans-serif;
-    padding-bottom: 2.5rem;
+  font-family: Arial, sans-serif;
+  padding-bottom: 2.5rem;
 }
 
 
 header img {
-    width: 350px;
-    height: auto;
+  width: 350px;
+  height: auto;
 }
 
 .card {
-    border: 1px solid #E0E0E0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #E0E0E0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .container h1 {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 
 .card-title {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .price {
-    font-size: 1.2em;
-    font-weight: bold;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 .sales {
-    color: #757575;
+  color: #757575;
 }
 
 .card-footer {
-    background-color: #FFF;
-    border-top: 0;
+  background-color: #FFF;
+  border-top: 0;
 }
 
 .btn-warning {
-    background-color: #FF6600;
-    border: none;
-    color: white;
-    font-weight: bold;
+  background-color: #FF6600;
+  border: none;
+  color: white;
+  font-weight: bold;
 }
 
 
 footer {
-    width: 100%;
-    padding-left: 50px;
-    padding-right: 50px;
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 100px;
-    bottom: 0;
-    left: 0;
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+  bottom: 0;
+  left: 0;
 }
 
 footer a {
-    text-decoration: none;
-    color: #0066cc;
-   
+  text-decoration: none;
+  color: #0066cc;
+ 
 }
 
 footer a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* Estilos personalizados para los filtros */
 
 .filtro, .filtro2 {
-  background-color: #f8f9fa;
-  border-radius: 0.375rem;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
+background-color: #f8f9fa;
+border-radius: 0.375rem;
+padding: 1rem;
+margin-bottom: 1.5rem;
+margin-left: 2rem;
 }
 
 .filtro {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+display: flex;
+flex-wrap: wrap;
+gap: 1rem;
 }
 
 .filtro label, .filtro2 label {
-  font-weight: 600;
+font-weight: 600;
 }
 
 .filtro select, .filtro input[type="text"], .filtro input[type="number"] {
-  flex: 1;
-  margin-top: 0.5rem;
+flex: 1;
+margin-top: 0.5rem;
 }
 
 .filtro input[type="text"], .filtro input[type="number"] {
-  border: 1px solid #ced4da;
-  border-radius: 0.375rem;
-  padding: 0.5rem;
+border: 1px solid #ced4da;
+border-radius: 0.375rem;
+padding: 0.5rem;
 }
 
 .filtro select {
-  border: 1px solid #ced4da;
-  border-radius: 0.375rem;
-  padding: 0.5rem;
+border: 1px solid #ced4da;
+border-radius: 0.375rem;
+padding: 0.5rem;
 }
 
 .filtro2 {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+display: flex;
+flex-wrap: wrap;
+gap: 1rem;
 }
 
 .filtro2 input[type="number"] {
-  max-width: 150px;
+max-width: 150px;
 }
 
 .filtro2 label {
-  margin-top: 0.5rem;
+margin-top: 0.5rem;
 }
 
 /* Asegurarse de que los filtros se alineen correctamente en dispositivos móviles */
 @media (max-width: 768px) {
-  .filtro, .filtro2 {
-    flex-direction: column;
-    align-items: flex-start;
+.filtro, .filtro2 {
+  flex-direction: column;
+  align-items: flex-start;
+}
+}
+
+
+
+@media screen and (min-width: 768px) {
+  .autosinner {
+      width: 100vw; /* Ocupa todo el ancho de la vista */
+      position: relative;
+      left: calc(50% - 50vw); /* Centra el contenedor en la pantalla */
+      padding-left: 15px;
+      padding-right: 5px;
+  }
+
+
+}
+
+@media screen and (max-width: 500px) {
+
+  footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
   }
 }
 
+  .dropdown-menu {
+    background-color: #212529;
+  }
+  .dropdown-item{
+    color: white;
+  }
 
 
-@media screen and (min-width: 386px) {
-    .autosinner {
-        width: 100vw; /* Ocupa todo el ancho de la vista */
-        position: relative;
-        left: calc(50% - 50vw); /* Centra el contenedor en la pantalla */
-        padding-left: 15px;
-        padding-right: 5px;
-    }
 
 
-}
+  #search-bar {
+      width: 200px; /* Ajusta el tamaño de la barra de búsqueda */
+padding: 5px; /* Espaciado interno */
+  }
 
-@media screen and (max-width: 412px) {
 
-    footer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-}
 
-    .dropdown-menu {
-      background-color: #212529;
-    }
-    .dropdown-item{
-      color: white;
-    }
+  @media screen and (max-width: 390px) {
+   
+    
+  
+      #search-bar, #min-price, #max-price {
+          width: 100%; /* Ocupa todo el ancho disponible en pantallas pequeñas */
+      }
+  
+      select, input {
+          font-size: 1rem; /* Ajusta el tamaño del texto para pantallas pequeñas */
+          padding: 8px; /* Aumenta el padding para facilitar el clic en pantallas táctiles */
+      }
+  
+      .filtro label, .filtro2 label {
+          text-align: left; /* Alinea las etiquetas a la izquierda en pantallas pequeñas */
+          margin-bottom: 5px;
+      }
+  }
+  
+  @media screen and (max-width: 390px) {
+      .filtro, .filtro2 {
+          flex-direction: column; /* Forzar los elementos a alinearse en columna en pantallas muy pequeñas */
+      }
+  
+      #search-bar {
+          width: 100%; /* Asegúrate que ocupe todo el ancho en móviles */
+      }
+  }
   
 
-  
-
-    #search-bar {
-        width: 200px; /* Ajusta el tamaño de la barra de búsqueda */
-  padding: 5px; /* Espaciado interno */
-    }
-
-
-
-    @media screen and (max-width: 768px) {
-     
-      
-    
-        #search-bar, #min-price, #max-price {
-            width: 100%; /* Ocupa todo el ancho disponible en pantallas pequeñas */
-        }
-    
-        select, input {
-            font-size: 1rem; /* Ajusta el tamaño del texto para pantallas pequeñas */
-            padding: 8px; /* Aumenta el padding para facilitar el clic en pantallas táctiles */
-        }
-    
-        .filtro label, .filtro2 label {
-            text-align: left; /* Alinea las etiquetas a la izquierda en pantallas pequeñas */
-            margin-bottom: 5px;
-        }
-    }
-    
-    @media screen and (max-width: 390px) {
-        .filtro, .filtro2 {
-            flex-direction: column; /* Forzar los elementos a alinearse en columna en pantallas muy pequeñas */
-        }
-    
-        #search-bar {
-            width: 100%; /* Asegúrate que ocupe todo el ancho en móviles */
-        }
-    }
-    
-
-    @media screen and (min-width: 740px ){
-        .filtro{
-            display: flex;
-            justify-content: flex-end; /* Alinea todo a la derecha */
-            align-items: center;
-            gap: 10px; /* Espacio entre los elementos */
-            margin-top: 10%;
-            margin-right: 2%;
-        }
+  @media screen and (min-width: 740px ){
+      .filtro{
+          display: flex;
+          justify-content: flex-end; /* Alinea todo a la derecha */
+          align-items: center;
+          gap: 10px; /* Espacio entre los elementos */
+          margin-top: 10%;
+          margin-right: 2%;
+      }
 
 
-        .filtro2{
-            display: flex;
-            justify-content: flex-end; /* Alinea todo a la derecha */
-            align-items: center;
-            gap: 10px; /* Espacio entre los elementos */
-            margin-bottom: 2%;
-            margin-top: 1%;
-            margin-right: 2%;
-            
-        }
-    }
+      .filtro2{
+          display: flex;
+          justify-content: flex-end; /* Alinea todo a la derecha */
+          align-items: center;
+          gap: 10px; /* Espacio entre los elementos */
+          margin-bottom: 2%;
+          margin-top: 1%;
+          margin-right: 2%;
+          
+      }
+  }
+
+  .filtro {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Espaciado entre los elementos */
+}
+
+#sort-options {
+    flex-grow: 0; /* No permitir que el select crezca */
+    width: 300px; /* Hacer el select más corto */
+}
+
+#search-bar {
+    flex-grow: 2; /* Permitir que el input de búsqueda crezca más */
+    width: 120%; /* Asegurarse que ocupe el espacio restante */
+    padding: 0.5rem; /* Un poco de padding para mejor usabilidad */
+}
