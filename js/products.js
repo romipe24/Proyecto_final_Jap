@@ -170,15 +170,19 @@ function sortProducts(products, sortOrder) {
 }
 
 // Función para filtrar productos
+// Función para filtrar productos
 function filterProducts(products, searchQuery, minPrice, maxPrice) {
     return products.filter(product => {
-        const matchesSearch = searchQuery ? product.name.toLowerCase().includes(searchQuery.toLowerCase()) : true;
+        const matchesSearch = searchQuery ? 
+            product.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+            product.description.toLowerCase().includes(searchQuery.toLowerCase()) : true; // Agregar el filtrado por descripción
         const matchesMinPrice = minPrice ? product.cost >= minPrice : true;
         const matchesMaxPrice = maxPrice ? product.cost <= maxPrice : true;
 
         return matchesSearch && matchesMinPrice && matchesMaxPrice;
     });
 }
+
 
 // Función para actualizar productos según filtros y orden
 function updateProducts() {
