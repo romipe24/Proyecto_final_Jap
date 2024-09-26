@@ -40,6 +40,44 @@
     <div id="product-detail">
         <!-- Aquí se mostrarán los detalles del producto -->
     </div>
+
+    <!-- Sección para reseñas -->
+    <section id="reviews-section" class="mt-5">
+      <h3>Reseñas</h3>
+
+      <!-- Aquí se mostrarán las reseñas ya enviadas -->
+      <div id="reviews-list" class="mb-4">
+          <!-- Las reseñas se agregarán aquí dinámicamente -->
+      </div>
+
+      <!-- Formulario para agregar una nueva reseña -->
+      <h4>Deja tu reseña</h4>
+      <form id="review-form">
+          <div class="mb-3">
+              <label for="username" class="form-label">Nombre:</label>
+              <input type="text" class="form-control" id="username" required>
+          </div>
+
+          <div class="mb-3">
+              <label for="review-message" class="form-label">Tu reseña:</label>
+              <textarea class="form-control" id="review-message" rows="3" required></textarea>
+          </div>
+
+          <div class="mb-3">
+              <label for="review-rating" class="form-label">Puntuación:</label>
+              <select class="form-control" id="review-rating" required>
+                  <option value="">Selecciona una opción</option>
+                  <option value="1">1 Estrella</option>
+                  <option value="2">2 Estrellas</option>
+                  <option value="3">3 Estrellas</option>
+                  <option value="4">4 Estrellas</option>
+                  <option value="5">5 Estrellas</option>
+              </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Enviar reseña</button>
+      </form>
+  </section>
 </main>
 
   <footer class="text-muted">

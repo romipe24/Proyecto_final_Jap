@@ -84,6 +84,72 @@ function generarGaleria(productId) {
   }
 }
 
+
+// Manejo del formulario de reseñas
+const reviewForm = document.getElementById('review-form');
+const reviewsList = document.getElementById('reviews-list');
+
+// Cargar reseñas almacenadas al cargar la página
+cargarReseñas();
+
+// Evento para manejar el envío de la reseña
+reviewForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Obtener los valores del formulario
+    const username = document.getElementById('username').value;
+    const message = document.getElementById('review-message').value;
+    const rating = document.getElementById('review-rating').value;
+    const date = new Date().toLocaleDateString(); // Fecha actual
+
+    // Crear la reseña en el DOM
+    const reviewHTML = `
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">${username}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Puntuación: ${rating} Estrellas</h6>
+                <p class="card-text">${message}</p>
+                <p class="text-muted">Enviado el: ${date}</p>
+            </div>
+        </div>
+    `;
+
+    reviewsList.innerHTML += reviewHTML;
+
+    // Guardar la reseña en el localStorage
+    guardarReseña(username, message, rating, date);
+
+    // Limpiar el formulario
+    reviewForm.reset();
+});
+
+// Función para cargar reseñas almacenadas
+function cargarReseñas() {
+    const reseñas = JSON.parse(localStorage.getItem('reseñas')) || [];
+    reseñas.forEach(res => {
+        const reviewHTML = `
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">${res.username}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Puntuación: ${res.rating} Estrellas</h6>
+                    <p class="card-text">${res.message}</p>
+                    <p class="text-muted">Enviado el: ${res.date}</p>
+                </div>
+            </div>
+        `;
+        reviewsList.innerHTML += reviewHTML;
+    });
+}
+
+// Función para guardar una reseña en localStorage
+function guardarReseña(username, message, rating, date) {
+    const reseñas = JSON.parse(localStorage.getItem('reseñas')) || [];
+    reseñas.push({ username, message, rating, date });
+    localStorage.setItem('reseñas', JSON.stringify(reseñas));
+}
+
+
+
 // Mostrar el nombre del usuario en el navbar si está autenticado
 document.addEventListener('DOMContentLoaded', function() {
   const user = localStorage.getItem('user');
@@ -100,5 +166,6 @@ document.addEventListener('DOMContentLoaded', function() {
           sessionStorage.setItem('confirmShown', 'true');
       }
   }
+  
 });
 });
