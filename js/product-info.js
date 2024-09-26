@@ -102,12 +102,15 @@ reviewForm.addEventListener('submit', function(event) {
     const rating = document.getElementById('review-rating').value;
     const date = new Date().toLocaleDateString(); // Fecha actual
 
+    // Crear la cantidad de estrellas como emojis
+    let stars = '⭐'.repeat(rating);
+
     // Crear la reseña en el DOM
     const reviewHTML = `
         <div class="card mb-3">
             <div class="card-body">
                 <h5 class="card-title">${username}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Puntuación: ${rating} Estrellas</h6>
+                <h6 class="card-subtitle mb-2 text-muted">Puntuación: ${stars} </h6>
                 <p class="card-text">${message}</p>
                 <p class="text-muted">Enviado el: ${date}</p>
             </div>
