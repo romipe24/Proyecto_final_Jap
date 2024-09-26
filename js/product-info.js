@@ -85,71 +85,71 @@ function generarGaleria(productId) {
 }
 
 
-// Manejo del formulario de reseñas
-const reviewForm = document.getElementById('review-form');
-const reviewsList = document.getElementById('reviews-list');
+  // Manejo del formulario de reseñas
+  const reviewForm = document.getElementById('review-form');
+  const reviewsList = document.getElementById('reviews-list');
 
-// Cargar reseñas almacenadas al cargar la página
-cargarReseñas();
+  // Cargar reseñas almacenadas del producto actual al cargar la página
+  cargarReseñas(productId);
 
-// Evento para manejar el envío de la reseña
-reviewForm.addEventListener('submit', function(event) {
-    event.preventDefault();
+  // Evento para manejar el envío de la reseña
+  reviewForm.addEventListener('submit', function(event) {
+      event.preventDefault();
 
-    // Obtener los valores del formulario
-    const username = document.getElementById('username').value;
-    const message = document.getElementById('review-message').value;
-    const rating = document.getElementById('review-rating').value;
-    const date = new Date().toLocaleDateString(); // Fecha actual
+      // Obtener los valores del formulario
+      const username = document.getElementById('username').value;
+      const message = document.getElementById('review-message').value;
+      const rating = document.getElementById('review-rating').value;
+      const date = new Date().toLocaleDateString(); // Fecha actual
 
-    // Crear la cantidad de estrellas como emojis
-    let stars = '⭐'.repeat(rating);
+        // Crear la cantidad de estrellas como emojis
+        let stars = '⭐'.repeat(rating);
 
-    // Crear la reseña en el DOM
-    const reviewHTML = `
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title">${username}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Puntuación: ${stars} </h6>
-                <p class="card-text">${message}</p>
-                <p class="text-muted">Enviado el: ${date}</p>
-            </div>
-        </div>
-    `;
+      // Crear la reseña en el DOM
+      const reviewHTML = `
+          <div class="card mb-3">
+              <div class="card-body">
+                  <h5 class="card-title">${username}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Puntuación: ${stars} </h6>
+                  <p class="card-text">${message}</p>
+                  <p class="text-muted">Enviado el: ${date}</p>
+              </div>
+          </div>
+      `;
 
-    reviewsList.innerHTML += reviewHTML;
+      reviewsList.innerHTML += reviewHTML;
 
-    // Guardar la reseña en el localStorage
-    guardarReseña(username, message, rating, date);
+      // Guardar la reseña en el localStorage asociada al producto actual
+      guardarReseña(productId, username, message, rating, date);
 
-    // Limpiar el formulario
-    reviewForm.reset();
-});
+      // Limpiar el formulario
+      reviewForm.reset();
+  });
 
-// Función para cargar reseñas almacenadas
-function cargarReseñas() {
-    const reseñas = JSON.parse(localStorage.getItem('reseñas')) || [];
-    reseñas.forEach(res => {
-        const reviewHTML = `
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">${res.username}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Puntuación: ${res.rating} Estrellas</h6>
-                    <p class="card-text">${res.message}</p>
-                    <p class="text-muted">Enviado el: ${res.date}</p>
-                </div>
-            </div>
-        `;
-        reviewsList.innerHTML += reviewHTML;
-    });
-}
+  // Función para cargar reseñas almacenadas de un producto específico
+  function cargarReseñas(productId) {
+      const reseñas = JSON.parse(localStorage.getItem(`reseñas_${productId}`)) || [];
+      reseñas.forEach(res => {
+          const reviewHTML = `
+              <div class="card mb-3">
+                  <div class="card-body">
+                      <h5 class="card-title">${res.username}</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Puntuación: ${res.rating} Estrellas</h6>
+                      <p class="card-text">${res.message}</p>
+                      <p class="text-muted">Enviado el: ${res.date}</p>
+                  </div>
+              </div>
+          `;
+          reviewsList.innerHTML += reviewHTML;
+      });
+  }
 
-// Función para guardar una reseña en localStorage
-function guardarReseña(username, message, rating, date) {
-    const reseñas = JSON.parse(localStorage.getItem('reseñas')) || [];
-    reseñas.push({ username, message, rating, date });
-    localStorage.setItem('reseñas', JSON.stringify(reseñas));
-}
+  // Función para guardar una reseña en localStorage asociada a un producto específico
+  function guardarReseña(productId, username, message, rating, date) {
+      const reseñas = JSON.parse(localStorage.getItem(`reseñas_${productId}`)) || [];
+      reseñas.push({ username, message, rating, date });
+      localStorage.setItem(`reseñas_${productId}`, JSON.stringify(reseñas));
+  }
 
 
 
