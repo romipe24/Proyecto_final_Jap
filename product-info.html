@@ -41,16 +41,32 @@
         <!-- Aquí se mostrarán los detalles del producto -->
     </div>
 
-    <!-- Sección para reseñas -->
-    <section id="reviews-section" class="mt-5">
-      <h3>Reseñas</h3>
+    <!-- Acordeón para mostrar reseñas -->
+    <div class="accordion mt-5" id="reviews-accordion">
+      <div class="accordion-item">
+          <h2 class="accordion-header" id="headingReviews">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReviews" aria-expanded="false" aria-controls="collapseReviews">
+                  Reseñas
+              </button>
+          </h2>
+          <div id="collapseReviews" class="accordion-collapse collapse" aria-labelledby="headingReviews" data-bs-parent="#reviews-accordion">
+              <div class="accordion-body">
+                  <!-- Sección para reseñas -->
+                  <section id="reviews-section" class="mt-3">
+                      <h4>Reseñas de usuarios</h4>
 
-      <!-- Aquí se mostrarán las reseñas ya enviadas -->
-      <div id="reviews-list" class="mb-4">
-          <!-- Las reseñas se agregarán aquí dinámicamente -->
+                      <!-- Aquí se mostrarán las reseñas ya enviadas -->
+                      <div id="reviews-list" class="mb-4">
+                          <!-- Las reseñas se agregarán aquí dinámicamente -->
+                      </div>
+                  </section>
+              </div>
+          </div>
       </div>
+  </div>
 
-      <!-- Formulario para agregar una nueva reseña -->
+  <!-- Formulario para agregar una nueva reseña (fuera del acordeón) -->
+  <section class="mt-5">
       <h4>Deja tu reseña</h4>
       <form id="review-form">
           <div class="mb-3">
