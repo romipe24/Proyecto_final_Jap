@@ -73,6 +73,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
   
+
+
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////
     // Manejo del formulario de reseñas
     const reviewForm = document.getElementById('review-form');
     const reviewsList = document.getElementById('reviews-list');
@@ -101,12 +105,12 @@ document.addEventListener("DOMContentLoaded", function() {
             })
             .catch(error => console.error("Error al cargar los comentarios:", error));
     }
+
+    // Cargar comentarios desde el JSON
+    cargarComentariosJSON();
   
     // Cargar reseñas almacenadas del producto actual
     cargarReseñas(productId);
-  
-    // Cargar comentarios desde el JSON
-    cargarComentariosJSON();
   
     // Evento para manejar el envío de la reseña
     reviewForm.addEventListener('submit', function(event) {
@@ -115,15 +119,34 @@ document.addEventListener("DOMContentLoaded", function() {
         const username = document.getElementById('username').value;
         const message = document.getElementById('review-message').value;
         const rating = document.getElementById('review-rating').value;
-        const date = new Date().toLocaleDateString();
+        
+        const now = new Date();
+        // Obtener los componentes de la fecha
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0'); // Meses empiezan en 0
+        const day = String(now.getDate()).padStart(2, '0');
+
+        // Formatear la fecha
+        const dateTime = `${year}-${month}-${day}`;
+
+        // Configuración para la hora en formato de 24 horas
+        const options = {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false // Formato 24 horas
+        };
+
+        const time = now.toLocaleTimeString('es-ES', options); // Obtener la hora
+        const date = `${dateTime} ${time}`; // Combinar fecha y hora
   
-        let stars = '⭐'.repeat(rating);
+        
   
         const reviewHTML = `
             <div class="card mb-3">
                 <div class="card-body">
                     <h5 class="card-title">${username}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Puntuación: ${stars} </h6>
+                    <h6 class="card-subtitle mb-2 text-muted">Puntuación: ${'⭐'.repeat(rating)}</h6>
                     <p class="card-text">${message}</p>
                     <p class="text-muted">Enviado el: ${date}</p>
                 </div>
