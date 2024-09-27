@@ -30,92 +30,17 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
+          <li class="nav-item">
+          </li>
         </ul>
       </div>
     </div>
   </nav>
-
   <main class="container my-5">
     <div id="product-detail">
-      <!-- Aquí se mostrarán los detalles del producto -->
+        <!-- Aquí se mostrarán los detalles del producto -->
     </div>
-
-    <section id="ratings" class="my-4">
-      <h3>Calificaciones</h3>
-      <div class="ratings-list" id="ratings-list">
-        <!-- Calificaciones iniciales -->
-        <div class="rating">
-          <strong>Usuario1</strong> <span class="date">01/01/2024</span>
-          <p>¡Gran producto! Muy satisfecho.</p>
-          <p>Calificación: ⭐⭐⭐⭐⭐</p>
-        </div>
-        <div class="rating">
-          <strong>Usuario2</strong> <span class="date">02/01/2024</span>
-          <p>Buen producto, aunque podría mejorar.</p>
-          <p>Calificación: ⭐⭐⭐</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="rating-form" class="my-4">
-      <h3>Deja tu calificación</h3>
-      <form id="form-rating">
-        <div class="mb-3">
-          <label for="username" class="form-label">Nombre de usuario</label>
-          <input type="text" class="form-control" id="username" required>
-        </div>
-        <div class="mb-3">
-          <label for="comment" class="form-label">Comentario</label>
-          <textarea class="form-control" id="comment" rows="3" required></textarea>
-        </div>
-        <div class="mb-3">
-          <label for="rating" class="form-label">Calificación</label>
-          <select class="form-select" id="rating" required>
-            <option value="" disabled selected>Seleccione una calificación</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
-      </form>
-    </section>
-
-    <section id="related-products" class="my-4">
-      <h3>Productos Relacionados</h3>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card">
-            <img src="path/to/image1.jpg" class="card-img-top" alt="Producto Relacionado 1">
-            <div class="card-body">
-              <h5 class="card-title">Producto Relacionado 1</h5>
-              <a href="#" class="btn btn-primary">Ver Detalles</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img src="path/to/image2.jpg" class="card-img-top" alt="Producto Relacionado 2">
-            <div class="card-body">
-              <h5 class="card-title">Producto Relacionado 2</h5>
-              <a href="#" class="btn btn-primary">Ver Detalles</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img src="path/to/image3.jpg" class="card-img-top" alt="Producto Relacionado 3">
-            <div class="card-body">
-              <h5 class="card-title">Producto Relacionado 3</h5>
-              <a href="#" class="btn btn-primary">Ver Detalles</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+</main>
 
   <footer class="text-muted">
     <div class="container">
@@ -125,7 +50,6 @@
       <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
   </footer>
-
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -134,11 +58,9 @@
       <div></div>
     </div>
   </div>
-
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
-  <script src="js/rating.js"></script>
 </body>
 
 </html>
