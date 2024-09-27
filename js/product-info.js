@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    //función para cargar productos relacionados
+// Función para cargar productos relacionados
 function cargarProductosRelacionados(productId) {
     const PRODUCT_URL = `https://japceibal.github.io/emercado-api/products/${productId}.json`;
 
@@ -84,34 +84,32 @@ function cargarProductosRelacionados(productId) {
             const relatedProductsList = document.getElementById('related-products-list');
             relatedProductsList.innerHTML = ''; // Limpiar lista anterior
 
-            data.relatedProducts.forEach(relatedProduct => {
-                const productItem = document.createElement('div');
-                productItem.classList.add('col-md-3', 'text-center');
+            if (data.relatedProducts && data.relatedProducts.length) {
+                data.relatedProducts.forEach(relatedProduct => {
+                    const productItem = document.createElement('div');
+                    productItem.classList.add('col-md-3', 'text-center');
 
-                productItem.innerHTML = `
-                    <a href="#" onclick="cargarProducto(${relatedProduct.id})">
-                        <img src="${relatedProduct.image}" class="img-fluid" alt="${relatedProduct.name}">
-                        <p>${relatedProduct.name}</p>
-                    </a>
-                `;
+                    productItem.innerHTML = `
+                        <a href="product-info.html?productId=${relatedProduct.id}">
+                            <img src="${relatedProduct.image}" class="img-fluid" alt="${relatedProduct.name}">
+                            <p>${relatedProduct.name}</p>
+                        </a>
+                    `;
 
-                relatedProductsList.appendChild(productItem);
-            });
+                    relatedProductsList.appendChild(productItem);
+                });
+            } else {
+                relatedProductsList.innerHTML = '<p>No hay productos relacionados disponibles.</p>';
+            }
         })
         .catch(error => console.error("Error al cargar productos relacionados:", error));
 }
 
-// Nueva función para cargar un producto específico
-function cargarProducto(productId) {
-    localStorage.setItem('selectedProductId', productId);
-    location.reload(); // Recargar la página para mostrar el producto seleccionado
-}
+
+
+
+
   
-    
-  
-
-
-
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // Manejo del formulario de reseñas
     const reviewForm = document.getElementById('review-form');
@@ -167,16 +165,14 @@ function cargarProducto(productId) {
 
         // Configuración para la hora en formato de 24 horas
         const options = {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false // Formato 24 horas
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false // Formato 24 horas
         };
 
         const time = now.toLocaleTimeString('es-ES', options); // Obtener la hora
         const date = `${dateTime} ${time}`; // Combinar fecha y hora
-  
-        
   
         const reviewHTML = `
             <div class="card mb-3">
@@ -204,7 +200,7 @@ function cargarProducto(productId) {
                 <div class="card mb-3">
                     <div class="card-body">
                         <h5 class="card-title">${res.username}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Puntuación: ${res.rating} Estrellas</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">Puntuación: ${'⭐'.repeat(res.rating)}</h6> <!-- Cambiado aquí para mostrar estrellas -->
                         <p class="card-text">${res.message}</p>
                         <p class="text-muted">Enviado el: ${res.date}</p>
                     </div>
@@ -221,24 +217,19 @@ function cargarProducto(productId) {
         localStorage.setItem(`reseñas_${productId}`, JSON.stringify(reseñas));
     }
 
-
-
-// Mostrar el nombre del usuario en el navbar si está autenticado
-document.addEventListener('DOMContentLoaded', function() {
-  const user = localStorage.getItem('user');
+    // Mostrar el nombre del usuario en el navbar si está autenticado
+    const user = localStorage.getItem('user');
   
-  if (user) {
-      document.getElementById('user-name').textContent = `Bienvenid@, ${user}`;
-  } else {
-      const confirmShown = sessionStorage.getItem('confirmShown');
-      if (!confirmShown) {
-          const userConfirmed = confirm('No has iniciado sesión. ¿Deseas iniciar sesión ahora?');
-          if (userConfirmed) {
-              window.location.href = 'login.html';
-          }
-          sessionStorage.setItem('confirmShown', 'true');
-      }
-  }
-  
-});
+    if (user) {
+        document.getElementById('user-name').textContent = `Bienvenid@, ${user}`;
+    } else {
+        const confirmShown = sessionStorage.getItem('confirmShown');
+        if (!confirmShown) {
+            const userConfirmed = confirm('No has iniciado sesión. ¿Deseas iniciar sesión ahora?');
+            if (userConfirmed) {
+                window.location.href = 'login.html';
+            }
+            sessionStorage.setItem('confirmShown', 'true');
+        }
+    }
 });
