@@ -56,8 +56,9 @@ document.addEventListener("DOMContentLoaded", function() {
         `;
   
         generarGaleria(productId);
+        cargarProductosRelacionados(productId); // Llamar a la función para cargar productos relacionados
     }
-  
+
     // Función para generar galería
     function generarGaleria(productId) {
         const gallery = document.getElementById('gallery');
@@ -72,6 +73,41 @@ document.addEventListener("DOMContentLoaded", function() {
             gallery.appendChild(col);
         }
     }
+
+    //función para cargar productos relacionados
+function cargarProductosRelacionados(productId) {
+    const PRODUCT_URL = `https://japceibal.github.io/emercado-api/products/${productId}.json`;
+
+    fetch(PRODUCT_URL)
+        .then(response => response.json())
+        .then(data => {
+            const relatedProductsList = document.getElementById('related-products-list');
+            relatedProductsList.innerHTML = ''; // Limpiar lista anterior
+
+            data.relatedProducts.forEach(relatedProduct => {
+                const productItem = document.createElement('div');
+                productItem.classList.add('col-md-3', 'text-center');
+
+                productItem.innerHTML = `
+                    <a href="#" onclick="cargarProducto(${relatedProduct.id})">
+                        <img src="${relatedProduct.image}" class="img-fluid" alt="${relatedProduct.name}">
+                        <p>${relatedProduct.name}</p>
+                    </a>
+                `;
+
+                relatedProductsList.appendChild(productItem);
+            });
+        })
+        .catch(error => console.error("Error al cargar productos relacionados:", error));
+}
+
+// Nueva función para cargar un producto específico
+function cargarProducto(productId) {
+    localStorage.setItem('selectedProductId', productId);
+    location.reload(); // Recargar la página para mostrar el producto seleccionado
+}
+  
+    
   
 
 
