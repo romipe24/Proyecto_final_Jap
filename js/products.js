@@ -134,7 +134,7 @@ function renderProducts(products) {
                     <div class="card-footer">
                         <p class="sales">${product.soldCount} Vendidos</p>
                         <div class="text-end">
-                            <a href="#" class="btn btn-warning">Comprar</a>
+                            <a href="#" class="btn-buy btn btn-warning" data-products-id="${product.id}">Comprar</a>
                         </div>
                     </div>
                 </div>
@@ -142,8 +142,8 @@ function renderProducts(products) {
             `;
         });
 
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('click', function() {
+        document.querySelectorAll('.btn-buy').forEach(btn => {
+            btn.addEventListener('click', function() {
                 const productId = this.getAttribute('data-products-id'); // Obtener el ID del producto
                 localStorage.setItem('selectedProductId', productId); // Guardar en localStorage
                 window.location.href = 'product-info.html'; // Redirigir a la página de información del producto
