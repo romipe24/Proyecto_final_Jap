@@ -88,15 +88,24 @@ function cargarProductosRelacionados(productId) {
                 data.relatedProducts.forEach(relatedProduct => {
                     const productItem = document.createElement('div');
                     productItem.classList.add('col-md-3', 'text-center');
-
+                            console.log('related product', relatedProduct.id);
+                            
                     productItem.innerHTML = `
-                        <a href="product-info.html?productId=${relatedProduct.id}">
+                        <a href="#" data-products-id="${relatedProduct.id}">
                             <img src="${relatedProduct.image}" class="img-fluid" alt="${relatedProduct.name}">
                             <p>${relatedProduct.name}</p>
                         </a>
                     `;
 
+                    productItem.querySelector('a').addEventListener('click', function (event) {
+                        const productId = this.getAttribute('data-products-id'); // Obtener el ID del producto
+                        console.log(productId)
+                        localStorage.setItem('selectedProductId', productId); // Guardar en localStorage
+                    // window.location.href = 'product-info.html'; // Redirigir a la página de información del producto
+                    window.location.reload()
+                    })
                     relatedProductsList.appendChild(productItem);
+                    
                 });
             } else {
                 relatedProductsList.innerHTML = '<p>No hay productos relacionados disponibles.</p>';
