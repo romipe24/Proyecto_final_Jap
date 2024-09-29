@@ -56,8 +56,9 @@ document.addEventListener("DOMContentLoaded", function() {
         `;
   
         generarGaleria(productId);
+        cargarProductosRelacionados(productId); // Llamar a la función para cargar productos relacionados
     }
-  
+
     // Función para generar galería
     function generarGaleria(productId) {
         const gallery = document.getElementById('gallery');
@@ -72,7 +73,53 @@ document.addEventListener("DOMContentLoaded", function() {
             gallery.appendChild(col);
         }
     }
+
+// Función para cargar productos relacionados
+function cargarProductosRelacionados(productId) {
+    const PRODUCT_URL = `https://japceibal.github.io/emercado-api/products/${productId}.json`;
+
+    fetch(PRODUCT_URL)
+        .then(response => response.json())
+        .then(data => {
+            const relatedProductsList = document.getElementById('related-products-list');
+            relatedProductsList.innerHTML = ''; // Limpiar lista anterior
+
+            if (data.relatedProducts && data.relatedProducts.length) {
+                data.relatedProducts.forEach(relatedProduct => {
+                    const productItem = document.createElement('div');
+                    productItem.classList.add('col-md-3', 'text-center');
+                            console.log('related product', relatedProduct.id);
+                            
+                    productItem.innerHTML = `
+                        <a href="#" data-products-id="${relatedProduct.id}">
+                            <img src="${relatedProduct.image}" class="img-fluid" alt="${relatedProduct.name}">
+                            <p>${relatedProduct.name}</p>
+                        </a>
+                    `;
+
+                    productItem.querySelector('a').addEventListener('click', function (event) {
+                        const productId = this.getAttribute('data-products-id'); // Obtener el ID del producto
+                        console.log(productId)
+                        localStorage.setItem('selectedProductId', productId); // Guardar en localStorage
+                    // window.location.href = 'product-info.html'; // Redirigir a la página de información del producto
+                    window.location.reload()
+                    })
+                    relatedProductsList.appendChild(productItem);
+                    
+                });
+            } else {
+                relatedProductsList.innerHTML = '<p>No hay productos relacionados disponibles.</p>';
+            }
+        })
+        .catch(error => console.error("Error al cargar productos relacionados:", error));
+}
+
+
+
+
+
   
+    //////////////////////////////////////////////////////////////////////////////////////////////////
     // Manejo del formulario de reseñas
     const reviewForm = document.getElementById('review-form');
     const reviewsList = document.getElementById('reviews-list');
@@ -101,12 +148,12 @@ document.addEventListener("DOMContentLoaded", function() {
             })
             .catch(error => console.error("Error al cargar los comentarios:", error));
     }
+
+    // Cargar comentarios desde el JSON
+    cargarComentariosJSON();
   
     // Cargar reseñas almacenadas del producto actual
     cargarReseñas(productId);
-  
-    // Cargar comentarios desde el JSON
-    cargarComentariosJSON();
   
     // Evento para manejar el envío de la reseña
     reviewForm.addEventListener('submit', function(event) {
@@ -115,15 +162,32 @@ document.addEventListener("DOMContentLoaded", function() {
         const username = document.getElementById('username').value;
         const message = document.getElementById('review-message').value;
         const rating = document.getElementById('review-rating').value;
-        const date = new Date().toLocaleDateString();
-  
-        let stars = '⭐'.repeat(rating);
+        
+        const now = new Date();
+        // Obtener los componentes de la fecha
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0'); // Meses empiezan en 0
+        const day = String(now.getDate()).padStart(2, '0');
+
+        // Formatear la fecha
+        const dateTime = `${year}-${month}-${day}`;
+
+        // Configuración para la hora en formato de 24 horas
+        const options = {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false // Formato 24 horas
+        };
+
+        const time = now.toLocaleTimeString('es-ES', options); // Obtener la hora
+        const date = `${dateTime} ${time}`; // Combinar fecha y hora
   
         const reviewHTML = `
             <div class="card mb-3">
                 <div class="card-body">
                     <h5 class="card-title">${username}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Puntuación: ${stars} </h6>
+                    <h6 class="card-subtitle mb-2 text-muted">Puntuación: ${'⭐'.repeat(rating)}</h6>
                     <p class="card-text">${message}</p>
                     <p class="text-muted">Enviado el: ${date}</p>
                 </div>
@@ -145,7 +209,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="card mb-3">
                     <div class="card-body">
                         <h5 class="card-title">${res.username}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Puntuación: ${res.rating} Estrellas</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">Puntuación: ${'⭐'.repeat(res.rating)}</h6> <!-- Cambiado aquí para mostrar estrellas -->
                         <p class="card-text">${res.message}</p>
                         <p class="text-muted">Enviado el: ${res.date}</p>
                     </div>
@@ -162,24 +226,19 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.setItem(`reseñas_${productId}`, JSON.stringify(reseñas));
     }
 
-
-
-// Mostrar el nombre del usuario en el navbar si está autenticado
-document.addEventListener('DOMContentLoaded', function() {
-  const user = localStorage.getItem('user');
+    // Mostrar el nombre del usuario en el navbar si está autenticado
+    const user = localStorage.getItem('user');
   
-  if (user) {
-      document.getElementById('user-name').textContent = `Bienvenid@, ${user}`;
-  } else {
-      const confirmShown = sessionStorage.getItem('confirmShown');
-      if (!confirmShown) {
-          const userConfirmed = confirm('No has iniciado sesión. ¿Deseas iniciar sesión ahora?');
-          if (userConfirmed) {
-              window.location.href = 'login.html';
-          }
-          sessionStorage.setItem('confirmShown', 'true');
-      }
-  }
-  
-});
+    if (user) {
+        document.getElementById('user-name').textContent = `Bienvenid@, ${user}`;
+    } else {
+        const confirmShown = sessionStorage.getItem('confirmShown');
+        if (!confirmShown) {
+            const userConfirmed = confirm('No has iniciado sesión. ¿Deseas iniciar sesión ahora?');
+            if (userConfirmed) {
+                window.location.href = 'login.html';
+            }
+            sessionStorage.setItem('confirmShown', 'true');
+        }
+    }
 });
