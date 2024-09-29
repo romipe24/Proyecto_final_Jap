@@ -7,8 +7,8 @@
     box-shadow: none;
 }
 
-/* Seleccionamos correctamente el botón con todas las clases */
 .btn.btn-warning.btn-lg.w-100.mb-3 {
-    background-color: #FF6600;;
+    font-weight: 600; /* Semi-bold */
+    background-color: #FF6600;
     color: white; /* Para que el texto sea visible sobre el fondo */
 }
