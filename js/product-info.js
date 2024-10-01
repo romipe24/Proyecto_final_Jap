@@ -1,7 +1,20 @@
 document.addEventListener("DOMContentLoaded", function() {
     const productId = localStorage.getItem('selectedProductId');
     const catID = localStorage.getItem('catID'); // Obtener el catID desde el localStorage para formar la URL
-  
+    const user = localStorage.getItem('user');
+
+     // Verificar si el usuario está logueado y actualizar el campo de nombre
+     if (user) {
+        const usernameInput = document.getElementById('username');
+        usernameInput.value = ` ${user}`; // Colocar el nombre del usuario en el campo de nombre
+        usernameInput.disabled = true; // Deshabilitar el campo para que no sea editable
+        document.getElementById('user-name').textContent = `Bienvenid@, ${user}`;
+    } else {
+        alert('Debes iniciar sesión para dejar una reseña');
+        window.location.href = 'login.html'; // Redirigir al usuario a la página de login si no está autenticado
+    }
+
+
     if (productId && catID) {
         const DATA_URL = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
   
@@ -123,84 +136,56 @@ function cargarProductosRelacionados(productId) {
     // Manejo del formulario de reseñas
     const reviewForm = document.getElementById('review-form');
     const reviewsList = document.getElementById('reviews-list');
-  
-    // Cargar reseñas desde la URL de JSON
-    const COMMENTS_URL = `https://japceibal.github.io/emercado-api/products_comments/${productId}.json`; // Reemplazar con la URL del JSON que contiene los comentarios
-  
-    function cargarComentariosJSON() {
-        fetch(COMMENTS_URL)
-            .then(response => response.json())
-            .then(data => {
-                const comentarios = data.filter(comentario => comentario.product === parseInt(productId));
-                comentarios.forEach(comentario => {
-                    const comentarioHTML = `
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">${comentario.user}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Puntuación: ${'⭐'.repeat(comentario.score)}</h6>
-                                <p class="card-text">${comentario.description}</p>
-                                <p class="text-muted">Enviado el: ${comentario.dateTime}</p>
-                            </div>
-                        </div>
-                    `;
-                    reviewsList.innerHTML += comentarioHTML;
-                });
-            })
-            .catch(error => console.error("Error al cargar los comentarios:", error));
-    }
 
-    // Cargar comentarios desde el JSON
-    cargarComentariosJSON();
-  
-    // Cargar reseñas almacenadas del producto actual
-    cargarReseñas(productId);
-  
     // Evento para manejar el envío de la reseña
     reviewForm.addEventListener('submit', function(event) {
         event.preventDefault();
-  
-        const username = document.getElementById('username').value;
+
         const message = document.getElementById('review-message').value;
         const rating = document.getElementById('review-rating').value;
-        
+
         const now = new Date();
-        // Obtener los componentes de la fecha
         const year = now.getFullYear();
         const month = String(now.getMonth() + 1).padStart(2, '0'); // Meses empiezan en 0
         const day = String(now.getDate()).padStart(2, '0');
-
-        // Formatear la fecha
         const dateTime = `${year}-${month}-${day}`;
-
-        // Configuración para la hora en formato de 24 horas
         const options = {
             hour: '2-digit',
             minute: '2-digit',
             second: '2-digit',
             hour12: false // Formato 24 horas
         };
+        const time = now.toLocaleTimeString('es-ES', options);
+        const date = `${dateTime} ${time}`;
 
-        const time = now.toLocaleTimeString('es-ES', options); // Obtener la hora
-        const date = `${dateTime} ${time}`; // Combinar fecha y hora
-  
         const reviewHTML = `
             <div class="card mb-3">
                 <div class="card-body">
-                    <h5 class="card-title">${username}</h5>
+                    <h5 class="card-title">${user}</h5> <!-- Mostrar el usuario logueado -->
                     <h6 class="card-subtitle mb-2 text-muted">Puntuación: ${'⭐'.repeat(rating)}</h6>
                     <p class="card-text">${message}</p>
                     <p class="text-muted">Enviado el: ${date}</p>
                 </div>
             </div>
         `;
-  
+
         reviewsList.innerHTML += reviewHTML;
-  
-        guardarReseña(productId, username, message, rating, date);
-  
+
+        guardarReseña(productId, user, message, rating, date);
+
         reviewForm.reset();
     });
-  
+
+    // Función para guardar reseña en localStorage
+    function guardarReseña(productId, username, message, rating, date) {
+        const reseñas = JSON.parse(localStorage.getItem(`reseñas_${productId}`)) || [];
+        reseñas.push({ username, message, rating, date });
+        localStorage.setItem(`reseñas_${productId}`, JSON.stringify(reseñas));
+    }
+
+    // Cargar reseñas almacenadas
+    cargarReseñas(productId);
+
     // Función para cargar reseñas almacenadas
     function cargarReseñas(productId) {
         const reseñas = JSON.parse(localStorage.getItem(`reseñas_${productId}`)) || [];
@@ -209,7 +194,7 @@ function cargarProductosRelacionados(productId) {
                 <div class="card mb-3">
                     <div class="card-body">
                         <h5 class="card-title">${res.username}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Puntuación: ${'⭐'.repeat(res.rating)}</h6> <!-- Cambiado aquí para mostrar estrellas -->
+                        <h6 class="card-subtitle mb-2 text-muted">Puntuación: ${'⭐'.repeat(res.rating)}</h6>
                         <p class="card-text">${res.message}</p>
                         <p class="text-muted">Enviado el: ${res.date}</p>
                     </div>
@@ -218,27 +203,5 @@ function cargarProductosRelacionados(productId) {
             reviewsList.innerHTML += reviewHTML;
         });
     }
-  
-    // Función para guardar reseña en localStorage
-    function guardarReseña(productId, username, message, rating, date) {
-        const reseñas = JSON.parse(localStorage.getItem(`reseñas_${productId}`)) || [];
-        reseñas.push({ username, message, rating, date });
-        localStorage.setItem(`reseñas_${productId}`, JSON.stringify(reseñas));
-    }
-
-    // Mostrar el nombre del usuario en el navbar si está autenticado
-    const user = localStorage.getItem('user');
-  
-    if (user) {
-        document.getElementById('user-name').textContent = `Bienvenid@, ${user}`;
-    } else {
-        const confirmShown = sessionStorage.getItem('confirmShown');
-        if (!confirmShown) {
-            const userConfirmed = confirm('No has iniciado sesión. ¿Deseas iniciar sesión ahora?');
-            if (userConfirmed) {
-                window.location.href = 'login.html';
-            }
-            sessionStorage.setItem('confirmShown', 'true');
-        }
-    }
+        
 });
