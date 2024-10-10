@@ -146,3 +146,12 @@ body {
     }
   }
   
+  body {
+    background-color: white;
+    color: black;
+}
+
+body.dark-mode {
+    background-color: black;
+    color: white;
+}

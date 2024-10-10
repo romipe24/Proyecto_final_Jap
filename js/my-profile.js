@@ -63,7 +63,29 @@ document.getElementById('profile-form').addEventListener('submit', function (eve
     telefono: document.getElementById('telefono').value.trim(),
   };
 
+
+const toggleButton = document.getElementById('toggle-dark-mode');
+
+toggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+
+    // Opcional: guardar la preferencia del usuario
+    if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+    } else {
+        localStorage.setItem('theme', 'light');
+    }
+});
+
+// Cargar preferencia guardada al iniciar
+window.onload = () => {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+}
   localStorage.setItem('profileData', JSON.stringify(profileData));
 
   alert('Datos guardados correctamente.');
 });
+
