@@ -1,157 +1,170 @@
 body {
-    background-color: white;
-  }
-  
-  .profile-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .profile-card {
-    display: flex;
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    max-width: 900px;
-    width: 100%;
-  }
-  
-  .profile-pic-section {
-    background-color: #ffeeba;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-  
-  .profile-pic-section img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    background-color: white;
-    border: 5px solid #ffcc80;
-  }
-  
-  .edit-button {
-    position: absolute;
-    bottom: 50px;
-    right: 50px;
-    background-color: #ffffff;
-    border-radius: 50%;
-    padding: 10px;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .switch-section {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  .switch-section label {
-    margin-right: 10px;
-    font-size: 18px;
-  }
-  
-  .switch input[type="checkbox"] {
-    display: none;
-  }
-  
-  .switch {
-    position: relative;
-    width: 60px;
-    height: 34px;
-  }
-  
-  .switch input + .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: .4s;
-    border-radius: 34px;
-  }
-  
-  .switch input:checked + .slider {
-    background-color: #ffa500;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: .4s;
-    border-radius: 50%;
-  }
-  
-  .switch input:checked + .slider:before {
-    transform: translateX(26px);
-  }
-  
-  .form-section {
-    padding: 40px;
-    flex-grow: 1;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-control {
-    border-radius: 10px;
-    height: 40px;
-  }
-  
-  .btn-save {
-    background-color: #ffa500;
-    border: none;
-    color: white;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    width: 150px;
-  }
-  
-  .btn-save:hover {
-    background-color: #ff8c00;
-  }
-
-  .bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-
-  @media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-      font-size: 3.5rem;
-    }
-  }
-  
-  body {
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
 }
 
 body.dark-mode {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+  height: 100vh;
+}
+
+.profile-card {
+  display: flex;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 900px;
+  width: 100%;
+}
+
+.profile-pic-section {
+  background-color: #ffeeba;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.profile-pic-section img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  background-color: white;
+  border: 5px solid #ffcc80;
+}
+
+.edit-button {
+  position: absolute; /* Se eliminó para mantener la posición del botón */
+  bottom: 50px; /* Ajusta esto si necesitas cambiar la posición */
+  right: 50px; /* Ajusta esto si necesitas cambiar la posición */
+  background-color: #ffa500;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.edit-button:hover {
+  background-color: #ff8c00;
+}
+
+.switch-section {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.switch-section label {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.switch input[type="checkbox"] {
+  display: none;
+}
+
+.switch {
+  position: relative;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input + .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.switch input:checked + .slider {
+  background-color: #ffa500;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.form-section {
+  padding: 40px;
+  flex-grow: 1;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  border-radius: 10px;
+  height: 40px;
+}
+
+.btn-save {
+  background-color: #ffa500;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 150px;
+}
+
+.btn-save:hover {
+  background-color: #ff8c00;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+  }
+}
+
+#input-foto {
+  margin-top: 10px;
+  display: none; /* Oculto hasta que se haga clic en el botón */
+}
+
+.profile-pic-section input {
+  margin-top: 10px;
+  display: block;
 }
