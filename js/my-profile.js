@@ -42,8 +42,4 @@ document.getElementById('foto-perfil').addEventListener('change', function (e) {
   }
 });
 
-// Alternar entre Modo Día/Noche
-document.getElementById('modo').addEventListener('change', function () {
-  document.body.classList.toggle('bg-dark', this.checked);
-  document.body.classList.toggle('text-white', this.checked);
-});
+
