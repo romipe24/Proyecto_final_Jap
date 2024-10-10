@@ -20,26 +20,50 @@
 
  };
  if (user) {
-  document.getElementById('user-name').textContent = `Bienvenid@, ${user}`;
+  document.getElementById('user-name').textContent = `Bienvenid@, ${user}`;// Llenar campo de email automáticamente
+  const emailInput = document.getElementById('email');
+        emailInput.value = ` ${user}`; // Colocar el nombre del usuario en el campo de nombre
+        emailInput.disabled = true; // Deshabilitar el campo para que no sea editable
+
+  // Cargar datos de perfil si ya existen en localStorage
+  const profileData = JSON.parse(localStorage.getItem('profileData'));
+
+  if (profileData) {
+    // Rellenar los campos con los datos guardados
+    document.getElementById('nombre').value = profileData.nombre || '';
+    document.getElementById('segundo-nombre').value = profileData.segundoNombre || '';
+    document.getElementById('apellido').value = profileData.apellido || '';
+    document.getElementById('segundo-apellido').value = profileData.segundoApellido || '';
+    document.getElementById('telefono').value = profileData.telefono || '';
+  }
 }
-  //esto es para cuando le pongamos boton de cerrar sesion
-  // document.getElementById('logoutButton').addEventListener('click', function() {
-  //     // Eliminar la sesión de LocalStorage
-  //     localStorage.removeItem('user');
 
-  // Cambiar la foto de perfil (previsualización)
-document.getElementById('foto-perfil').addEventListener('change', function (e) {
-  const preview = document.getElementById('preview-foto');
-  const file = e.target.files[0];
-  const reader = new FileReader();
+// Almacenar datos en localStorage al guardar el formulario
+document.getElementById('profile-form').addEventListener('submit', function (event) {
+  event.preventDefault();
 
-  reader.onload = function () {
-    preview.src = reader.result;
+  // Obtener valores de los campos
+  const nombre = document.getElementById('nombre').value.trim();
+  const apellido = document.getElementById('apellido').value.trim();
+  const email = document.getElementById('email').value.trim();
+
+  // Validar campos obligatorios
+  if (!nombre || !apellido || !email) {
+    alert('Por favor, completa todos los campos obligatorios.');
+    return;
+  }
+
+  // Guardar datos en localStorage
+  const profileData = {
+    nombre: nombre,
+    segundoNombre: document.getElementById('segundo-nombre').value.trim(),
+    apellido: apellido,
+    segundoApellido: document.getElementById('segundo-apellido').value.trim(),
+    email: email,
+    telefono: document.getElementById('telefono').value.trim(),
   };
 
-  if (file) {
-    reader.readAsDataURL(file);
-  }
+  localStorage.setItem('profileData', JSON.stringify(profileData));
+
+  alert('Datos guardados correctamente.');
 });
-
-
