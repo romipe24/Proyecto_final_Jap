@@ -45,3 +45,13 @@
     color: #000; /* Texto negro cuando está colapsado */
     border-color: #f8f9fa; /* Elimina borde azul al estar colapsado */
 }
+
+body {
+    background-color: white;
+    color: black;
+}
+
+body.dark-mode {
+    background-color: black;
+    color: white;
+}
