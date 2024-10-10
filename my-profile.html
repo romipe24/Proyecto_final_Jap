@@ -8,8 +8,8 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/my-profile.css" rel="stylesheet"> <!-- Archivo CSS externo -->
-</head>
-
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>   
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
@@ -39,61 +39,66 @@
 
               <li class="nav-item">
                 <a class="nav-link" href="sell.html">Vender</a>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="my_profile.html" id="user-name" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Usuario </a> 
-                  <ul class="dropdown-menu" aria-labelledby="user-name"> 
-                    <li><a id="autos" class="dropdown-item" href="cart.html">Mi Carrito</a></li> 
-                    <li><a id="juguetes" class="dropdown-item" href="my-profile.html">Mi Perfil</a></li> 
-                    <li><a id="muebles" class="dropdown-item" href="login.html">Cerrar Sesión</a></li> 
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="my_profile.html" id="user-name" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Usuario </a> 
+                <ul class="dropdown-menu" aria-labelledby="user-name"> 
+                  <li><a id="autos" class="dropdown-item" href="cart.html">Mi Carrito</a></li> 
+                  <li><a id="juguetes" class="dropdown-item" href="my-profile.html">Mi Perfil</a></li> 
+                  <li><a id="muebles" class="dropdown-item" href="login.html">Cerrar Sesión</a></li> 
             </ul>
           </div>
         </div>
       </nav>   
-       
   </header>
-  <div class="profile-container">
-    <div class="profile-card">
-      <!-- Sección de foto de perfil -->
+
+  <img  src="img/login.png" alt="Logo e-mercado" class="logo float-start" >  
+  
+      <!-- Sección de icono de perfil -->
+      <div class="profile-container">
+        <div class="profile-card">
       <div class="profile-pic-section">
         <img src="https://via.placeholder.com/150" alt="Foto de perfil" id="preview-foto">
+        <input type="file" id="input-foto-perfil" accept="image/*" style="display: none;">
+        <button id="btn-cambiar-foto" class="btn btn-primary mt-2">Cambiar Foto</button>
       </div>
-         
-        
 
       <!-- Sección del formulario -->
-      <div class="form-section" id="profile-form">
+      <div class="form-section">
         <form>
-          <div class="form-group">
-            <label for="nombre">Nombre*:</label>
-            <input type="text" class="form-control" id="nombre" placeholder="Nombre" required>
+          <div class="bordered-form">
+            <div class="form-group">
+              <label for="nombre">Nombre*:</label>
+              <input type="text" class="form-control" id="nombre" placeholder="Nombre" required>
+            </div>
+
+            <div class="form-group">
+              <label for="segundo-nombre">Segundo Nombre:</label>
+              <input type="text" class="form-control" id="segundo-nombre" placeholder="Segundo Nombre">
+            </div>
+
+            <div class="form-group">
+              <label for="apellido">Apellido*:</label>
+              <input type="text" class="form-control" id="apellido" placeholder="Apellido" required>
+            </div>
+
+            <div class="form-group">
+              <label for="segundo-apellido">Segundo Apellido:</label>
+              <input type="text" class="form-control" id="segundo-apellido" placeholder="Segundo Apellido">
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-mail*:</label>
+              <input type="email" class="form-control" id="email" placeholder="usuario@ejemplo.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="telefono">Teléfono de contacto:</label>
+              <input type="tel" class="form-control" id="telefono" placeholder="Teléfono de contacto">
+            </div>
           </div>
 
-          <div class="form-group">
-            <label for="segundo-nombre">Segundo Nombre:</label>
-            <input type="text" class="form-control" id="segundo-nombre" placeholder="Segundo Nombre">
-          </div>
-
-          <div class="form-group">
-            <label for="apellido">Apellido*:</label>
-            <input type="text" class="form-control" id="apellido" placeholder="Apellido" required>
-          </div>
-
-          <div class="form-group">
-            <label for="segundo-apellido">Segundo Apellido:</label>
-            <input type="text" class="form-control" id="segundo-apellido" placeholder="Segundo Apellido">
-          </div>
-
-          <div class="form-group">
-            <label for="email">E-mail*:</label>
-            <input type="email" class="form-control" id="email" placeholder="usuario@ejemplo.com" required>
-          </div>
-
-          <div class="form-group">
-            <label for="telefono">Teléfono de contacto:</label>
-            <input type="tel" class="form-control" id="telefono" placeholder="Teléfono de contacto">
-          </div>
-
-          <div class="text-end">
+          <div class="text-end mt-3">
             <button type="submit" class="btn-save">Guardar Cambios</button>
           </div>
         </form>
@@ -103,11 +108,12 @@
 
   <script src="js/my-profile.js"></script> <!-- Archivo JS externo -->
 </body>
+
 <footer class="text-muted">
-    
   <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
   <p class="float-end">
     <a href="#">Volver arriba</a>
   </p>
-</footer> 
+</footer>
+
 </html>
