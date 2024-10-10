@@ -8,22 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
+ 
 </head>
 
 <body>
@@ -38,25 +23,35 @@
           <li class="nav-item">
             <a class="nav-link" href="index.html">Inicio</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
+          <li class="nav-item dropdown"> 
+            <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Categorías </a> 
+            <ul class="dropdown-menu" aria-labelledby="categoriasDropdown"> 
+              <li><a id="autos" class="dropdown-item" href="products.html">Autos</a></li> 
+              <li><a id="juguetes" class="dropdown-item" href="products.html">Juguetes</a></li> 
+              <li><a id="muebles" class="dropdown-item" href="products.html">Muebles</a></li> 
+              <li><a id="herramientas" class="dropdown-item" href="products.html">Herramientas</a></li> 
+              <li><a id="computadoras" class="dropdown-item" href="products.html">Computadoras</a></li> 
+              <li><a id="vestimenta" class="dropdown-item" href="products.html">Vestimenta</a></li> 
+              <li><a id="electrodomesticos" class="dropdown-item" href="products.html">Electrodomésticos</a></li> 
+              <li><a id="deporte" class="dropdown-item" href="products.html">Deporte</a></li> 
+              <li><a id="celulares" class="dropdown-item" href="products.html">Celulares</a></li> </ul> </li>
+      
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item"><a class="nav-link" href="my_profile.html" id="user-name" ></a></li>
-          <li class="nav-item">
-          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="my_profile.html" id="user-name" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Categorías </a> 
+              <ul class="dropdown-menu" aria-labelledby="categoriasDropdown"> 
+                <li><a id="autos" class="dropdown-item" href="my-profile.html">Mi Carrito</a></li> 
+                <li><a id="juguetes" class="dropdown-item" href="my-profile.html">Mi Perfil</a></li> 
+                <li><a id="muebles" class="dropdown-item" href="login.html">Cerrar Sesión</a></li>  
+          </il>
         </ul>
       </div>
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
-    </div>
+    
   </main>
   <footer class="text-muted">
     <div class="container">
