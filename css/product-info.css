@@ -9,6 +9,39 @@
 
 .btn.btn-warning.btn-lg.w-100.mb-3 {
     font-weight: 600; /* Semi-bold */
-    background-color: #FF6600;
+    background-color: #f28b30;
     color: white; /* Para que el texto sea visible sobre el fondo */
+}
+
+.btn.btn-primary {
+    font-weight: 600;
+    background-color: #f28b30; /* Color de fondo */
+    color: white;
+    border-color: #f28b30; /* Mismo color que el fondo */
+}
+
+.accordion-button {
+    background-color: #f8f9fa; /* Color de fondo normal */
+    font-weight: bold;
+    color: #000; /* Color del texto */
+    border-color: #f8f9fa; /* Mismo color del fondo */
+}
+
+.accordion-button:focus {
+    box-shadow: none; /* Elimina el borde o sombra azul al hacer focus */
+    background-color: #f8f9fa; /* Mantén el mismo color de fondo al hacer focus */
+    border-color: #f8f9fa; /* Elimina el borde azul */
+    outline: none; /* Elimina cualquier línea de enfoque adicional */
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: white; /* Color de fondo cuando está expandido */
+    color: black; /* Texto blanco para contraste */
+    border-color: #f28b30; /* Mismo color que el fondo */
+}
+
+.accordion-button.collapsed {
+    background-color: #f8f9fa; /* Color cuando está colapsado */
+    color: #000; /* Texto negro cuando está colapsado */
+    border-color: #f8f9fa; /* Elimina borde azul al estar colapsado */
 }
