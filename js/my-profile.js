@@ -26,3 +26,24 @@
   // document.getElementById('logoutButton').addEventListener('click', function() {
   //     // Eliminar la sesión de LocalStorage
   //     localStorage.removeItem('user');
+
+  // Cambiar la foto de perfil (previsualización)
+document.getElementById('foto-perfil').addEventListener('change', function (e) {
+  const preview = document.getElementById('preview-foto');
+  const file = e.target.files[0];
+  const reader = new FileReader();
+
+  reader.onload = function () {
+    preview.src = reader.result;
+  };
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+});
+
+// Alternar entre Modo Día/Noche
+document.getElementById('modo').addEventListener('change', function () {
+  document.body.classList.toggle('bg-dark', this.checked);
+  document.body.classList.toggle('text-white', this.checked);
+});
