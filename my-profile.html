@@ -13,51 +13,57 @@
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-        <div class="container">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav w-100 justify-content-between">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Inicio</a>
-              </li>
-                <li class="nav-item dropdown"> 
-                  <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Categorías </a> 
-                  <ul class="dropdown-menu" aria-labelledby="categoriasDropdown"> 
-                    <li><a class="dropdown-item" href="categories.html">Categorías</a></li> 
-                    <li><a id="autos" class="dropdown-item" href="products.html">Autos</a></li> 
-                    <li><a id="juguetes" class="dropdown-item" href="products.html">Juguetes</a></li> 
-                    <li><a id="muebles" class="dropdown-item" href="products.html">Muebles</a></li> 
-                    <li><a id="herramientas" class="dropdown-item" href="products.html">Herramientas</a></li> 
-                    <li><a id="computadoras" class="dropdown-item" href="products.html">Computadoras</a></li> 
-                    <li><a id="vestimenta" class="dropdown-item" href="products.html">Vestimenta</a></li> 
-                    <li><a id="electrodomesticos" class="dropdown-item" href="products.html">Electrodomésticos</a></li> 
-                    <li><a id="deporte" class="dropdown-item" href="products.html">Deporte</a></li> 
-                    <li><a id="celulares" class="dropdown-item" href="products.html">Celulares</a></li> </ul> </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="sell.html">Vender</a>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="my_profile.html" id="user-name" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Usuario </a> 
-                  <ul class="dropdown-menu" aria-labelledby="user-name"> 
-                    <li><a id="autos" class="dropdown-item" href="cart.html">Mi Carrito</a></li> 
-                    <li><a id="juguetes" class="dropdown-item" href="my-profile.html">Mi Perfil</a></li> 
-                    <li><a id="muebles" class="dropdown-item" href="login.html">Cerrar Sesión</a></li> 
-            </ul>
-          </div>
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav w-100 justify-content-between">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Categorías </a>
+              <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
+                <li><a class="dropdown-item" href="categories.html">Categorías</a></li>
+                <li><a id="autos" class="dropdown-item" href="products.html">Autos</a></li>
+                <li><a id="juguetes" class="dropdown-item" href="products.html">Juguetes</a></li>
+                <li><a id="muebles" class="dropdown-item" href="products.html">Muebles</a></li>
+                <li><a id="herramientas" class="dropdown-item" href="products.html">Herramientas</a></li>
+                <li><a id="computadoras" class="dropdown-item" href="products.html">Computadoras</a></li>
+                <li><a id="vestimenta" class="dropdown-item" href="products.html">Vestimenta</a></li>
+                <li><a id="electrodomesticos" class="dropdown-item" href="products.html">Electrodomésticos</a></li>
+                <li><a id="deporte" class="dropdown-item" href="products.html">Deporte</a></li>
+                <li><a id="celulares" class="dropdown-item" href="products.html">Celulares</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sell.html">Vender</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="my_profile.html" id="user-name" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Usuario </a>
+              <ul class="dropdown-menu" aria-labelledby="user-name">
+                <li><a class="dropdown-item" href="cart.html">Mi Carrito</a></li>
+                <li><a class="dropdown-item" href="my-profile.html">Mi Perfil</a></li>
+                <li><a class="dropdown-item" href="login.html">Cerrar Sesión</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
-      </nav>   
-       
+      </div>
+    </nav>
   </header>
+
   <div class="profile-container">
     <div class="profile-card">
       <!-- Sección de foto de perfil -->
       <div class="profile-pic-section">
         <img src="https://via.placeholder.com/150" alt="Foto de perfil" id="preview-foto">
+        <input type="file" id="input-foto-perfil" accept="image/*" style="display: none;">
+        <button id="btn-cambiar-foto" class="btn btn-primary mt-2">Cambiar Foto</button>
       </div>
-         
+
       <button id="toggle-dark-mode">Modo Oscuro</button>
 
       <!-- Sección del formulario -->
@@ -102,12 +108,12 @@
   </div>
 
   <script src="js/my-profile.js"></script> <!-- Archivo JS externo -->
+  
+  <footer class="text-muted">
+    <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+    <p class="float-end">
+      <a href="#">Volver arriba</a>
+    </p>
+  </footer>
 </body>
-<footer class="text-muted">
-    
-  <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
-  <p class="float-end">
-    <a href="#">Volver arriba</a>
-  </p>
-</footer> 
 </html>
