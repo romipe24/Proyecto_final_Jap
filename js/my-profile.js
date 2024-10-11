@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function() {
     
   document.getElementById("autos").addEventListener("click", function() {
       localStorage.setItem("catID", 101);
@@ -118,3 +118,67 @@ document.getElementById('profile-form').addEventListener('submit', function (eve
 
   alert('Datos guardados correctamente.');
 });
+  
+  //////////////////////////////////////////////////////////////////////////////////
+  
+  // Modo oscuro
+ document.getElementById('toggle-dark-mode').addEventListener('click', function () {
+  document.body.classList.toggle('bg-dark');
+  document.body.classList.toggle('text-light');
+
+  // Cambiar el texto del botón
+  const button = document.getElementById('toggle-dark-mode');
+  if (document.body.classList.contains('bg-dark')) {
+    button.textContent = 'Modo Claro';
+  } else {
+    button.textContent = 'Modo Oscuro';
+  }
+
+  alert('Datos guardados con éxito');
+
+});
+
+// Función para el modo oscuro
+const toggleDarkMode = document.getElementById('toggle-dark-mode');
+
+toggleDarkMode.addEventListener('click', function () {
+  document.body.classList.toggle('dark-mode');
+  const isDarkMode = document.body.classList.contains('dark-mode');
+  localStorage.setItem('darkMode', isDarkMode);
+
+  // Cargar estado del modo oscuro desde localStorage
+const isDarkMode = localStorage.getItem('darkMode') === 'true';
+if (isDarkMode) {
+  document.body.classList.add('dark-mode');
+}
+  
+  ////////////////////////////////////////////////////////////
+  
+// Cambiar foto de perfil
+document.getElementById('btn-cambiar-foto').addEventListener('click', function () {
+  document.getElementById('input-foto-perfil').click();
+});
+
+document.getElementById('input-foto-perfil').addEventListener('change', function (event) {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+
+  reader.onload = function (e) {
+      const imageSrc = e.target.result;
+      document.getElementById('preview-foto').src = imageSrc; // Muestra la imagen seleccionada
+      localStorage.setItem('perfilFoto', imageSrc); // Guardar imagen en localStorage
+  };
+
+  if (file) {
+      reader.readAsDataURL(file);
+  }
+});
+
+// Cargar la imagen desde localStorage al cargar la página
+window.onload = function () {
+  const savedFoto = localStorage.getItem('perfilFoto');
+  if (savedFoto) {
+      document.getElementById('preview-foto').src = savedFoto; // Cargar la imagen guardada
+  }
+};
+  

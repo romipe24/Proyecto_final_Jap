@@ -45,3 +45,19 @@
     color: #000; /* Texto negro cuando está colapsado */
     border-color: #f8f9fa; /* Elimina borde azul al estar colapsado */
 }
+
+/* Modo oscuro */
+body.bg-dark {
+    background-color: #121212 !important;
+    color: white !important;
+  }
+  .navbar-dark {
+    background-color: #1f1f1f;
+  }
+  .card {
+    background-color: #1f1f1f;
+    color: white;
+  }
+  footer {
+    background-color: #1f1f1f;
+  }

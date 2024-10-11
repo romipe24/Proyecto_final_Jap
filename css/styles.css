@@ -198,6 +198,22 @@ a.custom-card:hover {
   }
 
 
+/* Modo oscuro */
+body.bg-dark {
+  background-color: #121212 !important;
+  color: white !important;
+}
+.navbar-dark {
+  background-color: #1f1f1f;
+}
+.card {
+  background-color: #1f1f1f;
+  color: white;
+}
+footer {
+  background-color: #1f1f1f;
+}
+
   /*
   .bd-placeholder-img {
     font-size: 1.125rem;
