@@ -1,3 +1,43 @@
+document.addEventListener("DOMContentLoaded", function() {
+    
+  document.getElementById("autos").addEventListener("click", function() {
+      localStorage.setItem("catID", 101);
+      window.location = "products.html"
+  });
+  document.getElementById("juguetes").addEventListener("click", function() {
+      localStorage.setItem("catID", 102);
+      window.location = "products.html"
+  });
+  document.getElementById("muebles").addEventListener("click", function() {
+      localStorage.setItem("catID", 103);
+      window.location = "products.html"
+  });
+  document.getElementById("herramientas").addEventListener("click", function() {
+      localStorage.setItem("catID", 104);
+      window.location = "products.html"
+  });
+  document.getElementById("computadoras").addEventListener("click", function() {
+      localStorage.setItem("catID", 105);
+      window.location = "products.html"
+  });
+  document.getElementById("vestimenta").addEventListener("click", function() {
+      localStorage.setItem("catID", 106);
+      window.location = "products.html"
+  });
+  document.getElementById("electrodomesticos").addEventListener("click", function() {
+      localStorage.setItem("catID", 107);
+      window.location = "products.html"
+  });
+  document.getElementById("deporte").addEventListener("click", function() {
+      localStorage.setItem("catID", 108);
+      window.location = "products.html"
+  });
+  document.getElementById("celulares").addEventListener("click", function() {
+      localStorage.setItem("catID", 109);
+      window.location = "products.html"
+  });
+});
+
  // Verificar si el usuario está autenticado
  const user = localStorage.getItem('user');
 
@@ -20,7 +60,8 @@
 
  };
  if (user) {
-  document.getElementById('user-name').textContent = `Bienvenid@, ${user}`;// Llenar campo de email automáticamente
+  
+  //nombre de email en el form
   const emailInput = document.getElementById('email');
         emailInput.value = ` ${user}`; // Colocar el nombre del usuario en el campo de nombre
         emailInput.disabled = true; // Deshabilitar el campo para que no sea editable
@@ -35,8 +76,15 @@
     document.getElementById('apellido').value = profileData.apellido || '';
     document.getElementById('segundo-apellido').value = profileData.segundoApellido || '';
     document.getElementById('telefono').value = profileData.telefono || '';
-  }
-}
+    // Mostrar el nombre guardado en la bienvenida
+    document.getElementById('user-name').textContent = `Bienvenid@, ${profileData.nombre}`;
+   } else {
+    // Si no hay perfil guardado, mostrar el email como nombre
+   document.getElementById('user-name').textContent = `Bienvenid@, ${user}`;
+    }
+  }   
+
+  
 
 // Almacenar datos en localStorage al guardar el formulario
 document.getElementById('profile-form').addEventListener('submit', function (event) {
@@ -64,6 +112,9 @@ document.getElementById('profile-form').addEventListener('submit', function (eve
   };
 
   localStorage.setItem('profileData', JSON.stringify(profileData));
+
+   // Actualizar el nombre de bienvenida con el nuevo nombre guardado
+   document.getElementById('user-name').textContent = `Bienvenid@, ${nombre}`;
 
   alert('Datos guardados correctamente.');
 });

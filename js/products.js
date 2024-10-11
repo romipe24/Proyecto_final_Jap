@@ -35,42 +35,41 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Event listeners for category selection
     document.getElementById("autos").addEventListener("click", function() {
         localStorage.setItem("catID", 101);
-        window.location = "products.html";
+        window.location = "products.html"
     });
     document.getElementById("juguetes").addEventListener("click", function() {
         localStorage.setItem("catID", 102);
-        window.location = "products.html";
+        window.location = "products.html"
     });
     document.getElementById("muebles").addEventListener("click", function() {
         localStorage.setItem("catID", 103);
-        window.location = "products.html";
+        window.location = "products.html"
     });
     document.getElementById("herramientas").addEventListener("click", function() {
         localStorage.setItem("catID", 104);
-        window.location = "products.html";
+        window.location = "products.html"
     });
     document.getElementById("computadoras").addEventListener("click", function() {
         localStorage.setItem("catID", 105);
-        window.location = "products.html";
+        window.location = "products.html"
     });
     document.getElementById("vestimenta").addEventListener("click", function() {
         localStorage.setItem("catID", 106);
-        window.location = "products.html";
+        window.location = "products.html"
     });
     document.getElementById("electrodomesticos").addEventListener("click", function() {
         localStorage.setItem("catID", 107);
-        window.location = "products.html";
+        window.location = "products.html"
     });
     document.getElementById("deporte").addEventListener("click", function() {
         localStorage.setItem("catID", 108);
-        window.location = "products.html";
+        window.location = "products.html"
     });
     document.getElementById("celulares").addEventListener("click", function() {
         localStorage.setItem("catID", 109);
-        window.location = "products.html";
+        window.location = "products.html"
     });
 
     // Event listeners for filters and search
@@ -97,7 +96,16 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     if (user) {
+        // Cargar datos de perfil si ya existen en localStorage
+        const profileData = JSON.parse(localStorage.getItem('profileData'));
+
+        if (profileData) {
+            // Mostrar el nombre guardado en la bienvenida
+            document.getElementById('user-name').textContent = `Bienvenid@, ${profileData.nombre}`;
+        } else {
+            // Si no hay perfil guardado, mostrar el email como nombre
         document.getElementById('user-name').textContent = `Bienvenid@, ${user}`;
+            }
     }
 });
 
@@ -169,7 +177,6 @@ function sortProducts(products, sortOrder) {
     return sortedProducts;
 }
 
-// Función para filtrar productos
 // Función para filtrar productos
 function filterProducts(products, searchQuery, minPrice, maxPrice) {
     return products.filter(product => {

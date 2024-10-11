@@ -46,31 +46,30 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
    if (!user && !confirmShown) {
-        // Muestra la alerta
-       const userConfirmed = confirm('No has iniciado sesión. ¿Deseas iniciar sesión ahora?');
-       
+    // Muestra la alerta
+    const userConfirmed = confirm('No has iniciado sesión. ¿Deseas iniciar sesión ahora?');
 
-       if (userConfirmed) {
-           // Redirigir al login si el usuario desea iniciar sesión
-           window.location.href = 'login.html';
-       } else {
-        window.location.href = 'redireccion_login.html';
-       }
+    if (userConfirmed) {
+        // Redirigir al login si el usuario desea iniciar sesión
+        window.location.href = 'login.html';
+    }
 
-
-       // Marca que la alerta ya se ha mostrado en la sesión actual
-       sessionStorage.setItem('confirmShown', 'true');
-
-   };
-   if (user) {
-    document.getElementById('user-name').textContent = `Bienvenid@, ${user}`;
+    // Marca que la alerta ya se ha mostrado en la sesión actual
+    sessionStorage.setItem('confirmShown', 'true');
 }
-    //esto es para cuando le pongamos boton de cerrar sesion
-    // document.getElementById('logoutButton').addEventListener('click', function() {
-    //     // Eliminar la sesión de LocalStorage
-    //     localStorage.removeItem('user');
 
-  
+if (user) {
+    // Cargar datos de perfil si ya existen en localStorage
+    const profileData = JSON.parse(localStorage.getItem('profileData'));
+
+    if (profileData) {
+        // Mostrar el nombre guardado en la bienvenida
+        document.getElementById('user-name').textContent = `Bienvenid@, ${profileData.nombre}`;
+    } else {
+        // Si no hay perfil guardado, mostrar el email como nombre
+    document.getElementById('user-name').textContent = `Bienvenid@, ${user}`;
+        }
+}
 
 
 });
