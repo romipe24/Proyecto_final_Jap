@@ -1,9 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const productId = localStorage.getItem('selectedProductId');
     const catID = localStorage.getItem('catID'); // Obtener el catID desde el localStorage para formar la URL
-    const nombreUsuario = localStorage.getItem('user');
-
-   
+    const user = localStorage.getItem('user');
       
         if (productId && catID) {
             const DATA_URL = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
@@ -229,20 +227,39 @@ document.addEventListener("DOMContentLoaded", function() {
             localStorage.setItem(`reseñas_${productId}`, JSON.stringify(reseñas));
         }
     
-        // Mostrar el nombre del usuario en el navbar si está autenticado
-        const user = localStorage.getItem('user');
       
-        if (user) {
-            document.getElementById('user-name').textContent = `Bienvenid@, ${user}`;
-        } else {
-            const confirmShown = sessionStorage.getItem('confirmShown');
-            if (!confirmShown) {
-                const userConfirmed = confirm('No has iniciado sesión. ¿Deseas iniciar sesión ahora?');
-                if (userConfirmed) {
-                    window.location.href = 'login.html';
-                }
-                sessionStorage.setItem('confirmShown', 'true');
+        if (!user && !confirmShown) {
+            // Muestra la alerta
+            const userConfirmed = confirm('No has iniciado sesión. ¿Deseas iniciar sesión ahora?');
+    
+            if (userConfirmed) {
+                // Redirigir al login si el usuario desea iniciar sesión
+                window.location.href = 'login.html';
             }
+    
+            // Marca que la alerta ya se ha mostrado en la sesión actual
+            sessionStorage.setItem('confirmShown', 'true');
+        }
+    
+        if (user) {
+            
+            const usernameInput = document.getElementById('username');
+       
+
+            // Cargar datos de perfil si ya existen en localStorage
+            const profileData = JSON.parse(localStorage.getItem('profileData'));
+            
+            if (profileData) {
+                // Mostrar el nombre guardado en la bienvenida
+                document.getElementById('user-name').textContent = `Bienvenid@, ${profileData.nombre}`;
+                usernameInput.value = ` ${profileData.nombre} ${profileData.apellido}`; // Colocar el nombre del usuario en el campo de nombre
+                usernameInput.disabled = true; // Deshabilitar el campo para que no sea editable
+            } else {
+                // Si no hay perfil guardado, mostrar el email como nombre
+                document.getElementById('user-name').textContent = `Bienvenid@, ${user}`;
+                usernameInput.value = ` ${user}`; // Colocar el nombre del usuario en el campo de nombre
+                usernameInput.disabled = true; // Deshabilitar el campo para que no sea editable
+                }
         }
 
 
