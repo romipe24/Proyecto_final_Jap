@@ -145,7 +145,7 @@ toggleDarkMode.addEventListener('click', function () {
   document.body.classList.toggle('dark-mode');
   const isDarkMode = document.body.classList.contains('dark-mode');
   localStorage.setItem('darkMode', isDarkMode);
-
+});
   // Cargar estado del modo oscuro desde localStorage
 const isDarkMode = localStorage.getItem('darkMode') === 'true';
 if (isDarkMode) {
