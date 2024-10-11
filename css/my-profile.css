@@ -157,6 +157,22 @@ body.dark-mode {
   .bd-placeholder-img-lg {
       font-size: 3.5rem;
   }
+
+  
+/* Modo oscuro */
+body.bg-dark {
+  background-color: #121212 !important;
+  color: white !important;
+}
+.navbar-dark {
+  background-color: #1f1f1f;
+}
+.card {
+  background-color: #1f1f1f;
+  color: white;
+}
+footer {
+  background-color: #1f1f1f;
 }
 
 #input-foto {

@@ -93,7 +93,22 @@ document.getElementById('profile-form').addEventListener('submit', function (eve
 
   localStorage.setItem('profileData', JSON.stringify(profileData));
 
+
+ // Modo oscuro
+ document.getElementById('toggle-dark-mode').addEventListener('click', function () {
+  document.body.classList.toggle('bg-dark');
+  document.body.classList.toggle('text-light');
+
+  // Cambiar el texto del botón
+  const button = document.getElementById('toggle-dark-mode');
+  if (document.body.classList.contains('bg-dark')) {
+    button.textContent = 'Modo Claro';
+  } else {
+    button.textContent = 'Modo Oscuro';
+  }
+
   alert('Datos guardados con éxito');
+
 });
 
 // Función para el modo oscuro
@@ -104,6 +119,9 @@ toggleDarkMode.addEventListener('click', function () {
   const isDarkMode = document.body.classList.contains('dark-mode');
   localStorage.setItem('darkMode', isDarkMode);
 });
+
+
+
 
 // Cargar estado del modo oscuro desde localStorage
 const isDarkMode = localStorage.getItem('darkMode') === 'true';

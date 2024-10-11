@@ -258,23 +258,16 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     });
 
-    const toggleButton = document.getElementById('toggle-dark-mode');
+ // Modo oscuro
+ document.getElementById('toggle-dark-mode').addEventListener('click', function () {
+    document.body.classList.toggle('bg-dark');
+    document.body.classList.toggle('text-light');
 
-toggleButton.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-
-    // Opcional: guardar la preferencia del usuario
-    if (document.body.classList.contains('dark-mode')) {
-        localStorage.setItem('theme', 'dark');
+    // Cambiar el texto del botón
+    const button = document.getElementById('toggle-dark-mode');
+    if (document.body.classList.contains('bg-dark')) {
+      button.textContent = 'Modo Claro';
     } else {
-        localStorage.setItem('theme', 'light');
+      button.textContent = 'Modo Oscuro';
     }
-});
-
-// Cargar preferencia guardada al iniciar
-window.onload = () => {
-    const theme = localStorage.getItem('theme');
-    if (theme === 'dark') {
-        document.body.classList.add('dark-mode');
-    }
-};
+  });
