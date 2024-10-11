@@ -197,16 +197,22 @@ a.custom-card:hover {
     color: white;
   }
 
-  body {
-    background-color: white;
-    color: black;
-}
 
-body.dark-mode {
-    background-color: black;
-    color: white;
+/* Modo oscuro */
+body.bg-dark {
+  background-color: #121212 !important;
+  color: white !important;
 }
-
+.navbar-dark {
+  background-color: #1f1f1f;
+}
+.card {
+  background-color: #1f1f1f;
+  color: white;
+}
+footer {
+  background-color: #1f1f1f;
+}
 
   /*
   .bd-placeholder-img {

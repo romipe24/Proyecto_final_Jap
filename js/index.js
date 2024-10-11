@@ -76,3 +76,16 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 
+ // Modo oscuro
+ document.getElementById('toggle-dark-mode').addEventListener('click', function () {
+    document.body.classList.toggle('bg-dark');
+    document.body.classList.toggle('text-light');
+
+    // Cambiar el texto del botón
+    const button = document.getElementById('toggle-dark-mode');
+    if (document.body.classList.contains('bg-dark')) {
+      button.textContent = 'Modo Claro';
+    } else {
+      button.textContent = 'Modo Oscuro';
+    }
+  });

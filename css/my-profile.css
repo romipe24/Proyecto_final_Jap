@@ -146,12 +146,18 @@ body {
     }
   }
   
-  body {
-    background-color: white;
-    color: black;
+/* Modo oscuro */
+body.bg-dark {
+  background-color: #121212 !important;
+  color: white !important;
 }
-
-body.dark-mode {
-    background-color: black;
-    color: white;
+.navbar-dark {
+  background-color: #1f1f1f;
+}
+.card {
+  background-color: #1f1f1f;
+  color: white;
+}
+footer {
+  background-color: #1f1f1f;
 }
