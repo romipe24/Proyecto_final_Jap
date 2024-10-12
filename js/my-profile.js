@@ -121,36 +121,31 @@ document.getElementById('profile-form').addEventListener('submit', function (eve
   
   //////////////////////////////////////////////////////////////////////////////////
   
-  // Modo oscuro
- document.getElementById('toggle-dark-mode').addEventListener('click', function () {
-  document.body.classList.toggle('bg-dark');
-  document.body.classList.toggle('text-light');
+ // Modo oscuro
+ const toggleDarkMode = document.getElementById('toggle-dark-mode');
 
-  // Cambiar el texto del botón
-  const button = document.getElementById('toggle-dark-mode');
-  if (document.body.classList.contains('bg-dark')) {
-    button.textContent = 'Modo Claro';
-  } else {
-    button.textContent = 'Modo Oscuro';
-  }
+ toggleDarkMode.addEventListener('click', function () {
+     document.body.classList.toggle('dark-mode');
+     const isDarkMode = document.body.classList.contains('dark-mode');
+     
+     // Cambiar el texto del botón según el estado
+     if (isDarkMode) {
+         toggleDarkMode.textContent = 'Modo Claro';
+     } else {
+         toggleDarkMode.textContent = 'Modo Oscuro';
+     }
 
-  alert('Datos guardados con éxito');
+     // Guardar el estado del modo en localStorage
+     localStorage.setItem('darkMode', isDarkMode);
+ });
 
-});
+ // Cargar el estado del modo oscuro desde localStorage
+ const isDarkMode = localStorage.getItem('darkMode') === 'true';
+ if (isDarkMode) {
+     document.body.classList.add('dark-mode');
+     toggleDarkMode.textContent = 'Modo Claro'; // Cambiar el texto del botón
+ }
 
-// Función para el modo oscuro
-const toggleDarkMode = document.getElementById('toggle-dark-mode');
-
-toggleDarkMode.addEventListener('click', function () {
-  document.body.classList.toggle('dark-mode');
-  const isDarkMode = document.body.classList.contains('dark-mode');
-  localStorage.setItem('darkMode', isDarkMode);
-});
-  // Cargar estado del modo oscuro desde localStorage
-const isDarkMode = localStorage.getItem('darkMode') === 'true';
-if (isDarkMode) {
-  document.body.classList.add('dark-mode');
-}
   
   ////////////////////////////////////////////////////////////
   

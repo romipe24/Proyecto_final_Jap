@@ -217,3 +217,17 @@ footer {
 #input-foto {
   display: none;
 }
+
+.btn-toggle {
+  background-color: #ffa500;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.btn-toggle:hover {
+  background-color: #ff8c00;
+}
