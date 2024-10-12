@@ -151,7 +151,7 @@ document.getElementById('profile-form').addEventListener('submit', function (eve
   
 // Cambiar foto de perfil
 document.getElementById('btn-cambiar-foto').addEventListener('click', function () {
-  document.getElementById('input-foto-perfil').click();
+  document.getElementById('input-foto-perfil').click(); // Simula el clic en el input para abrir el selector de archivos
 });
 
 document.getElementById('input-foto-perfil').addEventListener('change', function (event) {
@@ -165,7 +165,7 @@ document.getElementById('input-foto-perfil').addEventListener('change', function
   };
 
   if (file) {
-      reader.readAsDataURL(file);
+      reader.readAsDataURL(file); // Lee el archivo como una URL de datos
   }
 });
 
@@ -176,4 +176,3 @@ window.onload = function () {
       document.getElementById('preview-foto').src = savedFoto; // Cargar la imagen guardada
   }
 };
-  
