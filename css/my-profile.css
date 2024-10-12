@@ -184,3 +184,13 @@ footer {
   margin-top: 10px;
   display: block;
 }
+
+
+.logo {
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.logo img {
+  max-width:600px;
+}
