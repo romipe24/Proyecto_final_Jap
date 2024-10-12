@@ -26,7 +26,7 @@ body.dark-mode {
 }
 
 .profile-pic-section {
-  background-color: #ffeeba;
+  background-color: white;
   padding: 40px;
   display: flex;
   flex-direction: column;
@@ -41,7 +41,7 @@ body.dark-mode {
   height: 150px;
   object-fit: cover;
   background-color: white;
-  border: 5px solid #ffcc80;
+  border: 5px solid whitesmoke;
 }
 
 .edit-button {
@@ -186,11 +186,46 @@ footer {
 }
 
 
-.logo {
-  margin-bottom: 20px;
-  margin-top: 10px;
+/* Contenedor para logo e h2 */
+.header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
 }
 
-.logo img {
-  max-width:600px;
+/* Logo alineado a la izquierda */
+.logo-img {
+  max-width: 30%; /* Tamaño reducido */
+  height: auto;
+}
+
+/* Título centrado */
+.header-title {
+  flex-grow: 10; 
+  text-align: center;
+  font-size: 24px;
+}
+
+/* Estilos para el botón Cambiar Foto */
+.edit-button {
+  background-color: #ffa500;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 150px;
+  text-align: center;
+}
+
+.edit-button:hover {
+  background-color: #ff8c00;
+}
+
+/* Input de foto (oculto hasta que se haga clic en el botón) */
+#input-foto {
+  display: none;
 }
