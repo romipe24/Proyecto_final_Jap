@@ -3,10 +3,10 @@ body {
   color: black;
 }
 
-body.dark-mode {
-  background-color: black;
-  color: white;
+#theme-icon svg {
+  fill: black; /* Cambia el color del icono a negro */
 }
+
 
 .profile-container {
   display: flex;
@@ -148,32 +148,6 @@ body.dark-mode {
       font-size: 3.5rem;
   }
 }
-  
-/* Modo oscuro */
-/* Modo oscuro */
-body.dark-mode {
-  background-color: #121212; /* Fondo oscuro */
-  color: #ffffff; /* Texto claro */
-}
-
-.dark-mode .navbar {
-  background-color: #1a1a1a; /* Navbar oscura */
-}
-
-.dark-mode .form-control {
-  background-color: #2c2c2c; /* Fondo de formularios oscuros */
-  color: #ffffff; /* Texto claro en formularios */
-}
-
-.dark-mode .btn-toggle {
-  background-color: #444; /* Fondo del botón oscuro */
-  color: #ffffff; /* Texto claro en botón */
-}
-
-.dark-mode .btn-save {
-  background-color: #007bff; /* Color del botón guardar */
-  color: #ffffff; /* Texto claro en botón guardar */
-}
 
 
 
@@ -257,3 +231,4 @@ body.dark-mode {
 .btn-toggle:hover {
   background-color: #ff8c00;
 }
+
