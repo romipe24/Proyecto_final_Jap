@@ -47,17 +47,46 @@
 }
 
 /* Modo oscuro */
-body.bg-dark {
-    background-color: #121212 !important;
-    color: white !important;
+  /* Modo claro (por defecto) */
+  body.light-mode {
+    background-color: white;
+    color: black;
   }
-  .navbar-dark {
-    background-color: #1f1f1f;
-  }
-  .card {
-    background-color: #1f1f1f;
+
+  /* Modo oscuro */
+  body.dark-mode {
+    background-color: #121212;
     color: white;
   }
-  footer {
-    background-color: #1f1f1f;
+
+  .dark-mode .navbar {
+    background-color: #333;
+  }
+
+  .dark-mode .accordion-button {
+    background-color: #444;
+    color: white;
+  }
+
+  .dark-mode .accordion-body {
+    background-color: #333;
+    color: white;
+  }
+
+  .dark-mode .btn-primary {
+    background-color: #444;
+    color: white;
+  }
+
+  .dark-mode .form-control {
+    background-color: #333;
+    color: white;
+  }
+
+  .dark-mode .text-muted {
+    color: #ccc;
+  }
+
+  .dark-mode footer {
+    background-color: #222;
   }

@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // Si no hay perfil guardado, mostrar el email como nombre
             document.getElementById('user-name').textContent = `Bienvenid@, ${user}`;
         }
+
     }
 
     // Modo oscuro

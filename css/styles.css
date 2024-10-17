@@ -199,39 +199,43 @@ a.custom-card:hover {
 
 
   
-  /* Modo claro (por defecto) */
+
+  /* Estilos generales del modo oscuro */
   body.light-mode {
     background-color: white;
     color: black;
-  }
+}
 
-  /* Modo oscuro */
-  body.dark-mode {
+body.dark-mode {
     background-color: #121212;
     color: white;
-  }
+}
 
-  .dark-mode .navbar {
+.dark-mode .navbar {
     background-color: #333;
-  }
+}
 
-  .dark-mode .form-control {
-    background-color: #333;
-    color: white;
-  }
-
-  .dark-mode .btn-save {
+.dark-mode .card {
     background-color: #444;
     color: white;
-  }
+}
 
-  .dark-mode .profile-pic-section {
+.dark-mode .btn-light {
     background-color: #444;
-  }
+    color: white;
+}
 
-  .dark-mode .text-muted {
+.dark-mode footer {
+    background-color: #222;
     color: #ccc;
-  }
+}
+
+.dark-mode .text-muted {
+    color: #aaa;
+}
+
+/* Otras reglas que ya tienes */
+
 
 
   /*
