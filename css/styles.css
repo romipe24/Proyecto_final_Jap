@@ -198,21 +198,41 @@ a.custom-card:hover {
   }
 
 
-/* Modo oscuro */
-body.bg-dark {
-  background-color: #121212 !important;
-  color: white !important;
-}
-.navbar-dark {
-  background-color: #1f1f1f;
-}
-.card {
-  background-color: #1f1f1f;
-  color: white;
-}
-footer {
-  background-color: #1f1f1f;
-}
+  
+  /* Modo claro (por defecto) */
+  body.light-mode {
+    background-color: white;
+    color: black;
+  }
+
+  /* Modo oscuro */
+  body.dark-mode {
+    background-color: #121212;
+    color: white;
+  }
+
+  .dark-mode .navbar {
+    background-color: #333;
+  }
+
+  .dark-mode .form-control {
+    background-color: #333;
+    color: white;
+  }
+
+  .dark-mode .btn-save {
+    background-color: #444;
+    color: white;
+  }
+
+  .dark-mode .profile-pic-section {
+    background-color: #444;
+  }
+
+  .dark-mode .text-muted {
+    color: #ccc;
+  }
+
 
   /*
   .bd-placeholder-img {
