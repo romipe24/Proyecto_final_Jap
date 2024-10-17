@@ -122,29 +122,25 @@ document.getElementById('profile-form').addEventListener('submit', function (eve
   //////////////////////////////////////////////////////////////////////////////////
   
  // Modo oscuro
- const toggleDarkMode = document.getElementById('toggle-dark-mode');
+ const toggleDarkModeButton = document.getElementById('toggle-dark-mode');
+  const body = document.body;
 
- toggleDarkMode.addEventListener('click', function () {
-     document.body.classList.toggle('dark-mode');
-     const isDarkMode = document.body.classList.contains('dark-mode');
-     
-     // Cambiar el texto del botón según el estado
-     if (isDarkMode) {
-         toggleDarkMode.textContent = 'Modo Claro';
-     } else {
-         toggleDarkMode.textContent = 'Modo Oscuro';
-     }
+  // Función para establecer el modo
+  function setMode(mode) {
+    body.className = mode;
+    localStorage.setItem('theme', mode);
+    toggleDarkModeButton.textContent = mode === 'dark-mode' ? 'Modo Día' : 'Modo Oscuro';
+  }
 
-     // Guardar el estado del modo en localStorage
-     localStorage.setItem('darkMode', isDarkMode);
- });
+  // Alternar entre modos cuando se hace clic en el botón
+  toggleDarkModeButton.addEventListener('click', () => {
+    const currentMode = body.classList.contains('light-mode') ? 'dark-mode' : 'light-mode';
+    setMode(currentMode);
+  });
 
- // Cargar el estado del modo oscuro desde localStorage
- const isDarkMode = localStorage.getItem('darkMode') === 'true';
- if (isDarkMode) {
-     document.body.classList.add('dark-mode');
-     toggleDarkMode.textContent = 'Modo Claro'; // Cambiar el texto del botón
- }
+  // Cargar el modo almacenado en localStorage
+  const savedMode = localStorage.getItem('theme') || 'light-mode';
+  setMode(savedMode);
 
   
   ////////////////////////////////////////////////////////////
