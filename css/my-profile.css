@@ -190,10 +190,21 @@ body.bg-dark {
 
 /* Título centrado */
 .header-title {
-  flex-grow: 10; 
+  flex-grow: 1;  /* Ocupa el máximo espacio disponible */
   text-align: center;
   font-size: 24px;
-  padding-right:150px ;
+  margin-right: 0; /
+}
+
+/* Ajuste del contenedor principal para el perfil */
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  height: auto; 
+  padding-right: 50px; 
+  padding-left: 50px;
+  margin-top: 20px; 
 }
 
 /* Estilos para el botón Cambiar Foto */
