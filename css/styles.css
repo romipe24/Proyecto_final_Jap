@@ -200,39 +200,9 @@ a.custom-card:hover {
 
   
 
-  /* Estilos generales del modo oscuro */
-  body.light-mode {
-    background-color: white;
-    color: black;
-}
 
-body.dark-mode {
-    background-color: #121212;
-    color: white;
-}
 
-.dark-mode .navbar {
-    background-color: #333;
-}
 
-.dark-mode .card {
-    background-color: #444;
-    color: white;
-}
-
-.dark-mode .btn-light {
-    background-color: #444;
-    color: white;
-}
-
-.dark-mode footer {
-    background-color: #222;
-    color: #ccc;
-}
-
-.dark-mode .text-muted {
-    color: #aaa;
-}
 
 /* Otras reglas que ya tienes */
 

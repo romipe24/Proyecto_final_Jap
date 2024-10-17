@@ -1,0 +1,54 @@
+/* modo oscuro */
+/* 
+  body.dark-theme {
+    background-color: #242629;
+    color: #ffffff;
+  }
+  
+  .dark-theme .navbar {
+    background-color: #16161a;
+  }
+  
+  .dark-theme .card {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .dark-theme .btn {
+    background-color: #7f5af0;
+    color: #fff;
+  } */
+
+  body.dark-theme {
+    background-color: #121212;
+    color: white;
+}
+
+.dark-theme .navbar {
+    background-color: #333;
+}
+
+.dark-theme .card {
+    background-color: #444;
+    color: white;
+}
+
+.dark-theme .btn-light {
+    background-color: #444;
+    color: white;
+}
+
+.dark-theme footer {
+    background-color: #222;
+    color: #ccc;
+}
+
+.dark-theme .text-muted {
+    color: #aaa;
+}
+
+  /* Estilos generales del modo oscuro */
+  body.light-mode {
+    background-color: white;
+    color: black;
+}

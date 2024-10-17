@@ -10,11 +10,12 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="css/theme.css" rel="stylesheet">
 
 </head>
 
 <body class="light-mode">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
     <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,20 +27,20 @@
             <a class="nav-link active" href="index.html">Inicio</a>
           </li>
           <li class="nav-item dropdown"> 
-          <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Categorías </a> 
-          <ul class="dropdown-menu" aria-labelledby="categoriasDropdown"> 
-            <li><a class="dropdown-item" href="categories.html">Categorías</a></li> 
-            <li><a id="autos" class="dropdown-item" href="products.html">Autos</a></li> 
-            <li><a id="juguetes" class="dropdown-item" href="products.html">Juguetes</a></li> 
-            <li><a id="muebles" class="dropdown-item" href="products.html">Muebles</a></li> 
-            <li><a id="herramientas" class="dropdown-item" href="products.html">Herramientas</a></li> 
-            <li><a id="computadoras" class="dropdown-item" href="products.html">Computadoras</a></li> 
-            <li><a id="vestimenta" class="dropdown-item" href="products.html">Vestimenta</a></li> 
-            <li><a id="electrodomesticos" class="dropdown-item" href="products.html">Electrodomésticos</a></li> 
-            <li><a id="deporte" class="dropdown-item" href="products.html">Deporte</a></li> 
-            <li><a id="celulares" class="dropdown-item" href="products.html">Celulares</a></li> </ul> </li>
-            
-
+            <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Categorías </a> 
+            <ul class="dropdown-menu" aria-labelledby="categoriasDropdown"> 
+              <li><a class="dropdown-item" href="categories.html">Categorías</a></li> 
+              <li><a id="autos" class="dropdown-item" href="products.html">Autos</a></li> 
+              <li><a id="juguetes" class="dropdown-item" href="products.html">Juguetes</a></li> 
+              <li><a id="muebles" class="dropdown-item" href="products.html">Muebles</a></li> 
+              <li><a id="herramientas" class="dropdown-item" href="products.html">Herramientas</a></li> 
+              <li><a id="computadoras" class="dropdown-item" href="products.html">Computadoras</a></li> 
+              <li><a id="vestimenta" class="dropdown-item" href="products.html">Vestimenta</a></li> 
+              <li><a id="electrodomesticos" class="dropdown-item" href="products.html">Electrodomésticos</a></li> 
+              <li><a id="deporte" class="dropdown-item" href="products.html">Deporte</a></li> 
+              <li><a id="celulares" class="dropdown-item" href="products.html">Celulares</a></li> 
+            </ul> 
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
@@ -51,15 +52,20 @@
               <li><a id="login" class="dropdown-item" href="login.html">Cerrar Sesión</a></li> 
             </ul>
           </li>
-          <li>
-            <button id="toggle-dark-mode" class="btn btn-light">
-              <i id="theme-icon" class="fas fa-moon"></i> Modo Oscuro
-            </button>
-          </li>          
-
+        </ul>
+        <div class="form-check form-switch pt-1" title="Cambiar tema">
+          <input class="form-check-input" type="checkbox" role="switch" id="toggle-dark-mode">
+          <label class="form-check-label" for="toggle-dark-mode">
+            <span id="theme-icon">
+              <!-- Icono inicial del tema -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sun-fill" viewBox="0 0 16 16">
+                <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+              </svg>
+            </span>
+          </label>
+        </div>
       </div>
     </div>
-    
   </nav>
   <main>
     <div class="jumbotron text-center"></div>
@@ -113,38 +119,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/index.js"></script>
   <script src="js/init.js"></script>
-  <script>
-  const toggleDarkModeButton = document.getElementById('toggle-dark-mode');
-  const body = document.body;
-  const themeIcon = document.getElementById('theme-icon');
-
-  // Función para cambiar el modo
-  function setMode(mode) {
-    body.className = mode; // Cambia el modo claro/oscuro
-    localStorage.setItem('theme', mode); // Guarda el modo en localStorage
-    
-    // Cambia el ícono y el texto del botón según el modo
-    if (mode === 'dark-mode') {
-      themeIcon.classList.remove('fa-moon');
-      themeIcon.classList.add('fa-sun'); // Cambia a ícono de sol
-      toggleDarkModeButton.textContent = " Modo Claro"; // Cambia el texto
-    } else {
-      themeIcon.classList.remove('fa-sun');
-      themeIcon.classList.add('fa-moon'); // Cambia a ícono de luna
-      toggleDarkModeButton.textContent = " Modo Oscuro"; // Cambia el texto
-    }
-  }
-
-  // Listener para el botón de cambio de modo
-  toggleDarkModeButton.addEventListener('click', () => {
-    const currentMode = body.classList.contains('light-mode') ? 'dark-mode' : 'light-mode';
-    setMode(currentMode); // Cambia el modo cuando se hace clic
-  });
-
-  // Verifica si hay un modo guardado en localStorage y lo aplica
-  const savedMode = localStorage.getItem('theme') || 'light-mode';
-  setMode(savedMode); // Aplica el modo guardado al cargar la página
-  </script>
+  <script src="js/theme.js"></script>
   
 </body>
 
