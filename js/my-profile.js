@@ -122,25 +122,31 @@ document.getElementById('profile-form').addEventListener('submit', function (eve
   //////////////////////////////////////////////////////////////////////////////////
   
  // Modo oscuro
- const toggleDarkModeButton = document.getElementById('toggle-dark-mode');
-  const body = document.body;
+// Seleccionamos el botón y el ícono
+const toggleDarkModeButton = document.getElementById('toggle-dark-mode');
+const themeIcon = document.getElementById('theme-icon');
 
-  // Función para establecer el modo
-  function setMode(mode) {
-    body.className = mode;
-    localStorage.setItem('theme', mode);
-    toggleDarkModeButton.textContent = mode === 'dark-mode' ? 'Modo Día' : 'Modo Oscuro';
+// Verificamos si el modo oscuro ya está habilitado
+let isDarkMode = false; // Cambia esto si deseas que el modo oscuro sea el predeterminado
+
+toggleDarkModeButton.addEventListener('click', () => {
+  isDarkMode = !isDarkMode; // Alterna entre true y false
+
+  if (isDarkMode) {
+    // Activa el modo oscuro
+    document.body.classList.add('dark-mode');
+    themeIcon.classList.remove('fa-moon');
+    themeIcon.classList.add('fa-sun'); // Cambia el ícono a sol
+    toggleDarkModeButton.textContent = " Modo Claro"; // Cambia el texto del botón
+  } else {
+    // Desactiva el modo oscuro
+    document.body.classList.remove('dark-mode');
+    themeIcon.classList.remove('fa-sun');
+    themeIcon.classList.add('fa-moon'); // Cambia el ícono a luna
+    toggleDarkModeButton.textContent = " Modo Oscuro"; // Cambia el texto del botón
   }
+});
 
-  // Alternar entre modos cuando se hace clic en el botón
-  toggleDarkModeButton.addEventListener('click', () => {
-    const currentMode = body.classList.contains('light-mode') ? 'dark-mode' : 'light-mode';
-    setMode(currentMode);
-  });
-
-  // Cargar el modo almacenado en localStorage
-  const savedMode = localStorage.getItem('theme') || 'light-mode';
-  setMode(savedMode);
 
   
   ////////////////////////////////////////////////////////////

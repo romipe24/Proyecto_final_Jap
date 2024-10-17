@@ -150,17 +150,31 @@ body.dark-mode {
 }
   
 /* Modo oscuro */
-body.bg-dark {
-  background-color: #121212 !important;
-  color: white !important;
+/* Modo oscuro */
+body.dark-mode {
+  background-color: #121212; /* Fondo oscuro */
+  color: #ffffff; /* Texto claro */
 }
-.navbar-dark {
-  background-color: #1f1f1f;
+
+.dark-mode .navbar {
+  background-color: #1a1a1a; /* Navbar oscura */
 }
-.card {
-  background-color: #1f1f1f;
-  color: white;
+
+.dark-mode .form-control {
+  background-color: #2c2c2c; /* Fondo de formularios oscuros */
+  color: #ffffff; /* Texto claro en formularios */
 }
+
+.dark-mode .btn-toggle {
+  background-color: #444; /* Fondo del botón oscuro */
+  color: #ffffff; /* Texto claro en botón */
+}
+
+.dark-mode .btn-save {
+  background-color: #007bff; /* Color del botón guardar */
+  color: #ffffff; /* Texto claro en botón guardar */
+}
+
 
 
 #input-foto {
