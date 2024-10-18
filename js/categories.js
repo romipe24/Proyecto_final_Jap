@@ -197,6 +197,8 @@ document.addEventListener("DOMContentLoaded", function(e){
     if (userConfirmed) {
         // Redirigir al login si el usuario desea iniciar sesión
         window.location.href = 'login.html';
+    }else{
+        window.location.href = 'redireccion_login.html';
     }
 
     // Marca que la alerta ya se ha mostrado en la sesión actual

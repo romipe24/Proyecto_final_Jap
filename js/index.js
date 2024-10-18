@@ -20,17 +20,19 @@ document.addEventListener("DOMContentLoaded", function() {
     const confirmShown = sessionStorage.getItem('confirmShown');
 
     if (!user && !confirmShown) {
-        // Muestra la alerta
-        const userConfirmed = confirm('No has iniciado sesión. ¿Deseas iniciar sesión ahora?');
+    // Muestra la alerta
+    const userConfirmed = confirm('No has iniciado sesión. ¿Deseas iniciar sesión ahora?');
 
-        if (userConfirmed) {
-            // Redirigir al login si el usuario desea iniciar sesión
-            window.location.href = 'login.html';
-        }
-
-        // Marca que la alerta ya se ha mostrado en la sesión actual
-        sessionStorage.setItem('confirmShown', 'true');
+    if (userConfirmed) {
+        // Redirigir al login si el usuario desea iniciar sesión
+        window.location.href = 'login.html';
+    }else{
+        window.location.href = 'redireccion_login.html';
     }
+
+    // Marca que la alerta ya se ha mostrado en la sesión actual
+    sessionStorage.setItem('confirmShown', 'true');
+   }
 
     if (user) {
         // Cargar datos de perfil si ya existen en localStorage
