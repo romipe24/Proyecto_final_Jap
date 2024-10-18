@@ -155,52 +155,65 @@ document.addEventListener("DOMContentLoaded", function() {
       
         // Cargar reseñas almacenadas del producto actual
         cargarReseñas(productId);
-      
-        // Evento para manejar el envío de la reseña
-        reviewForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-      
-            const username = document.getElementById('username').value;
-            const message = document.getElementById('review-message').value;
-            const rating = document.getElementById('review-rating').value;
-            
-            const now = new Date();
-            // Obtener los componentes de la fecha
-            const year = now.getFullYear();
-            const month = String(now.getMonth() + 1).padStart(2, '0'); // Meses empiezan en 0
-            const day = String(now.getDate()).padStart(2, '0');
-    
-            // Formatear la fecha
-            const dateTime = `${year}-${month}-${day}`;
-    
-            // Configuración para la hora en formato de 24 horas
-            const options = {
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: false // Formato 24 horas
-            };
-    
-            const time = now.toLocaleTimeString('es-ES', options); // Obtener la hora
-            const date = `${dateTime} ${time}`; // Combinar fecha y hora
-      
-            const reviewHTML = `
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">${username}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Puntuación: ${'⭐'.repeat(rating)}</h6>
-                        <p class="card-text">${message}</p>
-                        <p class="text-muted">Enviado el: ${date}</p>
-                    </div>
-                </div>
-            `;
-      
-            reviewsList.innerHTML += reviewHTML;
-      
-            guardarReseña(productId, username, message, rating, date);
-      
-            reviewForm.reset();
-        });
+      // Al cargar la página, verificamos si hay un nombre de usuario guardado en localStorage
+document.addEventListener('DOMContentLoaded', function() {
+    const savedUsername = localStorage.getItem('username');
+    if (savedUsername) {
+        document.getElementById('username').value = savedUsername;
+    }
+});
+
+// Evento para manejar el envío de la reseña
+reviewForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const username = document.getElementById('username').value;
+    const message = document.getElementById('review-message').value;
+    const rating = document.getElementById('review-rating').value;
+
+    // Guardar el nombre de usuario en localStorage para que no se pierda
+    localStorage.setItem('username', username);
+
+    const now = new Date();
+    // Obtener los componentes de la fecha
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0'); // Meses empiezan en 0
+    const day = String(now.getDate()).padStart(2, '0');
+
+    // Formatear la fecha
+    const dateTime = `${year}-${month}-${day}`;
+
+    // Configuración para la hora en formato de 24 horas
+    const options = {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false // Formato 24 horas
+    };
+
+    const time = now.toLocaleTimeString('es-ES', options); // Obtener la hora
+    const date = `${dateTime} ${time}`; // Combinar fecha y hora
+
+    const reviewHTML = `
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">${username}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Puntuación: ${'⭐'.repeat(rating)}</h6>
+                <p class="card-text">${message}</p>
+                <p class="text-muted">Enviado el: ${date}</p>
+            </div>
+        </div>
+    `;
+
+    reviewsList.innerHTML += reviewHTML;
+
+    guardarReseña(productId, username, message, rating, date);
+
+    // Solo reseteamos el mensaje y la puntuación, pero no el nombre de usuario
+    document.getElementById('review-message').value = '';
+    document.getElementById('review-rating').value = '5'; // Valor por defecto para la calificación
+});
+
       
         // Función para cargar reseñas almacenadas
         function cargarReseñas(productId) {
