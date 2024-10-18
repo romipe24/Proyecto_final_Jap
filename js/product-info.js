@@ -277,23 +277,4 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     });
 
- // Modo oscuro
- const toggleDarkModeButton = document.getElementById('toggle-dark-mode');
-  const body = document.body;
 
-  // Función para establecer el modo
-  function setMode(mode) {
-    body.className = mode;
-    localStorage.setItem('theme', mode);
-    toggleDarkModeButton.textContent = mode === 'dark-mode' ? 'Modo Día' : 'Modo Oscuro';
-  }
-
-  // Alternar entre modos cuando se hace clic en el botón
-  toggleDarkModeButton.addEventListener('click', () => {
-    const currentMode = body.classList.contains('light-mode') ? 'dark-mode' : 'light-mode';
-    setMode(currentMode);
-  });
-
-  // Cargar el modo almacenado en localStorage
-  const savedMode = localStorage.getItem('theme') || 'light-mode';
-  setMode(savedMode);
