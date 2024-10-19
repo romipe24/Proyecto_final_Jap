@@ -18,7 +18,7 @@
 }
 
 .dark-theme footer {
-    background-color: #222;
+    background-color: rgb(20, 20, 20);
     color: #ccc;
 }
 
@@ -26,9 +26,31 @@
     color: #aaa;
 }
 
-
   /* Estilos generales del modo oscuro */
   body.light-mode {
     background-color: white;
+    color:rgb(20, 20, 20);
+    
+}
+.dark-theme  .album{
+    background-color: rgb(20, 20, 20);
+}
+.dark-theme{
+    background-color: rgb(20, 20, 20);
+}
+.dark-theme .filtro{
+    background-color: rgb(20, 20, 20);
+}
+.dark-theme .filtro2{
+    background-color: rgb(20, 20, 20);
+}
+.dark-theme .card-footer{
+    background-color:#444;
+}
+.dark-theme .dz-message{
     color: black;
+}
+.list-group-item{
+    background-color: rgb(20, 20, 20);
+    color: #ccc;
 }
