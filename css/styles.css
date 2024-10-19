@@ -197,4 +197,11 @@ a.custom-card:hover {
     color: white;
   }
 
-
+@media (min-width: 768px){
+.form-section{
+  margin-left: 120px;
+}
+.profile-pic-section{
+  margin-left: 20px;
+}
+}
