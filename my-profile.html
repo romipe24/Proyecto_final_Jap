@@ -56,86 +56,105 @@
       </div>
     </div>
   </nav>
-
-  <div class="header-logo">
-    <img src="img/login-removebg-preview.png" alt="Logo Jóvenes a Programar" class="logo-img">
-    <h2 class="header-title">Mi perfil</h2>
-  </div>
-  
-  
-
-  <div class="profile-container">
-    
-      <!-- Sección de foto de perfil -->
-      <div class="profile-pic-section">
-        <img src="https://via.placeholder.com/150" alt="Foto de perfil" id="preview-foto">
-     <button class="edit-button" id="btn-cambiar-foto">Cambiar Foto</button>
-        <input type="file" id="input-foto-perfil" accept="image/*" style="display: none;">
-        <!-- Modo claro modo oscuro -->
-         <div>
-          <p style="color: black;" >Modo oscuro</p>
-         </div>
-        <div class="themeNaranja form-check form-switch pt-1" title="Cambiar tema">
-          <input class="form-check-input" type="checkbox" role="switch" id="toggle-dark-mode">
-          <label class="form-check-label" for="toggle-dark-mode">
-            <span id="theme-icon">
-              <!-- Icono inicial del tema -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sun-fill" viewBox="0 0 16 16">
-                <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
-              </svg>
-            </span>
-          </label>
-        </div>            
-        </div>
-  
-      
-      <!-- Sección del formulario -->
-      <div class="form-section" id="profile-form">
-        <form>
-          <div class="form-group">
-            <label for="nombre">Nombre*:</label>
-            <input type="text" class="form-control" id="nombre" placeholder="Nombre" required>
-          </div>
-
-          <div class="form-group">
-            <label for="segundo-nombre">Segundo Nombre:</label>
-            <input type="text" class="form-control" id="segundo-nombre" placeholder="Segundo Nombre">
-          </div>
-
-          <div class="form-group">
-            <label for="apellido">Apellido*:</label>
-            <input type="text" class="form-control" id="apellido" placeholder="Apellido" required>
-          </div>
-
-          <div class="form-group">
-            <label for="segundo-apellido">Segundo Apellido:</label>
-            <input type="text" class="form-control" id="segundo-apellido" placeholder="Segundo Apellido">
-          </div>
-
-          <div class="form-group">
-            <label for="email">E-mail*:</label>
-            <input type="email" class="form-control" id="email" placeholder="usuario@ejemplo.com" required>
-          </div>
-
-          <div class="form-group">
-            <label for="telefono">Teléfono de contacto:</label>
-            <input type="tel" class="form-control" id="telefono" placeholder="Teléfono de contacto">
-          </div>
-
-          <div class="text-end">
-            <button type="submit" class="btn-save">Guardar Cambios</button>
-          </div>
-        </form>
-       
+  <main>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="header-logo">
+        <img src="img/login-removebg-preview.png" alt="Logo Jóvenes a Programar" class="logo-img">
       </div>
     </div>
-  
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md 6 ">
+          <h1 class=" col-12 header-title text-center">Mi perfil</h1>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 col-md-4 ">
+          <div class="profile-container">
+            
+              <!-- Sección de foto de perfil -->
+              
+              <div class="profile-pic-section">
+                <img src="https://via.placeholder.com/150" alt="Foto de perfil" id="preview-foto">
+            <button class="edit-button" id="btn-cambiar-foto">Cambiar Foto</button>
+                <input type="file" id="input-foto-perfil" accept="image/*" style="display: none;">
+                <!-- Modo claro modo oscuro -->
+                <div>
+                  <p style="color: black;" >Modo oscuro</p>
+                </div>
+                <div class="themeNaranja form-check form-switch pt-1" title="Cambiar tema">
+                  <input class="form-check-input" type="checkbox" role="switch" id="toggle-dark-mode">
+                  <label class="form-check-label" for="toggle-dark-mode">
+                    <span id="theme-icon">
+                      <!-- Icono inicial del tema -->
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sun-fill" viewBox="0 0 16 16">
+                        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+                      </svg>
+                    </span>
+                  </label>
+                </div>            
+                </div>
+          </div>
+        </div>
+    
+        
+        <!-- Sección del formulario -->
+        <div class="col-12 col-md-8">
+          <div class="form-section" id="profile-form">
+            <form>
+              <div class="form-group">
+                <label for="nombre">Nombre*:</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Nombre" required>
+              </div>
 
+              <div class="form-group">
+                <label for="segundo-nombre">Segundo Nombre:</label>
+                <input type="text" class="form-control" id="segundo-nombre" placeholder="Segundo Nombre">
+              </div>
 
+              <div class="form-group">
+                <label for="apellido">Apellido*:</label>
+                <input type="text" class="form-control" id="apellido" placeholder="Apellido" required>
+              </div>
+
+              <div class="form-group">
+                <label for="segundo-apellido">Segundo Apellido:</label>
+                <input type="text" class="form-control" id="segundo-apellido" placeholder="Segundo Apellido">
+              </div>
+
+              <div class="form-group">
+                <label for="email">E-mail*:</label>
+                <input type="email" class="form-control" id="email" placeholder="usuario@ejemplo.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="telefono">Teléfono de contacto:</label>
+                <input type="tel" class="form-control" id="telefono" placeholder="Teléfono de contacto">
+              </div>
+
+              <div class="text-end">
+                <button type="submit" class="btn-save">Guardar Cambios</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
+     
+      
+  
+  </main>
   
 </body>
+<div class="container">
+  <div class="row">
+    <div class="col-12 ">
+
 <footer class="text-muted">
     
   <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
@@ -143,6 +162,9 @@
     <a href="#">Volver arriba</a>
   </p>
 </footer> 
+    </div>
+  </div>
+</div>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/my-profile.js"></script> <!-- Archivo JS externo -->
 <script src="js/theme.js"></script>
