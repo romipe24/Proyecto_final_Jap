@@ -33,8 +33,8 @@ nav a {
   padding: 5em inherit;
   margin-bottom: 0;
   background-color: #53C0FB;
-  background: url('../img/cover_back.png');
-  background-size: cover;
+  background: url('../img/cover_back_sinfondo.png');
+  background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
   color: black;
@@ -198,28 +198,3 @@ a.custom-card:hover {
   }
 
 
-  
-
-
-
-
-
-/* Otras reglas que ya tienes */
-
-
-
-  /*
-  .bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-
-  @media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-      font-size: 3.5rem;
-    }
-  }
