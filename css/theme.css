@@ -1,9 +1,9 @@
   body.dark-theme {
-    background-color: #121212;
+    background-color:#252525;
     color: white;
 }
 
-.dark-theme .navbar {
+.dark-theme .navbar .navbar-bg {
     background-color: #333;
 }
 
