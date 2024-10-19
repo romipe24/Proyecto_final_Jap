@@ -35,9 +35,7 @@
 .dark-theme  .album{
     background-color: rgb(20, 20, 20);
 }
-.dark-theme{
-    background-color: rgb(20, 20, 20);
-}
+
 .dark-theme .filtro{
     background-color: rgb(20, 20, 20);
 }
@@ -50,7 +48,13 @@
 .dark-theme .dz-message{
     color: black;
 }
-.list-group-item{
+.dark-theme .list-group-item{
     background-color: rgb(20, 20, 20);
     color: #ccc;
+}
+.dark-theme .profile-pic-section{
+    background-color: rgb(20, 20, 20);
+}
+.dark-theme .jumbotron{
+    background-color: rgb(20, 20, 20);
 }
