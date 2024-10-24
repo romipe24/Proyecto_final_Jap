@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             <span class="badge bg-success mb-3">Disponible</span>
                             <h3 class="text-dark">U$S ${product.cost.toLocaleString()}</h3>
                             <p class="text-muted">${product.soldCount} vendidos</p>
-                            <button class="btn btn-warning btn-lg w-100 mb-3">Comprar</button>
+                            <button id="comprarBtn" class="btn btn-warning btn-lg w-100 mb-3">Comprar</button>
                             <div class="accordion" id="productDescription">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingOne">
@@ -55,6 +55,32 @@ document.addEventListener("DOMContentLoaded", function() {
                     <div class="row mt-4" id="gallery"></div>
                 </div>
             `;
+
+             // Agregar funcionalidad al botón de comprar
+    const comprarBtn = document.getElementById('comprarBtn');
+    comprarBtn.addEventListener('click', function() {
+        // Crear objeto con la información del producto
+        const productoComprado = {
+            id: product.id,
+            name: product.name,
+            count: 1, // Puedes dejar que el usuario elija la cantidad más adelante
+            unitCost: product.cost,
+            currency: "USD" // Dependiendo de tu aplicación, podrías ajustar esto
+        };
+
+        // Obtener los productos del localStorage, si ya existen
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+        // Agregar el nuevo producto al carrito
+        carrito.push(productoComprado);
+
+        // Guardar el carrito actualizado en el localStorage
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+
+        // Redirigir a la página del carrito
+        window.location.href = 'cart.html';
+    });
+
       
             generarGaleria(productId);
             cargarProductosRelacionados(productId); // Llamar a la función para cargar productos relacionados
