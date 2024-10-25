@@ -9,16 +9,18 @@ if (cartProducts.length > 0) {
     // Mostrar cada producto en el carrito
     cartProducts.forEach((product, index) => {
         // Función para actualizar el subtotal y el total
-        const updateTotal = (quantity) => {
-            const subtotal = product.price * quantity;
-            document.getElementById(`subtotal-${index}`).textContent = `${product.currency} ${subtotal.toFixed(2)}`;
-
-            // Actualizamos el total
-            total += subtotal;
-            totalElement.textContent = `${product.currency} ${total.toFixed(2)}`;
+        const updateTotal = () => {
+            let subtotal = 0;
+            cartProducts.forEach(product => {
+                subtotal += product.price * product.quantity;
+            });
+            totalElement.textContent = `${product.currency} ${subtotal.toFixed(2)}`;
         };
 
-        cartContent.innerHTML += `
+        // Crear un div para el producto
+        const productDiv = document.createElement('div');
+        productDiv.className = "col-md-12";
+        productDiv.innerHTML = `
             <div class="col-md-4">
                 <img src="${product.image}" class="img-fluid rounded" alt="${product.name}">
             </div>
@@ -28,16 +30,29 @@ if (cartProducts.length > 0) {
                 <label>Cantidad:</label>
                 <input type="number" id="quantity-${index}" value="${product.quantity}" min="1" class="form-control w-25">
                 <p class="mt-3">Subtotal: <span id="subtotal-${index}">${product.currency} ${product.price}</span></p>
+                <button class="btn btn-danger" id="remove-${index}">Eliminar</button>
             </div>
         `;
 
-        // Establecer el valor inicial del total al cargar el producto
-        updateTotal(product.quantity);
+        // Añadir el producto al contenido del carrito
+        cartContent.appendChild(productDiv);
+
+        // Actualizar subtotal y total al cargar el producto
+        updateTotal();
 
         // Actualizar subtotal y total en tiempo real cuando el usuario cambia la cantidad
         document.getElementById(`quantity-${index}`).addEventListener('input', function () {
             const quantity = parseInt(this.value);
-            updateTotal(quantity);
+            product.quantity = quantity;
+            document.getElementById(`subtotal-${index}`).textContent = `${product.currency} ${(product.price * quantity).toFixed(2)}`;
+            updateTotal();
+        });
+
+        // Eliminar producto del carrito
+        document.getElementById(`remove-${index}`).addEventListener('click', function () {
+            cartProducts.splice(index, 1);
+            localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+            window.location.reload();
         });
     });
 } else {
