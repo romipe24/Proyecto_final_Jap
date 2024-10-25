@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
             `;
 
-            // Guardar la información del producto en localStorage al hacer clic en "Comprar"
+            /// Guardar la información del producto en localStorage al hacer clic en "Comprar"
             document.getElementById('buy-button').addEventListener('click', function () {
                 // Obtener el precio y eliminar todo lo que no sea un número o un punto decimal
                 const priceText = document.getElementById('product-price').textContent;
@@ -73,8 +73,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Obtener los productos actuales en el carrito
                 let cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
 
-                // Agregar el nuevo producto al carrito
-                cartProducts.push(productComprar);
+                // Comprobar si el producto ya está en el carrito
+                const existingProductIndex = cartProducts.findIndex(item => item.name === productComprar.name);
+
+                if (existingProductIndex !== -1) {
+                    // Si el producto ya existe, incrementar la cantidad
+                    cartProducts[existingProductIndex].quantity += 1;
+                } else {
+                    // Si no existe, agregar el nuevo producto al carrito
+                    cartProducts.push(productComprar);
+                }
 
                 // Guardar el carrito actualizado en localStorage
                 localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
@@ -82,6 +90,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Navegar al carrito
                 window.location.href = 'cart.html';
             });
+
 
               
 
