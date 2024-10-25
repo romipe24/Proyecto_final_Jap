@@ -56,23 +56,37 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
             `;
 
-             // Guardar la información del producto en localStorage al hacer clic en "Comprar"
+            // Guardar la información del producto en localStorage al hacer clic en "Comprar"
             document.getElementById('buy-button').addEventListener('click', function () {
                 // Obtener el precio y eliminar todo lo que no sea un número o un punto decimal
-        const priceText = document.getElementById('product-price').textContent;
-        const price = parseFloat(priceText.replace(/[^0-9.,]/g, '').replace(',', ''));
+                const priceText = document.getElementById('product-price').textContent;
+                const price = parseFloat(priceText.replace(/[^0-9.,]/g, '').replace(',', ''));
 
                 const productComprar = {
-                name: document.getElementById('product-name').textContent,
-                price: price,
-                currency: "USD",
-                quantity: 1, // Por defecto, cantidad 1
-                image: document.getElementById('product-image').src
+                    name: document.getElementById('product-name').textContent,
+                    price: price,
+                    currency: "USD",
+                    quantity: 1, // Por defecto, cantidad 1
+                    image: document.getElementById('product-image').src
                 };
-  
-        localStorage.setItem('cartProduct', JSON.stringify(productComprar));
-        window.location.href = 'cart.html'; // Navegar al carrito
-      });
+
+                // Obtener los productos actuales en el carrito
+                let cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
+
+                // Agregar el nuevo producto al carrito
+                cartProducts.push(productComprar);
+
+                // Guardar el carrito actualizado en localStorage
+                localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+
+                // Navegar al carrito
+                window.location.href = 'cart.html';
+            });
+
+              
+
+
+
       
             generarGaleria(productId);
             cargarProductosRelacionados(productId); // Llamar a la función para cargar productos relacionados
