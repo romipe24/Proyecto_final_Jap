@@ -6,17 +6,17 @@ const totalElement = document.getElementById('total');
 if (cartProducts.length > 0) {
     let total = 0;
 
+    // Función para actualizar el subtotal y el total
+    const updateTotal = () => {
+        let subtotal = 0;
+        cartProducts.forEach(product => {
+            subtotal += product.price * product.quantity;
+        });
+        totalElement.textContent = `${cartProducts[0].currency} ${subtotal.toFixed(2)}`;
+    };
+
     // Mostrar cada producto en el carrito
     cartProducts.forEach((product, index) => {
-        // Función para actualizar el subtotal y el total
-        const updateTotal = () => {
-            let subtotal = 0;
-            cartProducts.forEach(product => {
-                subtotal += product.price * product.quantity;
-            });
-            totalElement.textContent = `${product.currency} ${subtotal.toFixed(2)}`;
-        };
-
         // Crear un div para el producto
         const productDiv = document.createElement('div');
         productDiv.className = "col-md-12";
@@ -29,7 +29,7 @@ if (cartProducts.length > 0) {
                 <p>Precio: ${product.currency} ${product.price}</p>
                 <label>Cantidad:</label>
                 <input type="number" id="quantity-${index}" value="${product.quantity}" min="1" class="form-control w-25">
-                <p class="mt-3">Subtotal: <span id="subtotal-${index}">${product.currency} ${product.price}</span></p>
+                <p class="mt-3">Subtotal: <span id="subtotal-${index}">${product.currency} ${(product.price * product.quantity).toFixed(2)}</span></p>
                 <button class="btn btn-danger" id="remove-${index}">Eliminar</button>
             </div>
         `;
@@ -45,6 +45,7 @@ if (cartProducts.length > 0) {
             const quantity = parseInt(this.value);
             product.quantity = quantity;
             document.getElementById(`subtotal-${index}`).textContent = `${product.currency} ${(product.price * quantity).toFixed(2)}`;
+            localStorage.setItem('cartProducts', JSON.stringify(cartProducts)); // Guardar cambios en localStorage
             updateTotal();
         });
 
