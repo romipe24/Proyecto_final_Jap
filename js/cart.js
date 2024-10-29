@@ -73,15 +73,4 @@ if (cartProducts.length > 0) {
     cartContent.innerHTML = `<p class="alert alert-warning">El carrito está vacío.</p>`;
     totalElement.textContent = ''; // Limpiar el total si el carrito está vacío
 }
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
-// Función para vaciar el carrito
-const clearCartButton = document.getElementById('clear-cart');
-clearCartButton.addEventListener('click', function () {
-    localStorage.removeItem('cartProducts'); // Eliminar los productos del localStorage
-    cartContent.innerHTML = `<p class="alert alert-warning">El carrito está vacío.</p>`; // Actualizar contenido del carrito
-    totalElement.textContent = ''; // Limpiar el total
-    alert('Carrito vaciado con éxito.');
-});
 >>>>>>> Stashed changes
