@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 const productComprar = {
                     name: document.getElementById('product-name').textContent,
-                    price: price.toLocaleString(),
+                    price: price,
                     currency: "USD",
                     quantity: 1, // Por defecto, cantidad 1
                     image: document.getElementById('product-image').src
