@@ -26,7 +26,7 @@ if (cartProducts.length > 0) {
             </div>
             <div class="col-md-8">
                 <h3>${product.name}</h3>
-                <p>Precio: ${product.currency} ${product.price}</p>
+                <p>Precio: ${product.currency} ${product.price.toLocaleString()}</p>
                 <label>Cantidad:</label>
                 <input type="number" id="quantity-${index}" value="${product.quantity}" min="1" class="form-control w-25">
                 <p class="mt-3">Subtotal: <span id="subtotal-${index}">${product.currency} ${(product.price * product.quantity).toFixed(2)}</span></p>
