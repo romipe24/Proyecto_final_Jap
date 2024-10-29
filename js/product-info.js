@@ -61,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Obtener el precio y eliminar todo lo que no sea un número o un punto decimal
                 const priceText = document.getElementById('product-price').textContent;
                 const price = parseFloat(priceText.replace(/[^0-9.,]/g, '').replace(',', ''));
-                let currency = '${product.currency}';
 
                 const productComprar = {
                     name: document.getElementById('product-name').textContent,
