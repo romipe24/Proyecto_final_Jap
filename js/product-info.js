@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             <p class="text-muted">Categorías / Autos</p>
                             <h2 id= "product-name">${product.name}</h2>
                             <span class="badge bg-success mb-3">Disponible</span>
-                            <h3 id= "product-price" class="text-dark">U$S ${product.cost.toLocaleString()}</h3>
+                            <h3 id= "product-price" class="text-dark">${product.currency} ${product.cost.toLocaleString()}</h3>
                             <p class="text-muted">${product.soldCount} vendidos</p>
                             <button id="buy-button" class="btn btn-warning btn-lg w-100 mb-3">Comprar</button>
                             <div class="accordion" id="productDescription">
@@ -61,11 +61,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Obtener el precio y eliminar todo lo que no sea un número o un punto decimal
                 const priceText = document.getElementById('product-price').textContent;
                 const price = parseFloat(priceText.replace(/[^0-9.,]/g, '').replace(',', ''));
+                let currency = '${product.currency}';
 
                 const productComprar = {
                     name: document.getElementById('product-name').textContent,
                     price: price,
-                    currency: "USD",
+                    currency: product.currency,
                     quantity: 1, // Por defecto, cantidad 1
                     image: document.getElementById('product-image').src
                 };
