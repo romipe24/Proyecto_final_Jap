@@ -46,7 +46,9 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="my_profile.html" id="user-name" role="button" data-bs-toggle="dropdown" aria-expanded="false"> </a> 
             <ul class="dropdown-menu" aria-labelledby="user-name"> 
-              <li><a id="cart" class="dropdown-item" href="cart.html">Mi Carrito</a></li> 
+              <li>
+                <a class="dropdown-item" id="cart-link" href="cart.html">Mi carrito <span id="cart-badge" class="badge">0</span></a>
+            </li>   
               <li><a id="my-profile" class="dropdown-item" href="my-profile.html">Mi Perfil</a></li> 
               <li><a id="login" class="dropdown-item" href="login.html">Cerrar Sesión</a></li> 
             </ul>
@@ -67,31 +69,15 @@
     </div>
   </nav>
   <main>
-    <main>
-      <div class="container mt-5">
-          <h1 class="mb-4">Mi carrito</h1>
-          
-          <div id="cart-content" class="row">
-              <!-- Aquí se mostrarán los productos -->
-            </div>
-
-            <!-- Card para Subtotal, Total y Pagar -->
-            <div class="card shadow-sm mt-4">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between mb-2">
-                        <span>Subtotal</span>
-                        <span id="subtotal-amount">$0.00</span>
-                    </div>
-                    <hr>
-                    <div class="d-flex justify-content-between font-weight-bold mb-3">
-                        <span>Total</span>
-                        <span id="total-amount">$0.00</span>
-                    </div>
-                    <button class="btn btn-warning w-100">Pagar</button>
-                </div>
-            </div>
-        </div>
-        
+    <div class="container mt-5">
+      <h1 class="mb-4">Carrito de Compras</h1>
+      <div id="cart-content" class="row">
+        <!-- Aquí se mostrará el producto o un mensaje si el carrito está vacío -->
+      </div>
+      <div class="mt-4">
+        <h3>Total: <span id="total"></span></h3>
+      </div>
+    </div>
   </main>
   <footer class="text-muted">
     <div class="container">

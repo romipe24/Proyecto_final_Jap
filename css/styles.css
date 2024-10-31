@@ -5,14 +5,8 @@
   font-family: 'Verdana', serif !important;
 }
 
-h1 {
-  text-align: center;
-  padding-bottom: 70px;
-}
-
 .jumbotron .display-4 {
   font-weight: bold;
-  text-align: center;
 }
 
 nav a {
@@ -60,7 +54,6 @@ nav a {
 
 .jumbotron-heading {
   font-weight: 300;
-  
 }
 
 .jumbotron .container {
@@ -72,7 +65,6 @@ nav a {
 
 .jumbotron .lead {
   font-size: 38px;
-  
 }
 
 footer {
@@ -91,7 +83,6 @@ footer p {
 
 .site-header .dropdown-menu a {
   color: black;
-  
 }
 
 .dropzone {
@@ -214,27 +205,10 @@ a.custom-card:hover {
   margin-left: 20px;
 }
 }
-
-
-
-#cart-content .border {
-  border-color: #e0e0e0 !important;
-}
-
-.btn-warning {
-  background-color: #ffb84d;
-  border-color: #ffb84d;
-}
-
-.btn-outline-secondary {
-  color: #6c757d;
-  border-color: #6c757d;
-}
-
-.text-muted {
-  font-size: 0.9rem;
-}
-
-.font-weight-bold {
-  font-weight: bold;
+.badge {
+  background-color: rgb(253, 159, 18); /* Color de fondo del badge */
+  color: white; /* Color del texto */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 0.5em; /* Espaciado */
+  margin-left: 0.5em; /* Espaciado a la izquierda */
 }

@@ -61,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Obtener el precio y eliminar todo lo que no sea un número o un punto decimal
                 const priceText = document.getElementById('product-price').textContent;
                 const price = parseFloat(priceText.replace(/[^0-9.,]/g, '').replace(',', ''));
-                let currency = '${product.currency}';
 
                 const productComprar = {
                     name: document.getElementById('product-name').textContent,
@@ -335,3 +334,13 @@ reviewForm.addEventListener('submit', function(event) {
     });
 
 
+// Este script debe ejecutarse una vez que el DOM esté completamente cargado
+document.addEventListener('DOMContentLoaded', () => {
+    const cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
+    
+    // Calcular la cantidad total de productos
+    const totalQuantity = cartProducts.reduce((total, product) => total + product.quantity, 0);
+
+    // Actualizar el contenido del badge
+    document.getElementById('cart-badge').textContent = totalQuantity;
+});

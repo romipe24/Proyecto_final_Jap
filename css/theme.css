@@ -58,7 +58,6 @@
 .dark-theme .jumbotron{
     background-color: rgb(20, 20, 20);
 }
-
-.dark-theme .card{
-    background-color: rgb(20, 20, 20);
+.dark-theme #product-detail{
+    color:#333
 }
