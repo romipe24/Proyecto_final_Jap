@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
             `;
 
+
            // Guardar la información del producto en localStorage al hacer clic en "Comprar"
            document.getElementById('buy-button').addEventListener('click', function () {
             // Obtener el precio y eliminar todo lo que no sea un número o un punto decimal
