@@ -101,5 +101,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Actualizar el contenido del badge
     document.getElementById('cart-badge').textContent = totalQuantity;
->>>>>>>>> Temporary merge branch 2
 });
