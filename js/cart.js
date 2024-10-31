@@ -82,23 +82,14 @@ if (cartProducts.length > 0) {
     cartContent.innerHTML = `<p class="alert alert-warning">El carrito está vacío.</p>`;
     totalElement.textContent = ''; // Limpiar el total si el carrito está vacío
 }
+
 // Vaciar carrito
 const clearCartButton = document.getElementById('clear-cart');
 clearCartButton.addEventListener('click', function () {
-    if (confirm('¿Estás seguro de que quieres vaciar el carrito?')) {
-        localStorage.removeItem('cartProducts'); // Limpiar el localStorage
-        cartContent.innerHTML = `<p class="alert alert-warning">El carrito está vacío.</p>`; // Actualizar contenido
-        totalElement.textContent = ''; // Limpiar el total
-        alert('Carrito vaciado con éxito.');
-    }
-  });
-// Este script debe ejecutarse una vez que el DOM esté completamente cargado
-document.addEventListener('DOMContentLoaded', () => {
-    const cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
-    
-    // Calcular la cantidad total de productos
-    const totalQuantity = cartProducts.reduce((total, product) => total + product.quantity, 0);
-
-    // Actualizar el contenido del badge
-    document.getElementById('cart-badge').textContent = totalQuantity;
+    // Vaciar el localStorage y actualizar la vista
+    localStorage.removeItem('cartProducts');
+    cartProducts.length = 0; // Limpiar el array de productos
+    cartContent.innerHTML = `<p class="alert alert-warning">El carrito está vacío.</p>`;
+    totalElementUSD.textContent = ''; // Limpiar total en USD
+    totalElementUYU.textContent = ''; // Limpiar total en UYU
 });
