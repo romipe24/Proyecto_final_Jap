@@ -55,29 +55,27 @@ document.addEventListener("DOMContentLoaded", function() {
                     <div class="row mt-4" id="gallery"></div>
                 </div>
             `;
+
+            /// Guardar la información del producto en localStorage al hacer clic en "Comprar"
             document.getElementById('buy-button').addEventListener('click', function () {
                 // Obtener el precio y eliminar todo lo que no sea un número o un punto decimal
                 const priceText = document.getElementById('product-price').textContent;
                 const price = parseFloat(priceText.replace(/[^0-9.,]/g, '').replace(',', ''));
-            
-                // Capturar la moneda del DOM, o establecer una predeterminada si no existe
-                const currencyText = document.getElementById('product-currency');
-                const currency = currencyText ? currencyText.textContent : 'USD';
-            
+
                 const productComprar = {
                     name: document.getElementById('product-name').textContent,
                     price: price,
-                    currency: currency,
+                    currency: product.currency,
                     quantity: 1, // Por defecto, cantidad 1
                     image: document.getElementById('product-image').src
                 };
-            
+
                 // Obtener los productos actuales en el carrito
                 let cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
-            
+
                 // Comprobar si el producto ya está en el carrito
                 const existingProductIndex = cartProducts.findIndex(item => item.name === productComprar.name);
-            
+
                 if (existingProductIndex !== -1) {
                     // Si el producto ya existe, incrementar la cantidad
                     cartProducts[existingProductIndex].quantity += 1;
@@ -85,19 +83,14 @@ document.addEventListener("DOMContentLoaded", function() {
                     // Si no existe, agregar el nuevo producto al carrito
                     cartProducts.push(productComprar);
                 }
-            
+
                 // Guardar el carrito actualizado en localStorage
                 localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
-            
+
                 // Navegar al carrito
                 window.location.href = 'cart.html';
             });
             
-              
-
-
-
-      
             generarGaleria(productId);
             cargarProductosRelacionados(productId); // Llamar a la función para cargar productos relacionados
         }
@@ -333,15 +326,3 @@ reviewForm.addEventListener('submit', function(event) {
         window.location.href = 'login.html'; // Redirigir al usuario a la página de login si no está autenticado
     }
     });
-
-
-// Este script debe ejecutarse una vez que el DOM esté completamente cargado
-document.addEventListener('DOMContentLoaded', () => {
-    const cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
-    
-    // Calcular la cantidad total de productos
-    const totalQuantity = cartProducts.reduce((total, product) => total + product.quantity, 0);
-
-    // Actualizar el contenido del badge
-    document.getElementById('cart-badge').textContent = totalQuantity;
-});

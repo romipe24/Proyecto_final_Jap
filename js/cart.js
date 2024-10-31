@@ -15,13 +15,13 @@ if (cartProducts.length > 0) {
             let subtotalUYU = 0;
 
             cartProducts.forEach(product => {
-                if (product.currency === 'USD') {
-                    subtotalUSD += product.price * product.quantity;
+                if(product.currency === 'USD'){
+                subtotalUSD += product.price * product.quantity;
                 } else if (product.currency === 'UYU') {
-                    subtotalUYU += product.price * product.quantity;
+                subtotalUYU += product.price * product.quantity;
                 }
             });
-            // Mostrar/ocultar el total en USD
+           // Mostrar/ocultar el total en USD
             if (subtotalUSD > 0) {
                 totalElementUSD.textContent = `Total USD ${subtotalUSD.toFixed(2)}`;
                 totalElementUSD.style.display = 'block'; // Mostrar el total en USD
@@ -36,6 +36,7 @@ if (cartProducts.length > 0) {
             } else {
                 totalElementUYU.style.display = 'none'; // Ocultar el total en UYU
             }
+
         };
 
         // Crear un div para el producto
@@ -79,7 +80,7 @@ if (cartProducts.length > 0) {
     });
 } else {
     cartContent.innerHTML = `<p class="alert alert-warning">El carrito está vacío.</p>`;
-    totalElementUSD.textContent = ''; // Limpiar el total si el carrito está vacío
+    totalElement.textContent = ''; // Limpiar el total si el carrito está vacío
 }
 
 // Vaciar carrito
