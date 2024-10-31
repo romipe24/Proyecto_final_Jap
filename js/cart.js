@@ -39,22 +39,24 @@ if (cartProducts.length > 0) {
 
         };
 
-        // Crear un div para el producto
-        const productDiv = document.createElement('div');
-        productDiv.className = "col-md-12";
-        productDiv.innerHTML = `
-            <div class="col-md-4">
-                <img src="${product.image}" class="img-fluid rounded" alt="${product.name}">
-            </div>
-            <div class="col-md-8">
+    
+        
+
+            // Crear un div para el producto
+            const productDiv = document.createElement('div');
+            productDiv.className = "cart-item";
+            productDiv.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <div class="cart-item-details">
                 <h3>${product.name}</h3>
                 <p>Precio: ${product.currency} ${product.price}</p>
-                <label>Cantidad:</label>
-                <input type="number" id="quantity-${index}" value="${product.quantity}" min="1" class="form-control w-25">
-                <p class="mt-3">Subtotal: <span id="subtotal-${index}">${product.currency} ${(product.price * product.quantity).toFixed(2)}</span></p>
+                <p>Subtotal: <span id="subtotal-${index}">${product.currency} ${(product.price * product.quantity).toFixed(2)}</span></p>
+            </div>
+            <div class="cart-actions">
+                <input type="number" id="quantity-${index}" value="${product.quantity}" min="1" class="form-control">
                 <button class="btn btn-danger" id="remove-${index}">Eliminar</button>
             </div>
-        `;
+            `;
 
         // Añadir el producto al contenido del carrito
         cartContent.appendChild(productDiv);
