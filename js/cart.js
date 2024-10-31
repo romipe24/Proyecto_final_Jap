@@ -82,3 +82,12 @@ if (cartProducts.length > 0) {
     cartContent.innerHTML = `<p class="alert alert-warning">El carrito está vacío.</p>`;
     totalElement.textContent = ''; // Limpiar el total si el carrito está vacío
 }
+const clearCartButton = document.getElementById('clear-cart');
+clearCartButton.addEventListener('click', function () {
+    if (confirm('¿Estás seguro de que quieres vaciar el carrito?')) {
+        localStorage.removeItem('cartProducts'); // Limpiar el localStorage
+        cartContent.innerHTML = `<p class="alert alert-warning">El carrito está vacío.</p>`; // Actualizar contenido
+        totalElement.textContent = ''; // Limpiar el total
+        alert('Carrito vaciado con éxito.');
+    }
+});
