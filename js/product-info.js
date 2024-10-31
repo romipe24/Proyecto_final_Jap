@@ -334,3 +334,13 @@ reviewForm.addEventListener('submit', function(event) {
     });
 
 
+// Este script debe ejecutarse una vez que el DOM esté completamente cargado
+document.addEventListener('DOMContentLoaded', () => {
+    const cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
+    
+    // Calcular la cantidad total de productos
+    const totalQuantity = cartProducts.reduce((total, product) => total + product.quantity, 0);
+
+    // Actualizar el contenido del badge
+    document.getElementById('cart-badge').textContent = totalQuantity;
+});

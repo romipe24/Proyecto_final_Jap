@@ -205,3 +205,10 @@ a.custom-card:hover {
   margin-left: 20px;
 }
 }
+.badge {
+  background-color: rgb(253, 159, 18); /* Color de fondo del badge */
+  color: white; /* Color del texto */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 0.5em; /* Espaciado */
+  margin-left: 0.5em; /* Espaciado a la izquierda */
+}
