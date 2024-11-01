@@ -4,26 +4,41 @@ const cartContent = document.getElementById('cart-content');
 const totalElementUSD = document.getElementById('totalUSD');
 const totalElementUYU = document.getElementById('totalUYU');
 
+// Función para convertir precios del formato con punto decimal a número entero
+const convertPrice = (price) => {
+    if (typeof price === 'string') {
+        return parseFloat(price.replace(/\./g, ''));
+    }
+    return price;
+};
+
+// Función para formatear números con comas
+const formatNumber = (num) => {
+    return num.toLocaleString();
+};
+
 if (cartProducts.length > 0) {
     let total = 0;
-
     // Mostrar cada producto en el carrito
     cartProducts.forEach((product, index) => {
+        // Convertir el precio al cargar el producto
+        product.price = convertPrice(product.price);
+
         // Función para actualizar el subtotal y el total
         const updateTotal = () => {
             let subtotalUSD = 0;
             let subtotalUYU = 0;
-
             cartProducts.forEach(product => {
-                if(product.currency === 'USD'){
-                subtotalUSD += product.price * product.quantity;
+                if (product.currency === 'USD') {
+                    subtotalUSD += product.price * product.quantity;
                 } else if (product.currency === 'UYU') {
-                subtotalUYU += product.price * product.quantity;
+                    subtotalUYU += product.price * product.quantity;
                 }
             });
-           // Mostrar/ocultar el total en USD
+
+            // Mostrar/ocultar el total en USD
             if (subtotalUSD > 0) {
-                totalElementUSD.textContent = `Total USD ${subtotalUSD.toFixed(2)}`;
+                totalElementUSD.textContent = `Total USD ${formatNumber(subtotalUSD.toFixed(2))}`;
                 totalElementUSD.style.display = 'block'; // Mostrar el total en USD
             } else {
                 totalElementUSD.style.display = 'none'; // Ocultar el total en USD
@@ -31,21 +46,17 @@ if (cartProducts.length > 0) {
 
             // Mostrar/ocultar el total en UYU
             if (subtotalUYU > 0) {
-                totalElementUYU.textContent = `Total UYU ${subtotalUYU.toFixed(2)}`;
+                totalElementUYU.textContent = `Total UYU ${formatNumber(subtotalUYU.toFixed(2))}`;
                 totalElementUYU.style.display = 'block'; // Mostrar el total en UYU
             } else {
                 totalElementUYU.style.display = 'none'; // Ocultar el total en UYU
             }
-
         };
 
-    
-        
-
-            // Crear un div para el producto
-            const productDiv = document.createElement('div');
-            productDiv.className = "cart-item";
-            productDiv.innerHTML = `
+        // Crear un div para el producto
+        const productDiv = document.createElement('div');
+        productDiv.className = "cart-item";
+        productDiv.innerHTML = `
             <img src="${product.image}" alt="${product.name}">
             <div class="cart-item-details">
                 <h3>${product.name}</h3>
@@ -53,10 +64,18 @@ if (cartProducts.length > 0) {
                 <p>Subtotal: <span id="subtotal-${index}">${product.currency} ${(product.price * product.quantity).toFixed(2)}</span></p>
             </div>
             <div class="cart-actions">
-                <input type="number" id="quantity-${index}" value="${product.quantity}" min="1" class="form-control">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary" type="button" id="decrease-${index}">-</button>
+                    </div>
+                    <input type="text" class="form-control text-center" id="quantity-${index}" value="${product.quantity}" readonly>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="increase-${index}">+</button>
+                    </div>
+                </div>
                 <button class="btn btn-danger" id="remove-${index}"> <i class="fas fa-trash-alt"></i></button>
             </div>
-            `;
+        `;
 
         // Añadir el producto al contenido del carrito
         cartContent.appendChild(productDiv);
@@ -64,13 +83,31 @@ if (cartProducts.length > 0) {
         // Actualizar subtotal y total al cargar el producto
         updateTotal();
 
-        // Actualizar subtotal y total en tiempo real cuando el usuario cambia la cantidad
-        document.getElementById(`quantity-${index}`).addEventListener('input', function () {
-            const quantity = parseInt(this.value);
+        // Función para aumentar y disminuir la cantidad
+        const increaseButton = document.getElementById(`increase-${index}`);
+        const decreaseButton = document.getElementById(`decrease-${index}`);
+        const quantityInput = document.getElementById(`quantity-${index}`);
+
+        increaseButton.addEventListener('click', function () {
+            let quantity = parseInt(quantityInput.value);
+            quantity++;
             product.quantity = quantity;
-            document.getElementById(`subtotal-${index}`).textContent = `${product.currency} ${(product.price * quantity).toFixed(2)}`;
+            quantityInput.value = quantity;
+            document.getElementById(`subtotal-${index}`).textContent = `${product.currency} ${formatNumber((product.price * quantity).toFixed(2))}`;
             localStorage.setItem('cartProducts', JSON.stringify(cartProducts)); // Guardar cambios en localStorage
             updateTotal();
+        });
+
+        decreaseButton.addEventListener('click', function () {
+            let quantity = parseInt(quantityInput.value);
+            if (quantity > 1) {
+                quantity--;
+                product.quantity = quantity;
+                quantityInput.value = quantity;
+                document.getElementById(`subtotal-${index}`).textContent = `${product.currency} ${formatNumber((product.price * quantity).toFixed(2))}`;
+                localStorage.setItem('cartProducts', JSON.stringify(cartProducts)); // Guardar cambios en localStorage
+                updateTotal();
+            }
         });
 
         // Eliminar producto del carrito
@@ -82,7 +119,7 @@ if (cartProducts.length > 0) {
     });
 } else {
     cartContent.innerHTML = `<p class="alert alert-warning">El carrito está vacío.</p>`;
-    totalElement.textContent = ''; // Limpiar el total si el carrito está vacío
+    totalElementUSD.textContent = ''; // Limpiar el total si el carrito está vacío
 }
 
 // Vaciar carrito
