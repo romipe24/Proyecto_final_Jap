@@ -82,3 +82,14 @@ body {
 .d-flex .btn {
   text-align: center;
 }
+.input-group .btn {
+  border-radius: 100;
+}
+
+.input-group-prepend .btn,
+.input-group-append .btn {
+  border-radius: 100%;
+  background-color: #ffc401;
+  color: white;
+  border-color: #ffc401;
+}
