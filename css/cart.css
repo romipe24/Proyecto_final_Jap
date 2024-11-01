@@ -59,14 +59,14 @@ body {
 }
 
 .btn-warning {
-  background-color: #f0ad4e;
+  background-color: #ffc401;
   color: #fff;
   border: none;
   border-radius: 8px;
 }
 
 .btn-warning:hover {
-  background-color: #e59429;
+  background-color:#ffc401
 }
 
 .btn-lg {
