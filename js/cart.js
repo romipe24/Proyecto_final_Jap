@@ -54,7 +54,7 @@ if (cartProducts.length > 0) {
             </div>
             <div class="cart-actions">
                 <input type="number" id="quantity-${index}" value="${product.quantity}" min="1" class="form-control">
-                <button class="btn btn-danger" id="remove-${index}">Eliminar</button>
+                <button class="btn btn-danger" id="remove-${index}"> <i class="fas fa-trash-alt"></i></button>
             </div>
             `;
 
