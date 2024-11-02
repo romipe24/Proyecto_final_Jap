@@ -1,3 +1,8 @@
+img {
+  width: 350px;
+  height: auto;
+}
+
 /* Contenedor de cada producto en el carrito */
 .cart-item {
   display: flex;
