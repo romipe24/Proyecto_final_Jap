@@ -56,19 +56,21 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
             `;
 
-            /// Guardar la información del producto en localStorage al hacer clic en "Comprar"
-            document.getElementById('buy-button').addEventListener('click', function () {
-                // Obtener el precio y eliminar todo lo que no sea un número o un punto decimal
-                const priceText = document.getElementById('product-price').textContent;
-                const price = parseFloat(priceText.replace(/[^0-9.,]/g, '').replace(',', ''));
 
-                const productComprar = {
-                    name: document.getElementById('product-name').textContent,
-                    price: price,
-                    currency: product.currency,
-                    quantity: 1, // Por defecto, cantidad 1
-                    image: document.getElementById('product-image').src
-                };
+           // Guardar la información del producto en localStorage al hacer clic en "Comprar"
+           document.getElementById('buy-button').addEventListener('click', function () {
+            // Obtener el precio y eliminar todo lo que no sea un número o un punto decimal
+            const priceText = document.getElementById('product-price').textContent;
+            const price = parseFloat(priceText.replace(/[^0-9]/g, '').replace(',', ''));
+
+            const productComprar = {
+                name: document.getElementById('product-name').textContent,
+                price: price,
+                currency: product.currency,
+                quantity: 1, // Por defecto, cantidad 1
+                image: document.getElementById('product-image').src
+            };
+
 
                 // Obtener los productos actuales en el carrito
                 let cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
@@ -91,12 +93,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 window.location.href = 'cart.html';
             });
 
-
-              
-
-
-
-      
             generarGaleria(productId);
             cargarProductosRelacionados(productId); // Llamar a la función para cargar productos relacionados
         }
@@ -332,15 +328,3 @@ reviewForm.addEventListener('submit', function(event) {
         window.location.href = 'login.html'; // Redirigir al usuario a la página de login si no está autenticado
     }
     });
-
-
-// Este script debe ejecutarse una vez que el DOM esté completamente cargado
-document.addEventListener('DOMContentLoaded', () => {
-    const cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
-    
-    // Calcular la cantidad total de productos
-    const totalQuantity = cartProducts.reduce((total, product) => total + product.quantity, 0);
-
-    // Actualizar el contenido del badge
-    document.getElementById('cart-badge').textContent = totalQuantity;
-});
