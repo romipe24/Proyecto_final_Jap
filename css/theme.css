@@ -61,3 +61,26 @@
 .dark-theme #product-detail{
     color:#333
 }
+.dark-theme .cart-summary-container{
+    background-color: rgb(20, 20, 20);
+}
+.dark-theme .cart-item-details {
+    flex: 1;
+  }
+  
+ .dark-theme .cart-item-details h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+  }
+  
+ .dark-theme .cart-item-details p {
+    color: white;
+    margin: 5px 0;
+  }
+  
+ .dark-theme .cart-item-details .description {
+    font-size: 0.9rem;
+    color: white;
+  }

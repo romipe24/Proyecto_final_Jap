@@ -1,0 +1,121 @@
+/* Contenedor de cada producto en el carrito */
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-item img {
+  width: 120px;
+  height: auto;
+  object-fit: cover;
+  margin-right: 15px;
+  border-radius: 8px;
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+.cart-item-details h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.cart-item-details p {
+  color: #555;
+  margin: 5px 0;
+}
+
+.cart-item-details .description {
+  font-size: 0.9rem;
+  color: white;
+}
+
+.cart-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-actions .input-group {
+  display: flex;
+  align-items: center;
+}
+
+.cart-actions .btn {
+  background-color: #ffc107;
+  color: white;
+  border: none;
+}
+
+.cart-actions .btn-danger {
+  background-color: transparent;
+  color: #ff4d4f;
+  border: none;
+}
+
+.cart-summary-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.cart-summary p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.cart-summary .total {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffc107;
+}
+
+.btn-warning {
+  color: #fff;
+  background-color: #ffc107;
+  border: none;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1.2rem;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+}
+
+/* Fondo blanco en el campo de cantidad */
+.cart-actions .input-group .form-control {
+  background-color: #ffffff;
+  text-align: center;
+}
+
+/* Alinear el subtotal y total a la izquierda */
+.cart-summary p,
+.cart-summary .totals {
+  text-align: left;
+}
+
+/* Reducir el ancho del campo de cantidad */
+.cart-actions .input-group .form-control {
+  width: 50px; /* Ajusta este valor si deseas un tamaño diferente */
+  background-color: #ffffff;
+  text-align: center;
+}
+
+/* Ajuste de ancho para las tarjetas de productos y de resumen */
+.cart-item  {
+  max-width: 1150px; /* Ajusta este valor según el ancho deseado */
+  margin: 0 auto; /* Centra la tarjeta en la página */
+}
+
+
+
+footer{
+  margin-top: 200px
+}

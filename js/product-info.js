@@ -56,19 +56,21 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
             `;
 
-            /// Guardar la información del producto en localStorage al hacer clic en "Comprar"
-            document.getElementById('buy-button').addEventListener('click', function () {
-                // Obtener el precio y eliminar todo lo que no sea un número o un punto decimal
-                const priceText = document.getElementById('product-price').textContent;
-                const price = parseFloat(priceText.replace(/[^0-9.,]/g, '').replace(',', ''));
 
-                const productComprar = {
-                    name: document.getElementById('product-name').textContent,
-                    price: price,
-                    currency: product.currency,
-                    quantity: 1, // Por defecto, cantidad 1
-                    image: document.getElementById('product-image').src
-                };
+           // Guardar la información del producto en localStorage al hacer clic en "Comprar"
+           document.getElementById('buy-button').addEventListener('click', function () {
+            // Obtener el precio y eliminar todo lo que no sea un número o un punto decimal
+            const priceText = document.getElementById('product-price').textContent;
+            const price = parseFloat(priceText.replace(/[^0-9]/g, '').replace(',', ''));
+
+            const productComprar = {
+                name: document.getElementById('product-name').textContent,
+                price: price,
+                currency: product.currency,
+                quantity: 1, // Por defecto, cantidad 1
+                image: document.getElementById('product-image').src
+            };
+
 
                 // Obtener los productos actuales en el carrito
                 let cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
@@ -90,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Navegar al carrito
                 window.location.href = 'cart.html';
             });
-            
+
             generarGaleria(productId);
             cargarProductosRelacionados(productId); // Llamar a la función para cargar productos relacionados
         }

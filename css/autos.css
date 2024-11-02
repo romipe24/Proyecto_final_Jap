@@ -235,3 +235,10 @@ padding: 5px; /* Espaciado interno */
     width: 120%; /* Asegurarse que ocupe el espacio restante */
     padding: 0.5rem; /* Un poco de padding para mejor usabilidad */
 }
+.badge {
+  background-color: rgb(253, 159, 18); /* Color de fondo del badge */
+  color: white; /* Color del texto */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 0.5em; /* Espaciado */
+  margin-left: 0.5em; /* Espaciado a la izquierda */
+}
