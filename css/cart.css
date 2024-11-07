@@ -124,3 +124,75 @@ img {
 footer{
   margin-top: 200px
 }
+
+
+/* Animaciones */
+
+.navbar {
+  background: rgba(0, 0, 0, 0.85); /* Fondo semi-transparente */
+  backdrop-filter: blur(5px); /* Efecto de desenfoque */
+  transition: background 0.3s ease;
+}
+
+.navbar:hover {
+  background: rgba(0, 0, 0, 1); /* Fondo más oscuro en hover */
+}
+
+#toggle-dark-mode {
+  transition: transform 0.3s ease;
+}
+#toggle-dark-mode:checked ~ #theme-icon {
+  transform: rotate(180deg); /* Rotación al cambiar el tema */
+}
+
+.nav-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #ffc107; /* Color del subrayado */
+  bottom: 0;
+  left: -100%;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover::after {
+  left: 0; /* Desplazamiento de subrayado */
+}
+
+.custom-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Sombra más destacada */
+}
+
+.card-img-top {
+  transition: transform 0.3s ease;
+}
+
+.custom-card:hover .card-img-top {
+  transform: scale(1.05); /* Agranda ligeramente la imagen */
+}
+
+.btn-warning {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-warning:hover {
+  background-color: #ff9800; /* Cambia a un tono más intenso */
+  transform: scale(1.05); /* Escala al pasar el cursor */
+}
+
+.lds-ring div {
+  border-color: #ffc107 transparent transparent transparent; /* Color de la carga */
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
