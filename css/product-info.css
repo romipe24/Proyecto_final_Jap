@@ -90,3 +90,54 @@
   .dark-mode footer {
     background-color: #222;
   }
+
+  body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.btn, .nav-link {
+  transition: transform 0.3s ease;
+}
+
+.btn:hover, .nav-link:hover {
+  transform: scale(1.05);
+}
+
+.navbar-shadow {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+#related-products-list {
+  display: flex;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#related-products-list.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.accordion-body {
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+}
+
+.accordion-body.show {
+  max-height: 500px; /* o el alto necesario */
+  opacity: 1;
+}

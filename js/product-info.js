@@ -328,3 +328,21 @@ reviewForm.addEventListener('submit', function(event) {
         window.location.href = 'login.html'; // Redirigir al usuario a la página de login si no está autenticado
     }
     });
+
+/* Animacion */
+    window.addEventListener('scroll', function() {
+        let navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('navbar-shadow');
+        } else {
+            navbar.classList.remove('navbar-shadow');
+        }
+    });
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        let relatedProducts = document.getElementById('related-products-list');
+        setTimeout(() => {
+            relatedProducts.classList.add('appear');
+        }, 300);
+    });
+    
