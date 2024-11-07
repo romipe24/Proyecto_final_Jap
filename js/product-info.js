@@ -346,3 +346,8 @@ reviewForm.addEventListener('submit', function(event) {
         }, 300);
     });
     
+    document.addEventListener('DOMContentLoaded', function() {
+        let autosInner = document.querySelector('.autosinner');
+        autosInner.classList.add('show');
+    });
+    
