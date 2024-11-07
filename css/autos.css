@@ -1,6 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   padding-bottom: 2.5rem;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 
@@ -242,3 +243,48 @@ padding: 5px; /* Espaciado interno */
   padding: 0.5em; /* Espaciado */
   margin-left: 0.5em; /* Espaciado a la izquierda */
 }
+
+
+ 
+/* Animaciones */
+.nav-link {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ffb347; /* Usa un color que esté en la gama de colores */
+  transform: scale(1.05);
+}
+
+.navbar-shadow {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.autosinner {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.autosinner.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#theme-icon {
+  transition: transform 0.5s ease;
+}
+
+#toggle-dark-mode:checked + label #theme-icon {
+  transform: rotate(180deg);
+}
+
