@@ -339,15 +339,5 @@ reviewForm.addEventListener('submit', function(event) {
         }
     });
     
-    document.addEventListener('DOMContentLoaded', function() {
-        let relatedProducts = document.getElementById('related-products-list');
-        setTimeout(() => {
-            relatedProducts.classList.add('appear');
-        }, 300);
-    });
-    
-    document.addEventListener('DOMContentLoaded', function() {
-        let autosInner = document.querySelector('.autosinner');
-        autosInner.classList.add('show');
-    });
+  
     
