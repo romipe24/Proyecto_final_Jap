@@ -17,7 +17,43 @@ document.addEventListener("DOMContentLoaded", function() {
                 .catch(error => console.error("Error al obtener el producto:", error));
         } else {
             console.error("No se encontró el ID del producto.");
-        }
+        } 
+    document.getElementById("autos").addEventListener("click", function() {
+        localStorage.setItem("catID", 101);
+        window.location = "products.html"
+    });
+    document.getElementById("juguetes").addEventListener("click", function() {
+        localStorage.setItem("catID", 102);
+        window.location = "products.html"
+    });
+    document.getElementById("muebles").addEventListener("click", function() {
+        localStorage.setItem("catID", 103);
+        window.location = "products.html"
+    });
+    document.getElementById("herramientas").addEventListener("click", function() {
+        localStorage.setItem("catID", 104);
+        window.location = "products.html"
+    });
+    document.getElementById("computadoras").addEventListener("click", function() {
+        localStorage.setItem("catID", 105);
+        window.location = "products.html"
+    });
+    document.getElementById("vestimenta").addEventListener("click", function() {
+        localStorage.setItem("catID", 106);
+        window.location = "products.html"
+    });
+    document.getElementById("electrodomesticos").addEventListener("click", function() {
+        localStorage.setItem("catID", 107);
+        window.location = "products.html"
+    });
+    document.getElementById("deporte").addEventListener("click", function() {
+        localStorage.setItem("catID", 108);
+        window.location = "products.html"
+    });
+    document.getElementById("celulares").addEventListener("click", function() {
+        localStorage.setItem("catID", 109);
+        window.location = "products.html"
+    });
       
         // Función para mostrar el producto
         function mostrarProducto(product, catID) {
@@ -338,6 +374,15 @@ reviewForm.addEventListener('submit', function(event) {
             navbar.classList.remove('navbar-shadow');
         }
     });
+      document.addEventListener('DOMContentLoaded', function() {
+        let relatedProducts = document.getElementById('related-products-list');
+        setTimeout(() => {
+            relatedProducts.classList.add('appear');
+        }, 300);
+    });
     
-  
+    document.addEventListener('DOMContentLoaded', function() {
+        let autosInner = document.querySelector('.autosinner');
+        autosInner.classList.add('show');
+    });
     
