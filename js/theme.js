@@ -31,14 +31,3 @@ toggleSwitch.addEventListener('change', function() {
           </svg>`;
   }
 });
-
-
-/*Animaciones */
-window.addEventListener('scroll', function() {
-  let navbar = document.querySelector('.navbar');
-  if (window.scrollY > 50) {
-      navbar.classList.add('navbar-shadow');
-  } else {
-      navbar.classList.remove('navbar-shadow');
-  }
-});
