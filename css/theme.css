@@ -226,3 +226,15 @@ footer a:hover {
         opacity: 1;
     }
 }
+.dark-theme .modal-body {
+    background-color: #333;
+    color: #ccc;
+}
+.dark-theme .modal-header{
+    background-color: #333;
+    color: #ccc;
+}
+.dark-theme .form-floating{
+    background-color: #ccc;
+    color: black;
+}
