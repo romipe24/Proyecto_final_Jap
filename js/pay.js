@@ -101,6 +101,7 @@ if (cartProducts.length > 0) {
 } else {
     cartContent.innerHTML = `<p class="alert alert-warning">El carrito está vacío.</p>`;
     totalElementUSD.textContent = '';
+    totalElementUYU.textContent = '';
 }
 
 // Vaciar carrito
@@ -118,7 +119,6 @@ document.getElementById('clear-cart').addEventListener('click', () => {
 const shippingTypeElement = document.getElementById('shippingType');
 const subtotalElement = document.getElementById('subtotal');
 const shippingCostElement = document.getElementById('shippingCost');
-const totalCostElement = document.getElementById('totalCost');
 
 // Actualiza los costos (Subtotal, Envío y Total)
 const updateCosts = () => {
@@ -134,26 +134,35 @@ const updateCosts = () => {
     });
 
     // Actualizamos el subtotal
-    document.getElementById('subtotal').textContent = `USD ${formatNumber(subtotalUSD.toFixed(2))}`;
+    document.getElementById('subtotalUSD').textContent = `USD ${formatNumber(subtotalUSD.toFixed(2))}`;
+    document.getElementById('subtotalUYU').textContent = `UYU ${formatNumber(subtotalUYU.toFixed(2))}`;
 
     // Cálculo del costo de envío basado en el tipo de envío seleccionado
-    let shippingCost = 0;
+    let shippingCostUSD = 0;
+    let shippingCostUYU = 0;
     const shippingType = shippingTypeElement.value;
     if (shippingType === 'premium') {
-        shippingCost = subtotalUSD * 0.15; // 15% de costo adicional
+        shippingCostUSD = subtotalUSD * 0.15; // 15% de costo adicional
+        shippingCostUYU = subtotalUYU * 0.15; 
     } else if (shippingType === 'express') {
-        shippingCost = subtotalUSD * 0.07; // 7% de costo adicional
+        shippingCostUSD = subtotalUSD * 0.07; // 7% de costo adicional
+        shippingCostUYU = subtotalUYU * 0.07; 
     } else if (shippingType === 'standard') {
-        shippingCost = subtotalUSD * 0.05; // 5% de costo adicional
+        shippingCostUSD = subtotalUSD * 0.05; // 5% de costo adicional
+        shippingCostUYU = subtotalUYU * 0.05; 
     }
 
-    document.getElementById('shippingCost').textContent = `USD ${formatNumber(shippingCost.toFixed(2))}`;
+    document.getElementById('shippingCostUSD').textContent = `USD ${formatNumber(shippingCostUSD.toFixed(2))}`;
+    document.getElementById('shippingCostUYU').textContent = `UYU ${formatNumber(shippingCostUYU.toFixed(2))}`;
 
     // Calculamos el total
-    const totalCost = subtotalUSD + shippingCost;
-    document.getElementById('totalCost').textContent = `USD ${formatNumber(totalCost.toFixed(2))}`;
+    const totalCost = subtotalUSD + shippingCostUSD;
+    document.getElementById('totalCostUSD').textContent = `USD ${formatNumber(totalCost.toFixed(2))}`;
     totalElementUSD.textContent = `Total USD: ${formatNumber(totalCost.toFixed(2))}`;
-    totalElementUYU.textContent = `Total UYU: ${formatNumber((totalCost * 44).toFixed(2))}`; // Supón que 1 USD = 44 UYU
+
+    const totalCostUYU = subtotalUYU + shippingCostUYU;
+    document.getElementById('totalCostUYU').textContent = `UYU ${formatNumber(totalCostUYU.toFixed(2))}`;
+    totalElementUYU.textContent = `Total UYU: ${formatNumber(totalCostUYU.toFixed(2))}`;
 };
 
 // Actualizar los costos al cambiar el tipo de envío
