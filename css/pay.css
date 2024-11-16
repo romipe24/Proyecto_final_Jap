@@ -108,3 +108,21 @@ text-align: left;
     padding-left: 5px;
 }
 
+@media (max-width: 768px) {
+  .container .row > .col-md-8,
+  .container .row > .col-md-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .container .row {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+img {
+    width: 150%; /* Ajusta el tamaño del logo para que no ocupe demasiado espacio */
+    max-width: 500px; /* Limita el tamaño máximo del logo */
+ 
+}
