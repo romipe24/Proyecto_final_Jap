@@ -1,0 +1,76 @@
+ /* Cambiar color de texto de las pestañas */
+ .nav-pills .nav-link {
+    color: black !important; /* Texto negro */
+}
+
+/* Cambiar el color del tab activo */
+.nav-pills .nav-link.active {
+    background-color: #ffc107; /* Color warning */
+    color: #212529; /* Texto oscuro para contraste */
+}
+
+/* Opcional: cambiar el color al pasar el mouse */
+.nav-pills .nav-link:hover {
+    background-color: #ffe066; /* Un tono más claro de amarillo */
+    color: #212529;
+}
+
+
+#SeguirComprando, #direccion {
+    background-color: white; /* Fondo blanco */
+    color: black; /* Texto negro */
+    border: 2px solid #ffc107; /* Borde amarillo naranja (warning) */
+    text-decoration: none; /* Sin subrayado */
+    transition: all 0.3s ease; /* Suavidad en los cambios */
+}
+
+/* Estilo al pasar el mouse */
+#SeguirComprando:hover,  #direccion:hover{
+    background-color: #ffc107; /* Fondo amarillo naranja (warning) */
+    color: white; /* Texto blanco */
+    border-color: #ffc107; /* Borde permanece amarillo naranja */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item img {
+    width: 100px; /* Ajusta el tamaño de la imagen */
+    height: auto;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.cart-item-details {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cart-item-details h3 {
+    margin-left: 25px;
+    font-size: 1.1rem;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.cart-item-details p {
+    margin: 0;
+    font-size: 1rem;
+    text-align: right;
+    white-space: nowrap;
+    margin-left: 20px;
+}
+
+#contCostos{
+    margin-top: 50px;
+}
+
