@@ -77,6 +77,27 @@ body {
     transform: scale(1.01);
 }
 
+.dark-theme .cart-item-details {
+    flex: 1;
+  }
+  
+ .dark-theme .cart-item-details h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+  }
+  
+ .dark-theme .cart-item-details p {
+    color: white;
+    margin: 5px 0;
+  }
+  
+ .dark-theme .cart-item-details .description {
+    font-size: 0.9rem;
+    color: white;
+}
+
 .nav-link {
     position: relative;
     color: #fff;
@@ -237,4 +258,20 @@ footer a:hover {
 .dark-theme .form-floating{
     background-color: #ccc;
     color: black;
+}
+/* Cambiar color de texto de las pestañas */
+.dark-theme .nav-pills .nav-link {
+    color: white !important; /* Texto negro */
+}
+
+/* Cambiar el color del tab activo */
+.dark-theme .nav-pills .nav-link.active {
+    background-color: #ffc107; /* Color warning */
+    color: white; /* Texto oscuro para contraste */
+}
+
+/* Opcional: cambiar el color al pasar el mouse */
+.dark-theme .nav-pills .nav-link:hover {
+    background-color: #ffe066; /* Un tono más claro de amarillo */
+    color: white;
 }
