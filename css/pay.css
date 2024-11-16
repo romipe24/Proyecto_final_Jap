@@ -89,21 +89,21 @@
     #cart-content{
     padding-left: 20px;
     padding-right: 25px;
-    padding-top: 50px ;
+    padding-top: 10px ;
     }
     
     
     #contCostos{
     padding-right: 65px;
     padding-top: 76px ;
-    padding-left: 10px;
     text-align: center;
     }
     
     #costs{
-        padding-top: 15px;
-        padding-left: 20px;
+        padding-top: 10px;
+        padding-left: 15px;
         text-align: left;
+       
     }
     
     #bankTransferForm, #creditCardForm {
@@ -162,8 +162,7 @@ img {
 
 
   h3{
-    padding-top: 30px;
-    text-align: center;
+    text-align: center
   }
 
   .cart-item-details {
@@ -181,7 +180,12 @@ img {
     .tab span {
         white-space: nowrap;
       }
+
+      #formTabsContent{
+        padding-bottom: 25px;
+      }
       
+    
     }
     
     footer {
