@@ -102,8 +102,9 @@ if (cartProducts.length > 0) {
             <img src="${product.image}" alt="${product.name}" class="img-fluid mx-auto d-block mb-2">
             <div class="cart-item-details">
                 <h3>${product.name}</h3>
+                  <p>Cantidad: ${product.quantity}</p>
                 <p>Precio: ${product.currency} ${product.price}</p>
-                <p>Cantidad: ${product.quantity}</p>
+              
             </div>
         `;
 
