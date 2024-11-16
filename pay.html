@@ -12,6 +12,7 @@
   <link href="css/cart.css" rel="stylesheet">
   <link href="css/theme.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="css/pay.css" rel="stylesheet">
 </head>
 
 <body>
@@ -70,148 +71,159 @@
     </div>
   </nav>
   <main>
-      <div class="logo">
-          <img src="img/login-removebg-preview.png" alt="Logo Jóvenes a Programar">
-          <h1 class="mb-4 text-center">Mi Compra</h1>
-      </div> 
-    <div class="container mt-5 ">
+    <div class="logo">
+        <img src="img/login-removebg-preview.png" alt="Logo Jóvenes a Programar">
+        <h1 class="mb-4 text-center">Mi Resumen</h1>
+    </div> 
+  <div class="container mt-5 ">
 
-      <div id="cart-content" class="row">
-        <!-- Aquí se mostrará el producto o un mensaje si el carrito está vacío -->
-      </div>
-      <div class="container mt-4">
-        <!-- Nav Tabs -->
-        <ul class="nav nav-tabs" id="formTabs" role="tablist">
-          <li class="nav-item" role="presentation">
-            <a class="nav-link" id="address-tab" data-bs-toggle="tab" href="#address" role="tab" aria-controls="address" aria-selected="true">Dirección de Envío</a>
-          </li>
-          <li class="nav-item" role="presentation">
-            <a class="nav-link active" id="shipping-tab" data-bs-toggle="tab" href="#shipping" role="tab" aria-controls="shipping" aria-selected="false">Tipo de Envío</a>
-          </li>
-          <li class="nav-item" role="presentation">
-            <a class="nav-link" id="payment-tab" data-bs-toggle="tab" href="#payment" role="tab" aria-controls="payment" aria-selected="false">Forma de Pago</a>
-          </li>
-          <li class="nav-item" role="presentation">
-            <a class="nav-link" id="costs-tab" data-bs-toggle="tab" href="#costs" role="tab" aria-controls="costs" aria-selected="false">Costos</a>
-          </li>
-        </ul>
-      
-        <!-- Tab Content -->
-        <div class="tab-content mt-3" id="formTabsContent">
-          <!-- Tipo de Envío -->
-          <div class="tab-pane fade show active" id="shipping" role="tabpanel" aria-labelledby="shipping-tab">
-            <h3>Tipo de Envío</h3>
-            <div class="form-group">
-              <label for="shippingType">Seleccionar tipo de envío:</label>
+    <div id="cart-content" class="row">
+      <!-- Aquí se mostrará el producto o un mensaje si el carrito está vacío -->
+    </div>
+    
+    <div class="container mt-5">
+      <div class="row">
+        <!-- Columna de pasos (Dirección, Envío, Pago) -->
+        <div class="col-md-8">
+          <!-- Nav Tabs de pasos -->
+          <ul class="nav nav-pills mb-3" id="formTabs" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="address-tab" data-bs-toggle="pill" href="#address" role="tab">Dirección de Envío</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="shipping-tab" data-bs-toggle="pill" href="#shipping" role="tab">Tipo de Envío</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="payment-tab" data-bs-toggle="pill" href="#payment" role="tab">Forma de Pago</a>
+            </li>
+          </ul>
+    
+          <!-- Contenido de los pasos -->
+          <div class="tab-content" id="formTabsContent">
+            <!-- Dirección de Envío -->
+            <div class="tab-pane fade show active" id="address" role="tabpanel">
+              <h3>Dirección de Envío</h3>
+              <form id="shippingAddressForm" action="#" method="post">
+                  <div class="form-group mb-3">
+                      <label for="department">Departamento:</label>
+                      <input type="text" class="form-control" id="department" name="department" placeholder="Departamento" required>
+                  </div>
+                  <div class="form-group mb-3">
+                      <label for="locality">Localidad:</label>
+                      <input type="text" class="form-control" id="locality" name="locality" placeholder="Localidad" required>
+                  </div>
+                  <div class="form-group mb-3">
+                      <label for="street">Calle:</label>
+                      <input type="text" class="form-control" id="street" name="street" placeholder="Calle" required>
+                  </div>
+                  <div class="form-group mb-3">
+                      <label for="number">Número:</label>
+                      <input type="text" class="form-control" id="number" name="number" placeholder="Número" required>
+                  </div>
+                  <div class="form-group mb-3">
+                      <label for="corner">Esquina:</label>
+                      <input type="text" class="form-control" id="corner" name="corner" placeholder="Esquina" required>
+                  </div>
+                  <button type="submit" class="btn btn-warning" id="direccion">Guardar Dirección</button>
+              </form>
+          </div>
+          
+    
+            <!-- Tipo de Envío -->
+            <div class="tab-pane fade" id="shipping" role="tabpanel">
+              <h3>Tipo de Envío</h3>
               <select class="form-control" id="shippingType">
                 <option value="premium">Premium 2 a 5 días (15%)</option>
                 <option value="express">Express 5 a 8 días (7%)</option>
                 <option value="standard">Standard 12 a 15 días (5%)</option>
               </select>
             </div>
-          </div>
-      
-          <!-- Dirección de Envío -->
-          <div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby="address-tab">
-            <h3>Dirección de Envío</h3>
-            <div class="form-group">
-              <label for="department">Departamento:</label>
-              <input type="text" class="form-control" id="department" placeholder="Departamento">
-            </div>
-            <div class="form-group">
-              <label for="locality">Localidad:</label>
-              <input type="text" class="form-control" id="locality" placeholder="Localidad">
-            </div>
-            <div class="form-group">
-              <label for="street">Calle:</label>
-              <input type="text" class="form-control" id="street" placeholder="Calle">
-            </div>
-            <div class="form-group">
-              <label for="number">Número:</label>
-              <input type="text" class="form-control" id="number" placeholder="Número">
-            </div>
-            <div class="form-group">
-              <label for="corner">Esquina:</label>
-              <input type="text" class="form-control" id="corner" placeholder="Esquina">
-            </div>
-          </div>
-      
-          <!-- Forma de Pago -->
-          <div class="tab-pane fade" id="payment" role="tabpanel" aria-labelledby="payment-tab">
-            <h3>Forma de Pago</h3>
-            <div class="form-group">
-              <label for="paymentMethod">Seleccionar método de pago:</label>
+    
+            <!-- Forma de Pago -->
+            <div class="tab-pane fade" id="payment" role="tabpanel">
+              <h3>Forma de Pago</h3>
               <select class="form-control" id="paymentMethod">
                 <option value="creditCard">Tarjeta de Crédito</option>
                 <option value="bankTransfer">Transferencia Bancaria</option>
               </select>
-            </div>
-      
-            <!-- Datos de tarjeta de crédito -->
-            <div id="creditCardForm" style="display: none;">
-              <div class="form-group">
-                <label for="cardNumber">Número de tarjeta:</label>
-                <input type="text" class="form-control" id="cardNumber" placeholder="Número de tarjeta">
-              </div>
-              <div class="form-group">
-                <label for="cvv">Código de seguridad (CVV):</label>
-                <input type="text" class="form-control" id="cvv" placeholder="CVV">
-              </div>
-              <div class="form-group">
-                <label for="expiryDate">Fecha de vencimiento (MM/AA):</label>
-                <input type="text" class="form-control" id="expiryDate" placeholder="MM/AA">
-              </div>
-            </div>
-      
-            <!-- Datos de transferencia bancaria -->
-            <div id="bankTransferForm" style="display: none;">
-              <div class="form-group">
-                <label for="bankName">Nombre del banco:</label>
-                <input type="text" class="form-control" id="bankName" placeholder="Nombre del banco">
-              </div>
-              <div class="form-group">
-                <label for="accountHolder">Titular de la cuenta:</label>
-                <input type="text" class="form-control" id="accountHolder" placeholder="Titular de la cuenta">
-              </div>
-              <div class="form-group">
-                <label for="accountNumber">Número de cuenta:</label>
-                <input type="text" class="form-control" id="accountNumber" placeholder="Número de cuenta">
-              </div>
-            </div>
+
+                 <!-- Datos de tarjeta de crédito -->
+        <div id="creditCardForm" style="display: none;">
+          <div class="form-group">
+            <label for="cardNumber">Número de tarjeta:</label>
+            <input type="text" class="form-control" id="cardNumber" placeholder="Número de tarjeta">
           </div>
-      
-          <!-- Costos -->
-          <div class="tab-pane fade" id="costs" role="tabpanel" aria-labelledby="costs-tab">
-            <h3>Costos</h3>
-            <div id="costs">
-              <p><strong>Subtotal:</strong> <span id="subtotalUSD">USD 0.00</span></p>
-              <p><strong>Subtotal:</strong> <span id="subtotalUYU">UYU 0.00</span></p>
-              <p><strong>Costo de Envío:</strong> <span id="shippingCostUSD">USD 0.00</span></p>
-              <p><strong>Costo de Envío:</strong> <span id="shippingCostUYU">UYU 0.00</span></p>
-              <p><strong>Total:</strong> <span id="totalCostUSD">USD 0.00</span></p>
-              <p><strong>Total:</strong> <span id="totalCostUYU">UYU 0.00</span></p>
-            </div>
+          <div class="form-group">
+            <label for="cvv">Código de seguridad (CVV):</label>
+            <input type="text" class="form-control" id="cvv" placeholder="CVV">
+          </div>
+          <div class="form-group">
+            <label for="expiryDate">Fecha de vencimiento (MM/AA):</label>
+            <input type="text" class="form-control" id="expiryDate" placeholder="MM/AA">
           </div>
         </div>
-      
-      <!-- Contenedor de totales y botones -->
-      <div class="cart-summary-container">
-        <div class="cart-summary p-4 rounded">
-          <div class="totals text-end mb-4">
-            <p class="fw-bold text-warning"><span id="totalUSD"></span></p>
-            <p class="fw-bold text-warning"> <span id="totalUYU"></span></p>
+  
+        <!-- Datos de transferencia bancaria -->
+        <div id="bankTransferForm" style="display: none;">
+          <div class="form-group">
+            <label for="bankName">Nombre del banco: BancoEjemploUY</label>
           </div>
-          
-            <div class="container mt-4">
-              <a href="categories.html" class="btn btn-warning btn flex-grow-1 me-2">Seguir comprando</a>
-            </div>
-            <div class="container mt-4">
-            <button id="finalizePurchase" class="btn btn-warning btn">Finalizar Compra</button>
+          <div class="form-group">
+            <label for="accountHolder">Titular de la cuenta: NombreBancoEjemploUY</label>
+          </div>
+          <div class="form-group">
+            <label for="accountNumber">Número de cuenta: 3829 *** **** ****</label>
+          </div>
+          <div>
+            <p> Enviar comprobante a: +598 99 54* ***</p>
           </div>
         </div>
-          
+            </div>
+
+         
+
+          </div>
+        </div>
+
+        
+    
+        <!-- Columna de costos -->
+        <div class="col-md-4" id="contCostos">
+          <h3>Costos</h3>
+          <div id="costs">
+            <p><strong>Subtotal:</strong> <span id="subtotalUSD">USD 0.00</span></p>
+            <p><strong>Costo de Envío:</strong> <span id="shippingCostUSD">USD 0.00</span></p>
+            <p><strong>Total:</strong> <span id="totalCostUSD">USD 0.00</span></p>
+              <hr>
+            <p><strong>Subtotal:</strong> <span id="subtotalUYU">UYU 0.00</span></p>
+            <p><strong>Costo de Envío:</strong> <span id="shippingCostUYU">UYU 0.00</span></p>
+            <p><strong>Total:</strong> <span id="totalCostUYU">UYU 0.00</span></p>
+            <hr>
+            <div class="totals mb-4">
+              <p class="fw-bold text-warning"><span id="totalUSD"></span></p>
+              <p class="fw-bold text-warning"> <span id="totalUYU"></span></p>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+
+
+
+
+    
+    <!-- Contenedor de totales y botones -->
+    <div class="cart-summary-container">
+      <div class="cart-summary p-4 rounded">
+        <div class="container mt-4">
+          <button id="finalizePurchase" class="btn btn-warning btn">Finalizar Compra</button>
+          <a href="categories.html" class="btn btn-warning mt-4" id="SeguirComprando">Seguir comprando</a>
+        </div>
+      </div>
+      </div>
+    </div>
+</main>
+
   </main>
   <footer class="text-muted">
     <div class="container">
