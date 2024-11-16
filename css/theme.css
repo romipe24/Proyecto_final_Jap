@@ -1,4 +1,5 @@
-  body.dark-theme {
+/* Modo oscuro */
+body.dark-theme {
     background-color: rgb(20, 20, 20);
     color: white;
 }
@@ -26,44 +27,56 @@
     color: #aaa;
 }
 
-  /* Estilos generales del modo oscuro */
-  body.light-mode {
-    background-color: white;
-    color:rgb(20, 20, 20);
-    
-}
-.dark-theme  .album{
+.dark-theme .album,
+.dark-theme .filtro,
+.dark-theme .filtro2,
+.dark-theme .profile-pic-section,
+.dark-theme .cart-summary-container,
+.dark-theme .jumbotron {
     background-color: rgb(20, 20, 20);
 }
 
-.dark-theme .filtro{
-    background-color: rgb(20, 20, 20);
+.dark-theme .card-footer,
+.dark-theme .cart-item-details h3,
+.dark-theme .cart-item-details p,
+.dark-theme .cart-item-details .description {
+    color: white;
 }
-.dark-theme .filtro2{
-    background-color: rgb(20, 20, 20);
-}
-.dark-theme .card-footer{
-    background-color:#444;
-}
-.dark-theme .dz-message{
+
+.dark-theme .dz-message {
     color: black;
 }
-.dark-theme .list-group-item{
+
+.dark-theme .list-group-item {
     background-color: rgb(20, 20, 20);
     color: #ccc;
 }
-.dark-theme .profile-pic-section{
-    background-color: rgb(20, 20, 20);
+
+.dark-theme #product-detail {
+    color: #333;
 }
-.dark-theme .jumbotron{
-    background-color: rgb(20, 20, 20);
+
+/* Estilos generales */
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    transition: background-color 0.5s ease;
 }
-.dark-theme #product-detail{
-    color:#333
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
-.dark-theme .cart-summary-container{
-    background-color: rgb(20, 20, 20);
+
+.navbar:hover {
+    transform: scale(1.01);
 }
+
 .dark-theme .cart-item-details {
     flex: 1;
   }
@@ -83,7 +96,169 @@
  .dark-theme .cart-item-details .description {
     font-size: 0.9rem;
     color: white;
-  }
+}
+
+.nav-link {
+    position: relative;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #f28b30;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 80%;
+}
+
+/* Contenedor de perfil */
+.profile-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.profile-container:hover {
+    transform: scale(1.02);
+}
+
+/* Foto de perfil */
+.profile-pic-section {
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.profile-pic-section:hover img {
+    transform: scale(1.05);
+}
+
+.profile-pic-section img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.edit-button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #f28b30;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+    background-color: #f05c00;
+}
+
+/* Animación de hover en botones */
+.btn-save {
+    padding: 10px 20px;
+    background-color: #f28b30;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-save:hover {
+    background-color: #f05c00;
+    transform: translateY(-3px);
+}
+
+/* Efecto en formulario */
+.form-control {
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #f28b30;
+    box-shadow: 0 4px 8px rgba(242, 139, 48, 0.3);
+    outline: none;
+}
+
+/* Animación en encabezado */
+.header-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #f28b30;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeInDown 1s ease forwards;
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 20px;
+    transition: background-color 0.5s ease;
+}
+
+footer a {
+    color: #f28b30;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+/* Animación de opacidad */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.dark-theme .modal-body {
+    background-color: #333;
+    color: #ccc;
+}
+.dark-theme .modal-header{
+    background-color: #333;
+    color: #ccc;
+}
+.dark-theme .form-floating{
+    background-color: #ccc;
+    color: black;
+}
 /* Cambiar color de texto de las pestañas */
 .dark-theme .nav-pills .nav-link {
     color: white !important; /* Texto negro */

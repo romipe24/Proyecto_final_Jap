@@ -212,3 +212,134 @@ a.custom-card:hover {
   padding: 0.5em; /* Espaciado */
   margin-left: 0.5em; /* Espaciado a la izquierda */
 }
+
+
+/* Animaciones */
+
+.card-img-top {
+  transition: transform 0.3s ease;
+}
+.custom-card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.navbar {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  transition: background 0.3s ease;
+}
+.navbar:hover {
+  background: rgba(0, 0, 0, 1);
+}
+
+.btn-light:hover {
+  background-color: #ffc107; /* Usa un color llamativo de tu gama */
+  color: #ffffff;
+  transform: scale(1.05);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link {
+  position: relative;
+  overflow: hidden;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #ffc107; /* Usa el color de tu gama */
+  bottom: 0;
+  left: -100%;
+  transition: all 0.3s ease;
+}
+.nav-link:hover::after {
+  left: 0;
+}
+
+#toggle-dark-mode {
+  transition: transform 0.3s ease;
+}
+#toggle-dark-mode:checked ~ #theme-icon {
+  transform: rotate(180deg);
+}
+
+.custom-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.custom-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Transiciones en botones */
+.btn-warning, .nav-link {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-warning:hover {
+  background-color: #FF4500;
+  color: #fff;
+}
+
+.nav-link:hover {
+  color: #FF6600;
+}
+
+/* Animación fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Aplica la animación a las cards */
+.autosinner .card {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.autosinner .card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.autosinner .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-nav .nav-link {
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #FFD700; 
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+main {
+  animation: slideIn 0.8s ease-in-out;
+}
+
+footer a {
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #FF4500; /* Color al pasar el cursor */
+}
+

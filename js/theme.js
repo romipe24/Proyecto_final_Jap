@@ -31,4 +31,3 @@ toggleSwitch.addEventListener('change', function() {
           </svg>`;
   }
 });
-
