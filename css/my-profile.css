@@ -29,7 +29,7 @@ body {
 
 .profile-pic-section {
   background-color: white;
-  padding: 40px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -106,7 +106,9 @@ body {
 }
 
 .form-section {
-  padding: 40px;
+  padding-right: 40px;
+  padding-left: 5px;
+  padding-top: 15px;
   flex-grow: 1;
 }
 
