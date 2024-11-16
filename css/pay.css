@@ -70,43 +70,46 @@
     margin-left: 10px;
     padding-right: 50px;
 }
+@media (min-width: 992px) {
 
+    #formTabsContent {
+        padding-left: 45px; 
+        padding-right: 20px;
+        padding-bottom: 15px;
+        padding-top: 20px;
+    }
+    
+    #formTabs{
+        padding-left: 30px; 
+        padding-right: 20px;
+    }
+    
+    #cart-content{
+    padding-left: 20px;
+    padding-right: 25px;
+    padding-top: 50px ;
+    }
+    
+    
+    #contCostos{
+    padding-right: 65px;
+    padding-top: 76px ;
+    padding-left: 10px;
+    text-align: center;
+    }
+    
+    #costs{
+        padding-top: 15px;
+        padding-left: 20px;
+        text-align: left;
+    }
+    
+    #bankTransferForm, #creditCardForm {
+        padding-top: 15px;
+        padding-left: 5px;
+    }
+    }
 
-#formTabsContent {
-    padding-left: 45px; 
-    padding-right: 20px;
-    padding-bottom: 15px;
-    padding-top: 20px;
-}
-
-#formTabs{
-    padding-left: 30px; 
-    padding-right: 20px;
-}
-
-#cart-content{
-padding-left: 20px;
-padding-right: 25px;
-padding-top: 50px ;
-}
-
-
-#contCostos{
-padding-right: 65px;
-padding-top: 76px ;
-padding-left: 10px;
-text-align: left;
-}
-
-#costs{
-    padding-top: 15px;
-    text-align: left;
-}
-
-#bankTransferForm, #creditCardForm {
-    padding-top: 15px;
-    padding-left: 5px;
-}
 
 @media (max-width: 768px) {
   .container .row > .col-md-8,
@@ -125,4 +128,38 @@ img {
     width: 150%; /* Ajusta el tamaño del logo para que no ocupe demasiado espacio */
     max-width: 500px; /* Limita el tamaño máximo del logo */
  
+}
+
+@media (max-width: 576px) {
+  .cart-item img {
+    width: 80px; /* Reducir el tamaño de la imagen */
+  }
+
+  .cart-item-details h3 {
+    font-size: 0.9rem; /* Reducir el tamaño de la fuente */
+    margin-left: 10px; /* Reducir márgenes */
+  }
+
+  .cart-item-details p {
+    font-size: 0.85rem; /* Reducir el tamaño de la fuente */
+    padding-right: 20px; /* Reducir padding */
+  }
+
+  #formTabsContent, #formTabs, #cart-content, #contCostos, #costs, #bankTransferForm, #creditCardForm {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+  }
+
+  img {
+    width: 100%; /* Asegurar que las imágenes no ocupen más del ancho de la pantalla */
+    max-width: 280px; /* Limitar el tamaño máximo */
+  }
+   
+
+
+
+  h3{
+    text-align: center;
+  }
 }
