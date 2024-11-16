@@ -1,0 +1,28 @@
+/* Cambiar el color del tab activo */
+.nav-pills .nav-link.active {
+    background-color: #ffc107; /* Color warning */
+    color: #212529; /* Texto oscuro para contraste */
+}
+
+/* Opcional: cambiar el color al pasar el mouse */
+.nav-pills .nav-link:hover {
+    background-color: #ffe066; /* Un tono más claro de amarillo */
+    color: #212529;
+}
+
+
+#SeguirComprando {
+    background-color: white; /* Fondo blanco */
+    color: black; /* Texto negro */
+    border: 2px solid #ffc107; /* Borde amarillo naranja (warning) */
+    text-decoration: none; /* Sin subrayado */
+    transition: all 0.3s ease; /* Suavidad en los cambios */
+}
+
+/* Estilo al pasar el mouse */
+#SeguirComprando:hover {
+    background-color: #ffc107; /* Fondo amarillo naranja (warning) */
+    color: white; /* Texto blanco */
+    border-color: #ffc107; /* Borde permanece amarillo naranja */
+    text-decoration: none; /* Sin subrayado */
+}

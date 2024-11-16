@@ -191,7 +191,25 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ** Finalizar Compra y Validación de Pago**
+// Variable para rastrear si el botón "direccion" fue clickeado
+let addressSubmitted = false;
+
+// Agregar evento al botón "direccion" para marcarlo como enviado
+document.getElementById("direccion").addEventListener("click", function(event) {
+    // Prevenir el envío predeterminado del formulario
+    event.preventDefault();
+    addressSubmitted = true;
+    alert("Dirección confirmada.");
+});
+
+// Evento del botón "finalizePurchase"
 document.getElementById("finalizePurchase").addEventListener("click", function() {
+    // Verificar si el botón "direccion" fue clickeado
+    if (!addressSubmitted) {
+        alert('Por favor, confirma primero tu dirección de envío.');
+        return;
+    }
+
     var paymentMethod = document.getElementById('paymentMethod').value;
 
     if (paymentMethod === 'creditCard') {
@@ -214,19 +232,10 @@ document.getElementById("finalizePurchase").addEventListener("click", function()
         }
     }
 
-    if (paymentMethod === 'bankTransfer') {
-        var bankName = document.getElementById('bankName').value;
-        var accountHolder = document.getElementById('accountHolder').value;
-        var accountNumber = document.getElementById('accountNumber').value;
-
-        if (!bankName || !accountHolder || !accountNumber) {
-            alert('Por favor, completa todos los campos de la transferencia bancaria.');
-            return;
-        }
-    }
-
     alert('Compra finalizada. ¡Gracias por tu compra!');
-    // Aquí podrías redirigir al usuario o realizar alguna otra acción post-compra
+    // Aquí habria que vaciar el carrito
+    // Redirige a index.html
+    //window.location.href = "index.html";
 });
 
 
