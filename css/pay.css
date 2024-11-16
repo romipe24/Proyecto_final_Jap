@@ -1,3 +1,8 @@
+ /* Cambiar color de texto de las pestañas */
+ .nav-pills .nav-link {
+    color: black !important; /* Texto negro */
+}
+
 /* Cambiar el color del tab activo */
 .nav-pills .nav-link.active {
     background-color: #ffc107; /* Color warning */

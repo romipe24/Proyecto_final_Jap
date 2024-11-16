@@ -195,12 +195,37 @@ document.addEventListener('DOMContentLoaded', function() {
 // Variable para rastrear si el botón "direccion" fue clickeado
 let addressSubmitted = false;
 
-// Agregar evento al botón "direccion" para marcarlo como enviado
-document.getElementById("direccion").addEventListener("click", function(event) {
-    // Prevenir el envío predeterminado del formulario
+ // Agregar evento al botón de guardar dirección
+ document.getElementById("direccion").addEventListener("click", function () {
     event.preventDefault();
+    // Obtener valores de los campos del formulario
+    const department = document.getElementById("department").value.trim();
+    const locality = document.getElementById("locality").value.trim();
+    const street = document.getElementById("street").value.trim();
+    const number = document.getElementById("number").value.trim();
+    const corner = document.getElementById("corner").value.trim();
+
+    // Validar que todos los campos estén completos
+    if (!department || !locality || !street || !number || !corner) {
+        alert("Por favor, completa todos los campos.");
+        return;
+    }
+
+    // Crear un objeto con los datos
+    const shippingAddress = {
+        department,
+        locality,
+        street,
+        number,
+        corner,
+    };
+
+    // Guardar el objeto en localStorage
+    localStorage.setItem("shippingAddress", JSON.stringify(shippingAddress));
+
+    // Mostrar una alerta de éxito
+    alert("Dirección guardada correctamente.");
     addressSubmitted = true;
-    alert("Dirección confirmada.");
 });
 
 // Evento del botón "finalizePurchase"
@@ -234,9 +259,16 @@ document.getElementById("finalizePurchase").addEventListener("click", function()
     }
 
     alert('Compra finalizada. ¡Gracias por tu compra!');
-    // Aquí habria que vaciar el carrito
-    // Redirige a index.html
-    //window.location.href = "index.html";
+    // Vaciar carrito
+        localStorage.removeItem('cartProducts');
+        cartProducts = [];
+        cartContent.innerHTML = `<p class="alert alert-warning">El carrito está vacío.</p>`;
+        totalElementUSD.textContent = '';
+        totalElementUYU.textContent = '';
+       updateCartBadge(); // Actualizar el badge
+       updateCosts();
+    //Rederigir al inicio
+        window.location.href = "index.html";
 });
 
 
