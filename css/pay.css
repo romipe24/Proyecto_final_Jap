@@ -70,6 +70,8 @@
     margin-left: 10px;
     padding-right: 50px;
 }
+
+
 @media (min-width: 992px) {
 
     #formTabsContent {
@@ -160,6 +162,33 @@ img {
 
 
   h3{
+    padding-top: 30px;
     text-align: center;
   }
-}
+
+  .cart-item-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-item-price {
+    margin-top: 5px; /* Espaciado entre la cantidad y el precio */
+    font-size: 1.1em; /* Ajustar tamaño del precio */
+  }
+
+    /* Asegurar que el texto se vea bien en móvil */
+    .tab span {
+        white-space: nowrap;
+      }
+      
+    }
+    
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+
