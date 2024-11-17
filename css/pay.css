@@ -75,6 +75,7 @@
 }
 
 
+
 @media (min-width: 992px) {
 
     #formTabsContent {
@@ -152,14 +153,19 @@ img {
     
   }
 
-  #formTabsContent, #formTabs, #cart-content, #contCostos, #costs, #bankTransferForm, #creditCardForm {
+  #formTabsContent, #formTabs,#bankTransferForm, #creditCardForm {
     padding-left: 20px;
     padding-right: 20px;
   }
 
-  #cart-content{
+   #cart-content{
 padding-right: 40px;
 padding-left: 40px;
+  }
+
+  #contCostos{
+    padding-right: 15px;
+    padding-left: 15px;
   }
 
   img {
@@ -196,9 +202,6 @@ padding-left: 40px;
       #formTabsContent{
         padding-bottom: 25px;
       }
-      
-      
-    
     }
     
     footer {
@@ -228,3 +231,8 @@ padding-left: 40px;
     max-width: 800px; /* Ajusta este valor según el diseño de tu página */
     margin: 0 auto; /* Centra el contenido */
   }
+
+
+
+
+
