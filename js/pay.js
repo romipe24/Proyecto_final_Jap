@@ -200,6 +200,12 @@ document.getElementById("finalizePurchase").addEventListener("click", function()
         return;
     }
 
+    const chexboxEnvio = document.getElementById("aceptarEnvio");
+    if (!chexboxEnvio.checked){
+        alert("Confirme el metodo de envio");
+        return;
+    }
+
     var paymentMethod = document.getElementById('paymentMethod').value;
 
     if (paymentMethod === 'creditCard') {
