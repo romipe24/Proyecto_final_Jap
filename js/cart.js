@@ -5,6 +5,17 @@ const totalElementUSD = document.getElementById('totalUSD');
 const totalElementUYU = document.getElementById('totalUYU');
 const cartBadge = document.getElementById('cart-badge');
 
+// Verificar si el carrito tiene productos antes de redirigir a la página de pago
+document.getElementById('pagar').addEventListener('click', function () {
+    if (cartProducts.length > 0) {
+        // Si hay productos en el carrito, redirige a pay.html
+        window.location.href = 'pay.html';
+    } else {
+        // Si no hay productos en el carrito, muestra una alerta
+        alert('El carrito está vacío. Agrega productos antes de continuar al pago.');
+    }
+});
+
 // Función para convertir precios del formato con punto decimal a número entero
 const convertPrice = (price) => {
     return typeof price === 'string' ? parseFloat(price.replace(/\./g, '')) : price;
