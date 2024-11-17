@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
+
+    // Obtenemos todas las tarjetas que tienen la clase 'custom-card'
+    const cards = document.querySelectorAll('.custom-card');
     // Agregamos el evento a cada card para redirigir a products.html
     cards.forEach(card => {
         card.addEventListener('click', function() {
